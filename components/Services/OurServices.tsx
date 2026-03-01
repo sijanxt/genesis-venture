@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 interface OurServicesProps {
   title: string;
   description: string;
@@ -31,7 +33,7 @@ export function OurServices() {
         <div className="grid grid-cols-[2fr_6fr]">
           <div className="flex flex-col h-full">
             <p className="p-5 uppercase font-[GT50] text-sm">Our Services</p>
-            <p className="text-[225px] font-[PPFONT] self-end mr-10 my-18">A</p>
+            <p className="text-[60px] font-[PPFONT] self-end mr-10 my-18">A</p>
           </div>
           <div className="flex flex-col h-full justify-between border-l border-blue-900 text-blue-900 pl-10 pb-10">
             <p className="flex w-full font-[GT50] justify-end p-5 text-sm">
@@ -49,8 +51,38 @@ export function OurServices() {
             </p>
           </div>
         </div>
-        <div>
-          
+        <div className="relative grid grid-cols-[1fr_6fr] border-t border-blue-900">
+          <div className="flex flex-col h-full">
+            <p className="absolute text-[120px] md:text-[120px] lg:text-[170px] bg-[#E9E7E0] font-[PPFONT] mx-20 my-18 ">
+              Ra{" "}
+            </p>
+          </div>
+          <div className="flex w-full pt-10 h-full items-center justify-center border-l border-blue-900 text-blue-900 pl-10 pb-10">
+            <Image
+              src="/images/range.avif"
+              alt="Range"
+              width={700}
+              height={300}
+            />
+            <ul>
+              <li className="uppercase w-100 tracking-normal p-5 text-blue-900 font-[GT50] text-sm">
+                Code
+                <br />
+                Zoning
+                <br />
+                Permits
+                <br />
+                Sign-offs
+              </li>
+            </ul>
+          </div>
+          <h1 className="ml-65 absolute tracking-tight left-0 text-[60px] mt-23 sm:text-[80px] md:text-[120px] lg:text-[170px] font-[PPFONT] leading-tight pb-5 md:pb-10 pl-3 md:pl-5">
+            nge of
+          </h1>
+          <h1 className="absolute tracking-tight bottom-0 right-0 text-[60px] sm:text-[80px] md:text-[120px] lg:text-[170px] font-[PPFONT] leading-tight pb-5 md:pb-10 pl-3 md:pl-5">
+            Services
+          </h1>
+          {/* <div className="absolute z-55">Range of</div> */}
         </div>
       </div>
 
