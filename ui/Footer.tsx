@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Button from "./Button";
 
 const nav = [
   { label: "Home", href: "/" },
@@ -24,18 +25,27 @@ export default function Footer() {
       {/* Top */}
       <div className="px-8 md:px-16 pt-14 pb-10 flex flex-col md:flex-row justify-between gap-12 border-b border-white/20">
         {/* Brand */}
-        <div className="flex flex-col gap-3 max-w-xs">
-          <div className="flex flex-col leading-none">
+        <div className="flex flex-col gap-3 max-w-xl">
+          {/* <div className="flex flex-col leading-none">
             <span className="text-xl font-bold font-[PPFONT] tracking-tight text-white">
               genes<span className="text-genesis-red">i</span>s
             </span>
             <span className="text-sm tracking-widest text-genesis-red">
               ventures
             </span>
-          </div>
-          <p className="text-sm text-white/70 leading-relaxed mt-2">
+          </div> */}
+          {/* <p className="text-sm text-white/70 leading-relaxed mt-2">
             Early-stage venture capital firm partnering with founders who are
             building the next generation of transformative companies.
+          </p> */}
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-white font-[PPFONT] leading-snug">
+            Ready to build something
+            <br />
+            <span className="text-genesis-red">significant?</span>
+          </h2>
+          <p className="text-sm text-white/60 font-[GT50] leading-relaxed max-w-sm hidden sm:block">
+            We review every submission and respond within 5 business days. If
+            there's a fit, we move quickly.
           </p>
         </div>
 
@@ -82,6 +92,11 @@ export default function Footer() {
             <span className="text-sm text-white/80">
               350 Fifth Ave, New York, NY
             </span>
+            <Button
+              text="Send a message"
+              href="/Contacts"
+              className="relative z-50"
+            />
           </div>
         </div>
       </div>
