@@ -1,6 +1,6 @@
 export default function Contact() {
   return (
-    <section className="h-screen w-full bg-genesis-navy flex flex-col px-8 md:px-16 py-10 md:py-24">
+    <section className=" w-full bg-genesis-navy flex flex-col px-8 md:px-16 py-10 md:py-24">
       <div className="flex items-start justify-between border-b border-white/10 pb-4 md:pb-6">
         <span className="text-xs uppercase tracking-widest text-white/50 font-[GT50]">
           Contact Us

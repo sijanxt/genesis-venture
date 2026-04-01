@@ -11,7 +11,7 @@ export default function Home() {
       <About />
       <Sectors />
       <Portfolio />
-      <Contact />
+      {/* <Contact /> */}
     </main>
   );
 }

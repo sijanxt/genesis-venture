@@ -1,5 +1,14 @@
 "use client";
+import Button from "@/ui/Button";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { SplitText } from "gsap/all";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ImagePlayer } from "../image-player";
+import Image from "next/image";
 import { useEffect, useRef } from "react";
+
+gsap.registerPlugin(SplitText, ScrollTrigger);
 
 const stats = [
   { value: "$2.4B+", label: "AUM" },
@@ -8,91 +17,117 @@ const stats = [
   { value: "12", label: "Countries" },
   { value: "14", label: "IPOs" },
 ];
+const IMAGES = [
+  "/images/hero/img1.jpg",
+  "/images/hero/img2.jpg",
+  "/images/hero/img3.jpg",
+  "/images/hero/img4.jpg",
+  "/images/hero/img5.jpg",
+  
+];
 
 export default function Hero() {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
 
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-    let animFrame: number;
-    let t = 0;
-    const resize = () => {
-      canvas.width = canvas.offsetWidth;
-      canvas.height = canvas.offsetHeight;
-    };
-    resize();
-    window.addEventListener("resize", resize);
-    const draw = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      const cols = Math.ceil(canvas.width / 40);
-      const rows = Math.ceil(canvas.height / 40);
-      for (let r = 0; r <= rows; r++) {
-        for (let c = 0; c <= cols; c++) {
-          const wave = Math.sin(t * 0.02 + c * 0.4 + r * 0.3) * 0.5 + 0.5;
-          ctx.beginPath();
-          ctx.arc(c * 40, r * 40, 1.2, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(255,255,255,${0.04 + wave * 0.1})`;
-          ctx.fill();
-        }
-      }
-      t++;
-      animFrame = requestAnimationFrame(draw);
-    };
-    draw();
+
+  useGSAP(() => {
+    const splitTitle = new SplitText(".hero-heading", { type: "words" });
+
+    gsap.from(splitTitle.words, {
+      opacity: 0,
+      y: 30,
+      filter: "blur(10px)",
+      stagger: 0.05,
+      duration: 1,
+      ease: "power3.out",
+    });
+    const splitDesc = new SplitText(".desc", { type: "lines" });
+
+    gsap.from(splitDesc.lines, {
+      opacity: 0,
+      y: 20,
+      stagger: 0.1,
+      duration: 1,
+      ease: "power2.out",
+    });
+
     return () => {
-      cancelAnimationFrame(animFrame);
-      window.removeEventListener("resize", resize);
+      splitTitle.revert();
+      splitDesc.revert();
     };
-  }, []);
+  });
 
   return (
-    <section className="h-screen w-full bg-genesis-navy relative overflow-hidden flex flex-col justify-between px-8 md:px-16 pt-20 md:pt-32 pb-8 md:pb-12">
-      <canvas
-        ref={canvasRef}
-        className="absolute inset-0 w-full h-full pointer-events-none"
-      />
+    <section className="h-screen w-full bg-genesis-navy relative overflow-hidden flex flex-col justify-end gap-10 px-8 md:px-16 pt-20 md:pt-32 pb-8 md:pb-12">
+      {/* <Image
+        src="/images/hero/try1.jpg"
+        alt="hero image"
+        fill
+        className="object-cover"
+      /> */}
+      {/* <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute top-0 left-0 w-full h-full object-cover"
+      >
+        <source src="/videos/try3.mp4" type="video/mp4" />
+      </video> */}
 
-      <div
-        className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] rounded-full pointer-events-none"
+
+        
+       <ImagePlayer
+        images={IMAGES}
+        interval={3000}
+        renderImage={(src) => (
+          <Image
+            src={src}
+            fill
+            className="size-full object-cover inline-block align-middle"
+            alt="showcalse"
+          />
+        )}
+      />
+      <div className="absolute inset-0 bg-genesis-navy/90"></div>
+
+      {/* <div
+        className="absolute top-[-10%] right-[-5%] w-125 h-125 rounded-full pointer-events-none"
         style={{
           background:
             "radial-gradient(circle, rgba(139,26,46,0.18) 0%, transparent 70%)",
         }}
-      />
+      /> */}
 
-      <div className="absolute bottom-0 right-0 text-[22vw] font-[PPFONT] leading-none text-white/3 select-none pointer-events-none pr-4">
+      {/* <div className="absolute inset-0 bg-linear-to-b from-black/20 via-black/40 to-black/80"></div> */}
+
+      <div className="absolute bottom-0 right-0 text-[22vw] font-[PPFONT] leading-none text-white/8 select-none pointer-events-none pr-4">
         1991
       </div>
 
       {/* Top meta */}
-      <div className="relative flex items-start justify-between">
+      {/* <div className="relative flex items-start justify-between">
         <span className="text-xs uppercase tracking-widest text-white/50 font-[GT50]">
           Est. 1991 — Kathmandu, Nepal
         </span>
         <span className="text-xs uppercase tracking-widest text-white/50 font-[GT50]">
           Venture Capital
         </span>
-      </div>
-
-      {/* Main content */}
-      <div className="relative flex flex-col gap-4 md:gap-6">
         <div className="flex items-center gap-3">
           <div className="w-6 h-px bg-genesis-red" />
           <span className="text-xs uppercase tracking-widest text-genesis-red font-[GT50]">
             Early-Stage Investment
           </span>
         </div>
-        <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-[PPFONT] text-white leading-tight">
-          Investing in the
+      </div> */}
+
+      {/* Main content */}
+      <div className="relative flex flex-col gap-4 md:gap-6">
+        <h1 className="hero-heading text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-[PPFONT] text-white leading-tight">
+          Creating Long Term
           <br />
-          <span className="text-genesis-red">companies</span> that
-          <br />
-          shape tomorrow.
+          Sustainable Wealth
         </h1>
-        <p className="text-sm text-white/60 font-[GT50] max-w-sm leading-relaxed hidden sm:block">
+        <p className="desc text-sm text-white/60 font-[GT50] max-w-sm leading-relaxed hidden sm:block">
           Genesis Ventures partners with founders at the earliest stages,
           providing capital, strategy, and long-term support across high-growth
           sectors.
@@ -100,14 +135,12 @@ export default function Hero() {
       </div>
 
       {/* Bottom: CTA + stats */}
-      <div className="relative flex flex-col gap-4">
-        <a
-          href="/Contacts"
-          className="text-xs uppercase tracking-widest text-white bg-genesis-red px-5 py-2.5 hover:bg-genesis-red-dark transition-colors font-[GT50] w-fit"
-        >
-          Get in touch →
-        </a>
-        <div className="flex gap-4 md:gap-6 flex-wrap">
+      <Button text="Get in touch" href="/Contacts" className="relative z-50" />
+    </section>
+  );
+}
+{
+  /* <div className="flex gap-4 md:gap-6 flex-wrap">
           {stats.map(({ value, label }) => (
             <div
               key={label}
@@ -121,8 +154,5 @@ export default function Hero() {
               </span>
             </div>
           ))}
-        </div>
-      </div>
-    </section>
-  );
+        </div> */
 }

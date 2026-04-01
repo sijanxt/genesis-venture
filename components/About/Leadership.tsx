@@ -1,4 +1,12 @@
+"use client";
 import Image from "next/image";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { SplitText } from "gsap/all";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useRef } from "react";
+
+gsap.registerPlugin(SplitText, ScrollTrigger);
 
 interface Member {
   name: string;
@@ -50,23 +58,82 @@ const team: Member[] = [
 ];
 
 export default function Leadership() {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(() => {
+    const splitTitle = new SplitText(".leadership-heading", { type: "words" });
+
+    gsap.from(splitTitle.words, {
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: "top 90%",
+        end: "top top",
+        scrub: true,
+      },
+      opacity: 0,
+      y: 30,
+      filter: "blur(10px)",
+      stagger: 0.05,
+      duration: 1,
+      ease: "power3.out",
+    });
+
+    if (!containerRef.current) return;
+
+    const paragraph = containerRef.current.querySelector<HTMLParagraphElement>(
+      "#animated-paragraph",
+    );
+    if (!paragraph) return;
+
+    const words = paragraph.textContent
+      ?.split(" ")
+      .map((word) => `<span class="word">${word}</span>`)
+      .join(" ");
+    if (words) paragraph.innerHTML = words;
+
+    const wordEls = paragraph.querySelectorAll(".word");
+
+    gsap.fromTo(
+      wordEls,
+      { opacity: 0.1 },
+      {
+        opacity: 1,
+        stagger: 0.1,
+        ease: "none",
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 90%",
+          end: "top -10%",
+          scrub: true,
+        },
+      },
+    );
+
+    return () => {
+      splitTitle.revert();
+    };
+  });
   return (
-    <section className="min-h-screen w-full bg-white flex flex-col px-8 md:px-16 py-16 md:py-24">
+    <section
+    id="leadership"
+      ref={containerRef}
+      className="min-h-screen w-full bg-white flex flex-col px-8 md:px-16 py-16 md:py-24"
+    >
       <div className="flex items-start justify-between border-b border-gray-200 pb-6 mb-10">
-        <span className="text-xs uppercase tracking-widest text-gray-500 font-[GT50]">
+        <span className="leadership-heading text-xs uppercase tracking-widest text-gray-500 font-[GT50]">
           Leadership
         </span>
-        <span className="text-xs uppercase tracking-widest text-gray-500 font-[GT50]">
+        <span className="leadership-heading text-xs uppercase tracking-widest text-gray-500 font-[GT50]">
           04
         </span>
       </div>
 
       <div className="flex flex-col md:flex-row gap-12 md:gap-24 mb-12">
         <div className="md:w-1/3">
-          <h2 className="text-2xl md:text-3xl text-genesis-navy leading-snug">
+          <h2 className="leadership-heading text-2xl md:text-3xl text-genesis-navy leading-snug">
             The team behind the portfolio.
           </h2>
-          <p className="text-sm text-gray-600 font-[GT50] leading-relaxed mt-4 max-w-xs">
+          <p id="animated-paragraph" className="text-sm text-gray-600 font-[GT50] leading-relaxed mt-4 max-w-xs">
             Experienced operators and investors who have built, scaled, and
             exited companies across every major sector.
           </p>

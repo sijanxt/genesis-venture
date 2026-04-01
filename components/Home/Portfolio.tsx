@@ -1,3 +1,14 @@
+"use client";
+import Image from "next/image";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { SplitText } from "gsap/all";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useRef } from "react";
+import Button from "@/ui/Button";
+
+gsap.registerPlugin(SplitText, ScrollTrigger);
+
 const companies = [
   {
     name: "Meridian AI",
@@ -23,47 +34,105 @@ const companies = [
 ];
 
 export default function Portfolio() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const rowRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(() => {
+    const splitTitle = new SplitText(".portfolio-heading", { type: "words" });
+
+    gsap.from(splitTitle.words, {
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: "top 90%",
+        end: "bottom 80%",
+        scrub: true,
+      },
+      opacity: 0,
+      y: 30,
+      filter: "blur(10px)",
+      stagger: 0.05,
+      duration: 1,
+      ease: "power3.out",
+    });
+
+    if (!rowRef.current) return;
+
+    const rows = rowRef.current.querySelectorAll(".portfolio-row");
+
+    rows.forEach((row) => {
+      gsap.fromTo(
+        row,
+        { opacity: 0, y: 16 },
+        {
+          opacity: 1,
+          y: 0,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: row,
+            start: "top 90%",
+            end: "top 60%",
+            scrub: false,
+            toggleActions: "play none none reverse",
+          },
+        },
+      );
+    });
+
+    return () => {
+      splitTitle.revert();
+    };
+  });
   return (
-    <section className="h-screen w-full bg-white flex flex-col px-8 md:px-16 py-10 md:py-24">
+    <section
+      ref={containerRef}
+      className="h-screen w-full bg-white flex flex-col px-8 md:px-16 py-10 md:py-24"
+    >
       <div className="flex items-start justify-between border-b border-gray-200 pb-4 md:pb-6">
-        <span className="text-xs uppercase tracking-widest text-gray-500 font-[GT50]">
+        <span className="portfolio-heading text-xs uppercase tracking-widest text-gray-500 font-[GT50]">
           Portfolio
         </span>
-        <span className="text-xs uppercase tracking-widest text-gray-500 font-[GT50]">
+        <span className="portfolio-heading text-xs uppercase tracking-widest text-gray-500 font-[GT50]">
           04
         </span>
       </div>
 
       <div className="flex flex-col md:flex-row gap-6 md:gap-24 flex-1 pt-6 md:pt-10 overflow-hidden">
-        <div className="md:w-1/3 flex flex-row md:flex-col items-center md:items-start justify-between md:justify-between">
-          <h2 className="text-xl sm:text-2xl md:text-3xl text-genesis-navy font-[PPFONT] leading-snug">
+        <div className="md:w-1/3 flex flex-row md:flex-col items-center gap-6 md:items-start justify-between md:justify-between">
+          <h2 className="portfolio-heading text-xl sm:text-2xl md:text-3xl text-genesis-navy font-[PPFONT] leading-snug">
             Selected investments.
           </h2>
-          <a
-            href="/Projects"
-            className="text-xs uppercase tracking-widest text-genesis-red border-b border-genesis-red pb-1 w-fit hover:opacity-70 transition-opacity font-[GT50] shrink-0"
-          >
-            View all →
-          </a>
+          <div className="relative  w-full h-64 md:h-full overflow-hidden">
+            <Image
+              src="/images/hero/investment.jpg"
+              alt="About us"
+              fill
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-black/10" />
+          </div>
+          <Button text="View All" href="/Projects" className="relative z-50" />
         </div>
 
-        <div className="md:w-2/3 flex flex-col justify-center divide-y divide-gray-200">
+        <div
+          ref={rowRef}
+          className="md:w-2/3 flex flex-col justify-center divide-y divide-gray-200"
+        >
           {companies.map(({ name, sector, stage, year }) => (
             <div
               key={name}
-              className="flex items-center justify-between py-2 md:py-4 group cursor-default"
+              className="portfolio-row flex items-center justify-between py-2 md:py-4 px-2 md:px-4 group hover:bg-genesis-navy  transition-colors"
             >
-              <span className="text-sm md:text-base lg:text-lg text-genesis-navy font-[PPFONT] group-hover:text-genesis-red transition-colors">
+              <span className="text-sm md:text-base lg:text-lg text-genesis-red font-[PPFONT] group-hover:text-white">
                 {name}
               </span>
               <div className="flex items-center gap-3 md:gap-12">
-                <span className="text-xs md:text-sm text-gray-600 font-[GT50] uppercase hidden md:block">
+                <span className="text-xs md:text-sm text-gray-600 group-hover:text-white font-[GT50] uppercase hidden md:block">
                   {sector}
                 </span>
-                <span className="text-xs md:text-sm text-gray-600 font-[GT50] uppercase">
+                <span className="text-xs md:text-sm text-gray-600 group-hover:text-white font-[GT50] uppercase">
                   {stage}
                 </span>
-                <span className="text-xs md:text-sm text-gray-500 font-[GT50]">
+                <span className="text-xs md:text-sm text-gray-500 group-hover:text-white font-[GT50]">
                   {year}
                 </span>
               </div>
