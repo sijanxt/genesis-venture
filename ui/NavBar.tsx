@@ -1,10 +1,11 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useMemo } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import Image from "next/image";
 
+// ------------------ NAV LINKS ------------------
 const navLinks = [
   { label: "Home", href: "/", dropdown: null },
   {
@@ -59,6 +60,7 @@ export default function NavBar() {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       setScrolled(currentScrollY > 20);
+
       if (currentScrollY > lastScrollY && currentScrollY > 50) {
         setShowNavbar(false);
         setMenuOpen(false);
@@ -66,8 +68,10 @@ export default function NavBar() {
       } else {
         setShowNavbar(true);
       }
+
       setLastScrollY(currentScrollY);
     };
+
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
@@ -81,17 +85,26 @@ export default function NavBar() {
     closeTimer.current = setTimeout(() => setOpenDropdown(null), 150);
   };
 
+  // ------------------ CHANGED: useMemo for navbar background ------------------
+  const navbarBg = useMemo(() => {
+    const bluePages = ["/Contacts"]; // pages where navbar should always be solid blue
+    if (bluePages.includes(pathname)) {
+      return "bg-genesis-navy text-white  "; // fixed blue background
+    }
+    // normal scroll effect
+    return scrolled
+      ? "bg-white/90 backdrop-blur-md shadow-sm text-genesis-navy hover:text-genesis-red"
+      : "bg-transparent border-transparent text-white hover:text-white/50";
+  }, [pathname, scrolled]);
+  // ---------------------------------------------------------------------------
+
   return (
     <div
       className="fixed top-0 left-0 right-0 z-999 flex flex-col transition-transform duration-300 ease-in-out"
       style={{ transform: showNavbar ? "translateY(0)" : "translateY(-100%)" }}
     >
       <nav
-        className={`flex items-center justify-between px-6 md:px-16 py-4 border-b border-gray-100 transition-all duration-300 ${
-          scrolled
-            ? "bg-white/90 backdrop-blur-md shadow-sm"
-            : "bg-transparent border-transparent"
-        }`}
+        className={`flex items-center justify-between px-6 md:px-16 py-4 border-b border-gray-100 transition-all duration-300 ${navbarBg}`}
       >
         <Link href="/" className="flex leading-none select-none shrink-0">
           {scrolled ? (
@@ -124,11 +137,12 @@ export default function NavBar() {
                 href={href ?? "#"}
                 className={`flex items-center gap-1 text-xs uppercase tracking-widest font-poppins transition-colors duration-200 ${
                   pathname === href
-                    ? "text-genesis-red"
-                    : "text-genesis-navy hover:text-genesis-red"
-                }
-                ${scrolled ? "text-genesis-navy" : "text-white hover:text-white/50"}
-                `}
+                    ? scrolled ?  "text-genesis-red"
+                    : ""
+                    : scrolled
+                    ? "text-genesis-navy hover:text-genesis-red"
+                    : "text-white hover:text-white/70"
+                }`}
               >
                 {label}
                 {dropdown && (
