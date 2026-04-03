@@ -50,16 +50,7 @@ export default function Connect() {
   });
 
   return (
-    <section className="contact-section relative w-full overflow-hidden flex flex-col bg-white px-4 xs:px-6 sm:px-8 md:px-16 py-8 sm:py-12 md:py-24">
-      <div className="flex items-start justify-between border-b border-genesis-navy/10 pb-3 sm:pb-4 md:pb-6">
-        <span className="contact-heading text-xs uppercase tracking-widest text-gray-500 font-poppins">
-          Contact Us
-        </span>
-        <span className="contact-heading text-xs uppercase tracking-widest text-gray-500 font-poppins">
-          05
-        </span>
-      </div>
-
+    <section className="contact-section relative w-full h-screen overflow-hidden flex flex-col bg-white px-4 xs:px-6 sm:px-8 md:px-16 py-8 sm:py-12 md:py-24">
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pt-5 sm:pt-6 md:pt-10 mb-10 md:mb-16">
         <div className="flex flex-col gap-3">
           <span className="contact-heading text-xs uppercase tracking-widest text-genesis-blue font-[GT50]">
@@ -70,7 +61,7 @@ export default function Connect() {
           </h1>
         </div>
 
-        <div className="flex gap-px border border-genesis-navy/15 w-fit shrink-0">
+        <div className="flex gap-px border mr-40 border-genesis-navy/15 w-fit shrink-0">
           <button
             onClick={() => setTab("general")}
             className={`px-6 py-2.5 text-xs uppercase tracking-widest font-poppins transition-colors duration-200 ${
