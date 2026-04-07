@@ -23,12 +23,12 @@ const risks = [
   {
     num: "03",
     title: "Currency Risk",
-    body: "Investments denominated in foreign currencies expose you to exchange rate fluctuations that can erode returns — even when the underlying asset performs well.",
+    body: "Investments denominated in foreign currencies expose you to exchange rate fluctuations that can erode returns - even when the underlying asset performs well.",
   },
   {
     num: "04",
     title: "Inflation Risk",
-    body: "If your investment returns do not outpace inflation over time, your real purchasing power will decline — even if the nominal value appears to increase.",
+    body: "If your investment returns do not outpace inflation over time, your real purchasing power will decline - even if the nominal value appears to increase.",
   },
   {
     num: "05",
@@ -45,7 +45,7 @@ const risks = [
 const stats = [
   { number: "90%", label: "of day traders lose money within their first year" },
   {
-    number: "−57%",
+    number: "-57%",
     label: "S&P 500 peak-to-trough decline during the 2008 financial crisis",
   },
   {
@@ -93,7 +93,7 @@ export default function InvestmentRiskModal({ onClose }: Props) {
   }, [onClose]);
 
   return (
-    // Backdrop — clicking directly on this div (not the modal) closes it
+    // Backdrop - clicking directly on this div (not the modal) closes it
     <div
       className="fixed inset-0 z-9999 flex items-center justify-center bg-genesis-navy/60 backdrop-blur-sm px-4 sm:px-6 overscroll-none"
       onMouseDown={(e) => {
@@ -102,7 +102,7 @@ export default function InvestmentRiskModal({ onClose }: Props) {
       onWheel={(e) => e.preventDefault()}
       onTouchMove={(e) => e.preventDefault()}
     >
-      {/* Modal panel — stop propagation so clicks inside don't bubble to backdrop */}
+      {/* Modal panel - stop propagation so clicks inside don't bubble to backdrop */}
       <div
         ref={modalRef}
         className={`${playfair.variable} relative w-full max-w-3xl h-[90vh] bg-white flex flex-col overflow-hidden overscroll-none`}
@@ -110,16 +110,14 @@ export default function InvestmentRiskModal({ onClose }: Props) {
         onWheel={(e) => e.stopPropagation()}
         onTouchMove={(e) => e.stopPropagation()}
       >
-        {/* Top accent bar */}
         <div className="h-1 w-full bg-genesis-navy shrink-0" />
 
-        {/* Header */}
         <div className="flex items-start justify-between px-6 sm:px-10 pt-7 pb-5 border-b border-gray-100 shrink-0">
           <div className="flex flex-col gap-3">
             <div className="inline-flex items-center gap-2 border border-genesis-navy/20 px-3 py-1.5 w-fit">
               <span className="w-1.5 h-1.5 rounded-full bg-genesis-navy shrink-0" />
               <span className="text-[9px] uppercase tracking-[3px] text-genesis-navy font-poppins font-semibold">
-                Important Notice — Please Read Carefully
+                Important Notice - Please Read Carefully
               </span>
             </div>
             <h1 className="font-[PPFONT] text-[clamp(1.5rem,4vw,2.5rem)] text-genesis-navy leading-tight">
@@ -152,15 +150,14 @@ export default function InvestmentRiskModal({ onClose }: Props) {
           </button>
         </div>
 
-        {/* Scrollable body */}
         <div className="flex-1 overflow-y-scroll overscroll-auto scroll-smooth px-6 sm:px-10 py-6 space-y-8">
-          <div className="border-l-2 border-genesis-navy bg-gray-50 px-4 py-4">
+          <div className="border border-genesis-navy/15 bg-genesis-navy/[0.04] px-4 py-4">
             <p className="text-xs sm:text-sm text-gray-600 font-poppins leading-relaxed">
               <span className="text-genesis-navy font-semibold">
                 Capital at risk.{" "}
               </span>
               Investing involves the risk that you may get back less than you
-              originally invested — including the possible loss of your entire
+              originally invested - including the possible loss of your entire
               capital. You should never invest money you cannot afford to lose.
             </p>
           </div>
@@ -227,9 +224,9 @@ export default function InvestmentRiskModal({ onClose }: Props) {
             </div>
           </div>
 
-          <div className="bg-gray-50 border border-gray-100 px-5 py-5">
-            <p className="text-[10px] sm:text-xs text-gray-400 font-poppins leading-relaxed">
-              <span className="text-gray-500 font-semibold">
+          <div className="border border-genesis-navy/15 bg-genesis-navy/[0.03] px-5 py-5">
+            <p className="text-[10px] sm:text-xs text-gray-500 font-poppins leading-relaxed">
+              <span className="text-genesis-navy font-semibold">
                 Regulatory Disclaimer:{" "}
               </span>
               This document is for informational purposes only and does not
@@ -241,10 +238,9 @@ export default function InvestmentRiskModal({ onClose }: Props) {
           </div>
         </div>
 
-        {/* Footer */}
         <div className="shrink-0 px-6 sm:px-10 py-4 border-t border-gray-100 flex items-center justify-between">
-          <span className="text-[9px] uppercase tracking-widest text-gray-300 font-poppins">
-            Investment Risk Disclosure — For Investor Use Only
+          <span className="text-[11px] tracking-[0.16em] text-gray-500 font-poppins">
+            Investment risk disclosure for investor use only
           </span>
           <button
             type="button"
@@ -255,7 +251,6 @@ export default function InvestmentRiskModal({ onClose }: Props) {
           </button>
         </div>
 
-        {/* Bottom accent bar */}
         <div className="h-1 w-full bg-genesis-navy shrink-0" />
       </div>
     </div>

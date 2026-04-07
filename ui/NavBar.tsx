@@ -1,13 +1,13 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState, useRef, useMemo } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import Image from "next/image";
 
 // ------------------ NAV LINKS ------------------
 const navLinks = [
-  { label: "Home", href: "/", dropdown: null },
+  // { label: "Home", href: "/", dropdown: null },
   {
     label: "Who We Are",
     href: "/About",
@@ -29,24 +29,22 @@ const navLinks = [
     ],
   },
   { label: "Investor Relations", href: "/relation", dropdown: null },
-  {
-    label: "Perspective",
-    href: "/perspective",
-    dropdown: [
-      { label: "Market Insights", href: "/perspective#market-insights" },
-      { label: "Media", href: "/perspective#media" },
-    ],
-  },
-  { label: "Contact Us", href: "/Contacts", dropdown: null },
+  // {
+  //   label: "Perspective",
+  //   href: "/perspective",
+  //   dropdown: [
+  //     { label: "Market Insights", href: "/perspective#market-insights" },
+  //     { label: "Media", href: "/perspective#media" },
+  //   ],
+  // },
+  { label: "Contact", href: "/Contacts", dropdown: null },
 ];
 
 export default function NavBar() {
   const pathname = usePathname();
-  const isContactPage = pathname === "/Contacts";
   const [menuOpen, setMenuOpen] = useState(false);
   const [showNavbar, setShowNavbar] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
-  const [scrolled, setScrolled] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState<string | null>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -60,7 +58,6 @@ export default function NavBar() {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      setScrolled(currentScrollY > 20);
 
       if (currentScrollY > lastScrollY && currentScrollY > 50) {
         setShowNavbar(false);
@@ -86,13 +83,9 @@ export default function NavBar() {
     closeTimer.current = setTimeout(() => setOpenDropdown(null), 150);
   };
 
-  const navbarSurface = scrolled
-    ? "bg-white/90 backdrop-blur-md shadow-sm border-gray-100"
-    : "bg-transparent border-transparent";
-
-  const navbarTextColor = useMemo(() => {
-    return isContactPage || scrolled ? "text-genesis-navy" : "text-white";
-  }, [isContactPage, scrolled]);
+  const navbarSurface =
+    "bg-white/90 backdrop-blur-md shadow-sm border-gray-100";
+  const navbarTextColor = "text-genesis-navy";
 
   return (
     <div
@@ -103,21 +96,12 @@ export default function NavBar() {
         className={`flex items-center justify-between px-6 md:px-16 py-4 border-b transition-all duration-300 ${navbarSurface} ${navbarTextColor}`}
       >
         <Link href="/" className="flex leading-none select-none shrink-0">
-          {isContactPage || scrolled ? (
-            <Image
-              src="/images/final/png/Asset 3.png"
-              alt="Genesis Ventures"
-              width={100}
-              height={40}
-            />
-          ) : (
-            <Image
-              src="/images/final/png/Asset 2.png"
-              alt="Genesis Ventures"
-              width={100}
-              height={40}
-            />
-          )}
+          <Image
+            src="/images/final/png/Asset 3.png"
+            alt="Genesis Ventures"
+            width={100}
+            height={40}
+          />
         </Link>
 
         {/* Desktop */}
@@ -133,10 +117,8 @@ export default function NavBar() {
                 href={href ?? "#"}
                 className={`flex items-center gap-1 text-xs uppercase tracking-widest font-poppins transition-colors duration-200 ${
                   pathname === href
-                    ? scrolled || isContactPage  ? "text-genesis-red" : "text-white"
-                    : isContactPage || scrolled
-                    ? "text-genesis-navy hover:text-genesis-red"
-                    : "text-white hover:text-white/70"
+                    ? "text-genesis-red"
+                    : "text-genesis-navy hover:text-genesis-red"
                 }`}
               >
                 {label}
@@ -181,9 +163,7 @@ export default function NavBar() {
         </ul>
 
         <button
-          className={`md:hidden p-1 transition-colors duration-200 ${
-            isContactPage || scrolled ? "text-genesis-navy" : "text-white"
-          }`}
+          className="md:hidden p-1 transition-colors duration-200 text-genesis-navy"
           onClick={() => setMenuOpen((prev) => !prev)}
           aria-label="Toggle menu"
         >
@@ -195,7 +175,7 @@ export default function NavBar() {
       <div
         className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
           menuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
-        } ${scrolled ? "bg-white/90 backdrop-blur-md" : "bg-white"} border-b border-gray-100`}
+        } bg-white/90 backdrop-blur-md border-b border-gray-100`}
       >
         <div className="flex flex-col px-6 py-4 gap-1">
           {navLinks.map(({ label, href, dropdown }) => (

@@ -3,16 +3,17 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { SplitText } from "gsap/all";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Button from "../ui/Button2";
-import Link from "next/link";
+import { useRef } from "react";
 
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
 export default function Hero() {
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+
   useGSAP(() => {
     const splitTitle = new SplitText(".hero-heading", { type: "words" });
-
-    gsap.from(splitTitle.words, {
+    const titleTween = gsap.from(splitTitle.words, {
       opacity: 0,
       y: 30,
       filter: "blur(10px)",
@@ -20,71 +21,64 @@ export default function Hero() {
       duration: 1,
       ease: "power3.out",
     });
+    let videoTween: gsap.core.Tween | null = null;
 
-    const splitDesc = new SplitText(".desc", { type: "lines" });
-
-    gsap.from(splitDesc.lines, {
-      opacity: 0,
-      y: 20,
-      stagger: 0.1,
-      duration: 1,
-      ease: "power2.out",
-    });
+    if (sectionRef.current && videoRef.current) {
+      videoTween = gsap.to(videoRef.current, {
+        yPercent: 12,
+        scale: 1.08,
+        ease: "none",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top top",
+          end: "bottom top",
+          scrub: true,
+        },
+      });
+    }
 
     return () => {
+      titleTween.kill();
+      videoTween?.kill();
       splitTitle.revert();
-      splitDesc.revert();
     };
-  });
+  }, { scope: sectionRef });
 
   return (
-    <section className="relative w-full min-h-screen overflow-hidden flex flex-col items-center justify-center bg-genesis-navy px-4 xs:px-6 sm:px-8 md:px-16 pt-16 xs:pt-20 md:pt-28 lg:pt-32 pb-24 xs:pb-28 sm:pb-16 md:pb-12">
+    <section
+      ref={sectionRef}
+      className="relative flex h-screen w-full items-center justify-center overflow-hidden bg-genesis-navy px-6 pt-28 sm:px-8 md:px-16 md:pt-32"
+    >
       <video
+        ref={videoRef}
         autoPlay
         muted
         loop
         playsInline
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-0 h-[115%] w-full object-cover will-change-transform"
       >
         <source src="/videos/final1.mp4" type="video/mp4" />
       </video>
 
-      <div className="absolute inset-0 bg-genesis-navy/30" />
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,22,42,0.35)_0%,rgba(8,22,42,0.18)_28%,rgba(8,22,42,0.42)_100%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.12),transparent_34%),radial-gradient(circle_at_bottom,rgba(143,211,255,0.09),transparent_30%)]" />
 
-      <p className="absolute bottom-24 xs:bottom-28 sm:bottom-32 md:bottom-36 right-2 xs:right-3 sm:right-4 text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-[PPFONT] leading-tight text-white/30 select-none pointer-events-none">
-        established in
-      </p>
+      <div className="relative z-10 mx-auto -translate-y-14 flex w-full max-w-5xl flex-col items-center justify-center text-center md:-translate-y-20">
+        <div className="mb-7 flex items-center gap-4 text-white/80 md:mb-8">
+          <span className="h-px w-10 bg-white/35 md:w-16" />
+          <span className="font-poppins text-[10px] uppercase tracking-[0.45em] text-white/75">
+            Early-Stage Venture Capital
+          </span>
+          <span className="h-px w-10 bg-white/35 md:w-16" />
+        </div>
 
-      <div className="absolute bottom-0 right-2 xs:right-3 sm:right-4 text-[14vw] sm:text-[12vw] md:text-[10vw] font-[PPFONT] leading-none text-white/30 select-none pointer-events-none">
-        1991
-      </div>
-
-      <div className="relative z-10 flex flex-col items-center text-center gap-4 sm:gap-5 md:gap-6 w-full max-w-5xl mx-auto">
         <h1 className="hero-heading text-[clamp(1.75rem,7vw,4.5rem)] font-[PPFONT] text-white leading-tight tracking-tight">
           Creating Long Term
           <br />
           Sustainable Wealth
         </h1>
 
-        {/* <p className="desc text-xs xs:text-sm sm:text-base text-white/80 font-poppins max-w-[90%] xs:max-w-sm sm:max-w-md md:max-w-2xl mx-auto leading-relaxed">
-          Genesis Ventures partners with founders at the earliest stages,
-          providing capital, strategy, and long-term support across high-growth
-          sectors.
-        </p> */}
       </div>
-
-      {/* <div className="relative z-50 mt-6 sm:mt-8 md:mt-10">
-        <Button text="About Us" href="/About" />
-      </div> */}
-      <Link href="/About">
-        <Button
-          variant="primary"
-          size="md"
-          className="mt-12 bg-genesis-navy px-8 py-4 text-[11px] font-semibold uppercase tracking-[0.28em] text-white hover:bg-genesis-navy/80 transition-colors"
-        >
-          <span className="inline-flex items-center gap-3">About Us</span>
-        </Button>
-      </Link>
     </section>
   );
 }
