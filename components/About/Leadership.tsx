@@ -143,7 +143,7 @@ export default function Leadership() {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-gray-100">
+      {/* <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-gray-100">
         {team.map(({ name, title, imageURL }) => (
           <div
             key={name}
@@ -167,7 +167,7 @@ export default function Leadership() {
             </div>
           </div>
         ))}
-      </div>
+      </div> */}
     </section>
   );
 }

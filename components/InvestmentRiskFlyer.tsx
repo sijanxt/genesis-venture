@@ -110,8 +110,6 @@ export default function InvestmentRiskModal({ onClose }: Props) {
         onWheel={(e) => e.stopPropagation()}
         onTouchMove={(e) => e.stopPropagation()}
       >
-        <div className="h-1 w-full bg-genesis-navy shrink-0" />
-
         <div className="flex items-start justify-between px-6 sm:px-10 pt-7 pb-5 border-b border-gray-100 shrink-0">
           <div className="flex flex-col gap-3">
             <div className="inline-flex items-center gap-2 border border-genesis-navy/20 px-3 py-1.5 w-fit">
@@ -187,7 +185,7 @@ export default function InvestmentRiskModal({ onClose }: Props) {
             </div>
           </div>
 
-          <div>
+          {/* <div>
             <SectionLabel>
               Sobering Figures Every Investor Should Know
             </SectionLabel>
@@ -206,7 +204,7 @@ export default function InvestmentRiskModal({ onClose }: Props) {
                 </div>
               ))}
             </div>
-          </div>
+          </div> */}
 
           <div>
             <SectionLabel>Principles for Responsible Investing</SectionLabel>

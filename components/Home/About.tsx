@@ -11,7 +11,7 @@ import Button from "../ui/Button2";
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
 const stats = [
-  { value: "$2.4B+", label: "Assets Under Management" },
+  { value: "NPR 1B+", label: "Assets Under Management" },
   { value: "80+", label: "Portfolio Companies" },
   { value: "30+", label: "Years of Experience" },
   { value: "12", label: "Countries Reached" },
@@ -104,7 +104,7 @@ export default function About() {
               key={label}
               className="stats flex flex-col gap-1 border-l border-gray-200 pl-3 sm:pl-4 md:pl-5"
             >
-              <span className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-5xl font-[PPFONT] text-genesis-navy">
+              <span className="whitespace-nowrap text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-5xl font-[PPFONT] text-genesis-navy">
                 {value}
               </span>
               <span className="text-[10px] xs:text-xs text-gray-500 uppercase tracking-widest font-poppins leading-tight">

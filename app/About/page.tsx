@@ -11,7 +11,7 @@ export default function About() {
       <AboutUs />
       <Mission />
       {/* <Milestone /> */}
-      {/* <Leadership /> */}
+      <Leadership />
     </main>
   );
 }

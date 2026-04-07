@@ -11,38 +11,54 @@ export default function Hero() {
   const sectionRef = useRef<HTMLElement | null>(null);
   const videoRef = useRef<HTMLVideoElement | null>(null);
 
-  useGSAP(() => {
-    const splitTitle = new SplitText(".hero-heading", { type: "words" });
-    const titleTween = gsap.from(splitTitle.words, {
-      opacity: 0,
-      y: 30,
-      filter: "blur(10px)",
-      stagger: 0.05,
-      duration: 1,
-      ease: "power3.out",
-    });
-    let videoTween: gsap.core.Tween | null = null;
+  useGSAP(
+    () => {
+      const splitTitle = new SplitText(".hero-heading", { type: "words" });
+      const titleTween = gsap.from(splitTitle.words, {
+        opacity: 0,
+        y: 30,
+        filter: "blur(10px)",
+        stagger: 0.05,
+        duration: 1,
+        ease: "power3.out",
+      });
+      let pinTrigger: ScrollTrigger | null = null;
+      let videoTween: gsap.core.Tween | null = null;
 
-    if (sectionRef.current && videoRef.current) {
-      videoTween = gsap.to(videoRef.current, {
-        yPercent: 12,
-        scale: 1.08,
-        ease: "none",
-        scrollTrigger: {
+      if (sectionRef.current) {
+        pinTrigger = ScrollTrigger.create({
           trigger: sectionRef.current,
           start: "top top",
-          end: "bottom top",
-          scrub: true,
-        },
-      });
-    }
+          end: "+=100%",
+          pin: true,
+          pinSpacing: true,
+          anticipatePin: 1,
+        });
+      }
 
-    return () => {
-      titleTween.kill();
-      videoTween?.kill();
-      splitTitle.revert();
-    };
-  }, { scope: sectionRef });
+      if (sectionRef.current && videoRef.current) {
+        videoTween = gsap.to(videoRef.current, {
+          yPercent: 12,
+          scale: 1.08,
+          ease: "none",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top top",
+            end: "+=100%",
+            scrub: true,
+          },
+        });
+      }
+
+      return () => {
+        titleTween.kill();
+        pinTrigger?.kill();
+        videoTween?.kill();
+        splitTitle.revert();
+      };
+    },
+    { scope: sectionRef },
+  );
 
   return (
     <section
@@ -57,7 +73,7 @@ export default function Hero() {
         playsInline
         className="absolute inset-0 h-[115%] w-full object-cover will-change-transform"
       >
-        <source src="/videos/final1.mp4" type="video/mp4" />
+        <source src="/videos/night-sky.mp4" type="video/mp4" />
       </video>
 
       <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,22,42,0.35)_0%,rgba(8,22,42,0.18)_28%,rgba(8,22,42,0.42)_100%)]" />
@@ -77,7 +93,6 @@ export default function Hero() {
           <br />
           Sustainable Wealth
         </h1>
-
       </div>
     </section>
   );
