@@ -9,6 +9,8 @@ import Hero from "@/components/Home/Hero";
 import Sectors from "@/components/Home/Sectors";
 import Stats from "@/components/Home/stats";
 import InvestmentRiskModal from "@/components/InvestmentRiskFlyer";
+import Firm from "@/components/Home/firm";
+import UnlistedMarket from "@/components/Home/unlistedmarket";
 
 export default function Home() {
   const [showModal, setShowModal] = useState(true);
@@ -18,11 +20,13 @@ export default function Home() {
       {showModal && <InvestmentRiskModal onClose={() => setShowModal(false)} />}
       <Hero />
       <Stats />
-      <About />
+      <Firm />
+      <UnlistedMarket />
+      {/* <About />
       <Devider />
       <Sectors />
       <AnotherDevider />
-      <FAQ />
+      <FAQ /> */}
     </main>
   );
 }

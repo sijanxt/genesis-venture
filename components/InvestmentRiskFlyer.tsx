@@ -1,7 +1,7 @@
 "use client";
 
 import { Playfair_Display } from "next/font/google";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -13,31 +13,37 @@ const risks = [
   {
     num: "01",
     title: "Market Risk",
+    accent: "#0A6ED3",
     body: "Financial markets are volatile. Economic downturns, geopolitical events, or shifts in investor sentiment can cause rapid, significant losses in short periods.",
   },
   {
     num: "02",
     title: "Liquidity Risk",
+    accent: "#0B8E83",
     body: "Some assets may be difficult to sell quickly at a fair price. You may be unable to access your funds when you need them most, particularly in illiquid markets.",
   },
   {
     num: "03",
     title: "Currency Risk",
+    accent: "#8A4FFF",
     body: "Investments denominated in foreign currencies expose you to exchange rate fluctuations that can erode returns - even when the underlying asset performs well.",
   },
   {
     num: "04",
     title: "Inflation Risk",
+    accent: "#B06A12",
     body: "If your investment returns do not outpace inflation over time, your real purchasing power will decline - even if the nominal value appears to increase.",
   },
   {
     num: "05",
     title: "Concentration Risk",
+    accent: "#C0192B",
     body: "Placing a large portion of your capital in a single asset, sector, or geography increases exposure to any single adverse event. Diversification does not eliminate risk.",
   },
   {
     num: "06",
     title: "Regulatory & Tax Risk",
+    accent: "#1E3A6E",
     body: "Laws, tax regimes, and regulations governing investments can change. Such changes may adversely affect the value of your holdings or reduce net returns.",
   },
 ];
@@ -79,6 +85,7 @@ interface Props {
 
 export default function InvestmentRiskModal({ onClose }: Props) {
   const modalRef = useRef<HTMLDivElement>(null);
+  const [activeRisk, setActiveRisk] = useState<string | null>(null);
 
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
@@ -134,7 +141,7 @@ export default function InvestmentRiskModal({ onClose }: Props) {
           <button
             type="button"
             onClick={onClose}
-            className="shrink-0 ml-4 mt-0.5 w-8 h-8 flex items-center justify-center border border-gray-200 hover:border-genesis-navy hover:bg-genesis-navy hover:text-white text-gray-400 transition-all duration-200 cursor-pointer"
+            className="shrink-0 ml-4 mt-0.5 w-8 h-8 flex items-center justify-center border border-genesis-navy hover:border-genesis-navy hover:bg-genesis-navy hover:text-white text-gray-400 transition-all duration-200 cursor-pointer"
             aria-label="Close"
           >
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
@@ -162,26 +169,52 @@ export default function InvestmentRiskModal({ onClose }: Props) {
 
           <div>
             <SectionLabel>Key Risk Factors</SectionLabel>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-gray-100">
-              {risks.map((risk) => (
-                <div
-                  key={risk.num}
-                  className="relative bg-white px-5 py-5 overflow-hidden"
-                >
-                  <span
-                    aria-hidden
-                    className="absolute top-1 right-3 font-[PPFONT] text-4xl text-gray-50 select-none leading-none"
+            <div className="border border-genesis-navy/15 bg-genesis-navy/[0.04] p-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-gray-100">
+                {risks.map((risk) => (
+                  <div
+                    key={risk.num}
+                    onMouseEnter={() => setActiveRisk(risk.num)}
+                    onMouseLeave={() => setActiveRisk(null)}
+                    onFocus={() => setActiveRisk(risk.num)}
+                    onBlur={() => setActiveRisk(null)}
+                    tabIndex={0}
+                    className={`relative bg-white px-5 py-5 overflow-hidden transition-colors duration-200 outline-none cursor-pointer ${
+                      activeRisk === risk.num
+                        ? "bg-genesis-navy/[0.04]"
+                        : "hover:bg-genesis-navy/[0.03]"
+                    }`}
+                    style={
+                      activeRisk === risk.num
+                        ? { boxShadow: `inset 3px 0 0 ${risk.accent}` }
+                        : undefined
+                    }
                   >
-                    {risk.num}
-                  </span>
-                  <h3 className="text-[10px] uppercase tracking-widest text-genesis-navy font-poppins font-semibold mb-2">
-                    {risk.title}
-                  </h3>
-                  <p className="text-xs text-gray-500 font-poppins leading-relaxed">
-                    {risk.body}
-                  </p>
-                </div>
-              ))}
+                    <span
+                      aria-hidden
+                      className={`absolute top-1 right-3 font-[PPFONT] text-4xl select-none leading-none transition-colors duration-200 ${
+                        activeRisk === risk.num
+                          ? "text-genesis-navy/35"
+                          : "text-genesis-navy/20"
+                      }`}
+                    >
+                      {risk.num}
+                    </span>
+                    <h3
+                      className="text-[10px] uppercase tracking-widest font-poppins font-semibold mb-2 transition-colors duration-200"
+                      style={{
+                        color:
+                          activeRisk === risk.num ? risk.accent : "#001D3F",
+                      }}
+                    >
+                      {risk.title}
+                    </h3>
+                    <p className="text-xs text-gray-500 font-poppins leading-relaxed">
+                      {risk.body}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 
@@ -237,7 +270,7 @@ export default function InvestmentRiskModal({ onClose }: Props) {
         </div>
 
         <div className="shrink-0 px-6 sm:px-10 py-4 border-t border-gray-100 flex items-center justify-between">
-          <span className="text-[11px] tracking-[0.16em] text-gray-500 font-poppins">
+          <span className="text-[11px] tracking-[0.08em] text-gray-500 font-poppins">
             Investment risk disclosure for investor use only
           </span>
           <button
@@ -257,7 +290,7 @@ export default function InvestmentRiskModal({ onClose }: Props) {
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
-    <p className="text-[9px] uppercase tracking-[3px] text-genesis-navy font-poppins font-semibold mb-4">
+    <p className="text-sm uppercase tracking-wider text-genesis-navy font-poppins font-semibold mb-4">
       {children}
     </p>
   );

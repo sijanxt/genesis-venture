@@ -1,8 +1,8 @@
 const stats = [
   { value: "NPR 1B+", label: "Assets Under Management", color: "#001D3F" },
-  { value: "80+", label: "Portfolio Companies", color: "#04356A" },
-  { value: "30+", label: "Years of Experience", color: "#054E98" },
-  { value: "12", label: "Countries Reached", color: "#0A6ED3" },
+  { value: "25+", label: "Years of Experience", color: "#04356A" },
+  { value: "20+", label: "Portfolio Companies", color: "#054E98" },
+  { value: "3", label: "IPO", color: "#0A6ED3" },
 ];
 
 export default function Stats() {
@@ -18,7 +18,7 @@ export default function Stats() {
             <span className="whitespace-nowrap text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-[PPFONT] text-white">
               {value}
             </span>
-            <span className="text-xs sm:text-sm text-white uppercase tracking-widest font-poppins leading-tight">
+            <span className="text-xs text-white uppercase tracking-widest font-montserrat leading-tight">
               {label}
             </span>
           </div>

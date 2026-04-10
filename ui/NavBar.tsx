@@ -12,19 +12,19 @@ const navLinks = [
     label: "Who We Are",
     href: "/About",
     dropdown: [
-      { label: "Firm", href: "/About#firm" },
-      { label: "Our Values", href: "/About#our-values" },
-      { label: "Leadership", href: "/About#leadership" },
+      { label: "Firm", href: "/who-we-are/firm" },
+      { label: "Our Story", href: "/our-stories" },
+      { label: "Leadership", href: "/our-stories#leadership" },
     ],
   },
   {
     label: "What We Do",
-    href: "/Projects",
+
     dropdown: [
-      { label: "Portfolio", href: "/Projects#portfolio" },
+      { label: "Portfolio", href: "/what-we-do/portfolio" },
       {
         label: "Investment Philosophy",
-        href: "/Projects#investment-philosophy",
+        href: "/what-we-do/investment-phylosophy",
       },
     ],
   },

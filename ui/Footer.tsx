@@ -136,16 +136,6 @@ export default function Footer() {
               </div>
             </div>
           </div>
-
-          <div className="mx-auto mt-14 w-full max-w-2xl bg-white/5 p-5 text-center backdrop-blur-sm md:mt-18">
-            <span className="text-[11px] uppercase tracking-[0.24em] text-white/55">
-              For Founders
-            </span>
-            <p className="mt-2 text-sm leading-relaxed text-white/75">
-              Share your deck, traction, and vision. We value clarity, speed,
-              and honest feedback from first meeting onward.
-            </p>
-          </div>
         </div>
 
         <div className="grid grid-cols-1 items-center gap-3 px-8 py-8 text-center md:grid-cols-3 md:px-16 md:text-left">

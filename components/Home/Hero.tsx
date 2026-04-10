@@ -75,7 +75,7 @@ export default function Hero() {
           <span className="h-px w-10 bg-white/35 md:w-16" />
         </div>
 
-        <h1 className="hero-heading text-[clamp(1.75rem,7vw,4.5rem)] font-[PPFONT] text-white leading-tight tracking-tight">
+        <h1 className="hero-heading text-[clamp(1.75rem,7vw,4.5rem)] font-[PPFONT] text-white leading-tight tracking-[0.015em]">
           Creating Long Term
           <br />
           Sustainable Wealth
