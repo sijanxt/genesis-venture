@@ -13,57 +13,53 @@ export default function InvestorRelationsPage() {
     return (
         <main className="w-full bg-white text-[#2c2c34] font-poppins overflow-x-hidden pt-20">
             {/* HERO */}
-            <section className="relative min-h-[600px] bg-white px-4 sm:px-6 md:px-8 lg:px-12 py-20 sm:py-28 md:py-32 lg:py-[140px]">
-                <div className="container mx-auto max-w-9xl">
-                    <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-12 lg:gap-20">
-                        {/* Left Column */}
-                        <div className="flex flex-col justify-center">
-                            <span className="inline-flex items-center gap-3 font-poppins text-[11px] font-medium tracking-[0.28em] uppercase text-[#8D1E39]">
-                                <span className="w-7 h-px bg-[#8D1E39]" />
-                                Investor Relations
-                            </span>
+            <section className="relative min-h-[600px] grid grid-cols-1 lg:grid-cols-2">
+                {/* Left Column - Clean White */}
+                <div className="bg-white px-6 py-20 sm:px-10 lg:px-16 lg:py-28 flex flex-col justify-center">
+                    <span className="inline-flex items-center gap-3 font-poppins text-[11px] font-medium tracking-[0.28em] uppercase text-[#8D1E39]">
+                        <span className="w-7 h-px bg-[#8D1E39]" />
+                        Investor Relations
+                    </span>
 
-                            <h1 className="mt-6 sm:mt-8 font-[PPFONT] text-[clamp(32px,7vw,68px)] leading-[1.05] tracking-[-0.01em] text-[#08112a] font-medium">
-                                <span className="block">Good data takes time.</span>
-                                <span className="block italic text-[#8D1E39] font-medium">Great data takes discipline.</span>
-                            </h1>
+                    <h1 className="mt-6 sm:mt-8 font-[PPFONT] text-[clamp(32px,7vw,68px)] leading-[1.05] tracking-[-0.01em] text-[#08112a] font-medium">
+                        <span className="block">Good data takes time.</span>
+                        <span className="block italic text-[#8D1E39] font-medium">Great data takes discipline.</span>
+                    </h1>
 
-                            <p className="mt-6 sm:mt-9 max-w-[560px] text-[16px] sm:text-[17px] leading-[1.55] text-[#6b6b78]">
-                                Ours is almost ready — and worth the wait. Performance materials,
-                                portfolio disclosures, and investor letters are released only when they
-                                meet the standards we hold ourselves to, not the standards the market
-                                is willing to accept.
-                            </p>
+                    <p className="mt-6 sm:mt-9 max-w-[560px] text-[16px] sm:text-[17px] leading-[1.55] text-[#6b6b78]">
+                        Ours is almost ready — and worth the wait. Performance materials,
+                        portfolio disclosures, and investor letters are released only when they
+                        meet the standards we hold ourselves to, not the standards the market
+                        is willing to accept.
+                    </p>
 
-                            <div className="mt-8 sm:mt-12 flex flex-col sm:flex-row flex-wrap gap-4 sm:gap-5">
-                                <a href="#access" className="inline-flex items-center justify-center gap-3 bg-[#8D1E39] text-white px-6 sm:px-[34px] py-4 sm:py-[18px] font-poppins text-[13px] font-medium tracking-[0.12em] uppercase transition-all duration-[350ms] hover:bg-[#a52344]">
-                                    Request Materials <span className="transition-transform duration-[350ms]">→</span>
-                                </a>
-                                <a href="#commitment" className="inline-flex items-center justify-center gap-3 bg-transparent text-[#6b6b78] border border-[#e4e0db] px-6 sm:px-[34px] py-4 sm:py-[18px] font-poppins text-[13px] font-medium tracking-[0.12em] uppercase transition-all duration-[350ms] hover:border-[#8D1E39] hover:text-[#8D1E39]">
-                                    Our Commitment <span className="transition-transform duration-[350ms]">→</span>
-                                </a>
-                            </div>
-                        </div>
-
-                        {/* Right Column - Stats */}
-                        <div className="flex flex-col justify-center">
-                            <div className="mb-10 border-b border-[#e4e0db] pb-10">
-                                <p className="mb-4 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#8D1E39] font-poppins">
-                                    Why You're Seeing This Page
-                                </p>
-                                <blockquote className="font-[PPFONT] text-[1.7rem] sm:text-[2rem] italic leading-[1.55] text-[#08112a]">
-                                    "We'd rather show you <span className="not-italic text-[#8D1E39]">nothing</span> than show you something half-built."
-                                </blockquote>
-                            </div>
-
-                            <p className="text-[15px] sm:text-[17px] text-[#6b6b78] leading-[1.9]">
-                               We have
-                                chosen a different path: to release figures only when they have been
-                                audited, stress-tested, and reviewed against the standards we hold
-                                ourselves to.
-                            </p>
-                        </div>
+                    <div className="mt-8 sm:mt-12 flex flex-col sm:flex-row flex-wrap gap-4 sm:gap-5">
+                        <a href="#access" className="inline-flex items-center justify-center gap-3 bg-[#8D1E39] text-white px-6 sm:px-[34px] py-4 sm:py-[18px] font-poppins text-[13px] font-medium tracking-[0.12em] uppercase transition-all duration-[350ms] hover:bg-[#a52344]">
+                            Request Materials <span className="transition-transform duration-[350ms]">→</span>
+                        </a>
+                        <a href="#commitment" className="inline-flex items-center justify-center gap-3 bg-transparent text-[#6b6b78] border border-[#e4e0db] px-6 sm:px-[34px] py-4 sm:py-[18px] font-poppins text-[13px] font-medium tracking-[0.12em] uppercase transition-all duration-[350ms] hover:border-[#8D1E39] hover:text-[#8D1E39]">
+                            Our Commitment <span className="transition-transform duration-[350ms]">→</span>
+                        </a>
                     </div>
+                </div>
+
+                {/* Right Column - Blue/Navy */}
+                <div className="relative bg-[#162952] px-6 py-20 sm:px-10 lg:px-14 lg:py-28 flex flex-col justify-center">
+                    <div className="mb-10 border-b border-white/10 pb-10">
+                        <p className="mb-4 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#8D1E39] font-poppins">
+                            Why You're Seeing This Page
+                        </p>
+                        <blockquote className="font-[PPFONT] text-[1.7rem] sm:text-[2rem] italic leading-[1.55] text-white">
+                            "We'd rather show you <span className="not-italic text-[#8D1E39]">nothing</span> than show you something half-built."
+                        </blockquote>
+                    </div>
+
+                    <p className="text-[15px] sm:text-[16px] text-white/70 leading-[1.9] font-poppins">
+                        Most firms publish performance the moment it flatters them. We have
+                        chosen a different path: to release figures only when they have been
+                        audited, stress-tested, and reviewed against the standards we hold
+                        ourselves to.
+                    </p>
                 </div>
             </section>
 

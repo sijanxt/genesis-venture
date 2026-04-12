@@ -60,77 +60,73 @@ const footerCols = [
 
 export default function InvestmentPhylosophyPage() {
   return (
-    <main className="bg-white pt-20 text-[#2c2c34] font-poppins">
-      <section className="relative min-h-[600px] bg-white px-6 py-20 sm:px-10 lg:px-16 lg:py-28">
-        <div className="mx-auto max-w-9xl">
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1fr_1.2fr] lg:gap-20">
-            {/* Left Column */}
-            <div className="flex flex-col justify-center">
-              <p className="mb-6 inline-flex items-center gap-3 text-[10.5px] font-semibold uppercase tracking-[0.22em] text-[#8D1E39] font-poppins">
-                <span className="h-[1.5px] w-7 bg-[#8D1E39]" />
-                Investment Philosophy
-              </p>
+    <main className="bg-white text-[#2c2c34] font-poppins">
+      <section className="relative min-h-[600px] grid grid-cols-1 lg:grid-cols-2">
+        {/* Left Column - Clean White */}
+        <div className="bg-white px-6 py-20 sm:px-10 lg:px-16 lg:py-28 flex flex-col justify-center">
+          <p className="mb-6 inline-flex items-center gap-3 text-[10.5px] font-semibold uppercase tracking-[0.22em] text-[#8D1E39] font-poppins">
+            <span className="h-[1.5px] w-7 bg-[#8D1E39]" />
+            Investment Philosophy
+          </p>
 
-              <h1 className="font-[PPFONT] text-[clamp(42px,5vw,68px)] leading-[1.1] tracking-[-0.015em] text-[#08112a]">
-                Integrity
-                <br />
-                before <em className="text-[#8D1E39]">returns.</em>
-                <br />
-                Always.
-              </h1>
+          <h1 className="font-[PPFONT] text-[clamp(42px,5vw,68px)] leading-[1.1] tracking-[-0.015em] text-[#08112a]">
+            Integrity
+            <br />
+            before <em className="text-[#8D1E39]">returns.</em>
+            <br />
+            Always.
+          </h1>
 
-              <p className="mt-8 max-w-xl text-[15px] font-light leading-[1.9] text-[#6b6b78] font-poppins">
-                Genesis Ventree Ltd. is an independent investment firm that places
-                your interests above all else - including our own. In a world where
-                performance is routinely promised and seldom earned, we have chosen
-                a different measure of success: trust.
-              </p>
+          <p className="mt-8 max-w-xl text-[15px] font-light leading-[1.9] text-[#6b6b78] font-poppins">
+            Genesis Ventree Ltd. is an independent investment firm that places
+            your interests above all else - including our own. In a world where
+            performance is routinely promised and seldom earned, we have chosen
+            a different measure of success: trust.
+          </p>
 
-              <div className="mt-10 flex flex-wrap items-center gap-5">
-                <Link
-                  href="#beliefs"
-                  className="inline-flex items-center bg-[#8D1E39] px-8 py-3.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-white transition hover:bg-[#a52344] font-poppins"
-                >
-                  What We Believe
-                </Link>
-                <Link
-                  href="/Contacts"
-                  className="text-xs font-medium uppercase tracking-[0.08em] text-[#6b6b78] transition hover:text-[#08112a] font-poppins"
-                >
-                  Get in touch →
-                </Link>
-              </div>
-            </div>
+          <div className="mt-10 flex flex-wrap items-center gap-5">
+            <Link
+              href="#beliefs"
+              className="inline-flex items-center bg-[#8D1E39] px-8 py-3.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-white transition hover:bg-[#a52344] font-poppins"
+            >
+              What We Believe
+            </Link>
+            <Link
+              href="/Contacts"
+              className="text-xs font-medium uppercase tracking-[0.08em] text-[#6b6b78] transition hover:text-[#08112a] font-poppins"
+            >
+              Get in touch →
+            </Link>
+          </div>
+        </div>
 
-            {/* Right Column */}
-            <div className="flex flex-col justify-center">
-              <div className="mb-10 border-b border-[#e4e0db] pb-10">
-                <p className="mb-4 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#8D1E39] font-poppins">
-                  Our commitment
+        {/* Right Column - Blue/Navy */}
+        <div className="relative bg-[#162952] px-6 py-20 sm:px-10 lg:px-14 lg:py-28 flex flex-col justify-center">
+          <div className="mb-10 border-b border-white/10 pb-10">
+            <p className="mb-4 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#8D1E39] font-poppins">
+              Our commitment
+            </p>
+            <blockquote className="font-[PPFONT] text-[1.7rem] sm:text-[2rem] italic leading-[1.55] text-white">
+              "We will never recommend what is profitable for us over what is
+              <span className="not-italic text-[#8D1E39]"> right for you.</span>
+              That is not a policy - it is the reason we exist."
+            </blockquote>
+          </div>
+
+          <div className="grid grid-cols-2 gap-4">
+            {heroStats.map((stat) => (
+              <div
+                key={stat.desc}
+                className="bg-[#1e3a6e] px-6 py-7 transition hover:bg-[#2a4a8a]"
+              >
+                <p className="font-[PPFONT] text-[2.6rem] sm:text-5xl leading-none text-white">
+                  {stat.value}
                 </p>
-                <blockquote className="font-[PPFONT] text-[1.7rem] sm:text-[2rem] italic leading-[1.55] text-[#08112a]">
-                  "We will never recommend what is profitable for us over what is
-                  <span className="not-italic text-[#8D1E39]"> right for you.</span>
-                  That is not a policy - it is the reason we exist."
-                </blockquote>
+                <p className="mt-2 text-xs sm:text-sm uppercase tracking-[0.07em] text-white/55 font-poppins">
+                  {stat.desc}
+                </p>
               </div>
-
-              <div className="grid grid-cols-2 gap-4">
-                {heroStats.map((stat) => (
-                  <div
-                    key={stat.desc}
-                    className="border border-[#e4e0db] bg-[#fafaf9] px-6 py-7 transition hover:bg-white hover:border-[#8D1E39]"
-                  >
-                    <p className="font-[PPFONT] text-[2.6rem] sm:text-5xl leading-none text-[#08112a]">
-                      {stat.value}
-                    </p>
-                    <p className="mt-2 text-xs sm:text-sm uppercase tracking-[0.07em] text-[#6b6b78] font-poppins">
-                      {stat.desc}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
