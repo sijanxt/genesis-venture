@@ -40,7 +40,7 @@ export default function Firm() {
       </div>
 
       <div className="mt-5 flex flex-col gap-7 overflow-hidden">
-        <p className="w-full font-poppins text-[1.05rem] sm:text-[1.15rem] font-semibold leading-8 text-gray-600">
+        <p className="w-full font-poppins text-[1.05rem] sm:text-[1.15rem]  leading-8 text-gray-600">
           Genesis Ventures Ltd. is a dedicated private markets investment
           company focused exclusively on unlisted equity - stakes in businesses
           that operate beyond the reach of public exchanges, where the most

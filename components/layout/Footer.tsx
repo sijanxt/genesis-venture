@@ -7,11 +7,7 @@ const nav = [
   { label: "Contact", href: "/Contacts" },
 ];
 
-const social = [
-  { label: "LinkedIn", href: "#" },
-  { label: "Instagram", href: "#" },
-  { label: "Facebook", href: "#" },
-];
+
 
 const legal = [
   { label: "Privacy Policy", href: "#" },
@@ -62,50 +58,7 @@ export default function Footer() {
                 ))}
               </div>
 
-              <div className="flex flex-col gap-3">
-                <span className="mb-1 text-xs uppercase tracking-widest text-white/50">
-                  Follow
-                </span>
-                {social.map(({ label, href }) => (
-                  <Link
-                    key={label}
-                    href={href}
-                    className="inline-flex items-center gap-2 text-sm uppercase tracking-wider text-white/80 transition-colors hover:text-white"
-                  >
-                    {label === "LinkedIn" && (
-                      <svg
-                        aria-hidden="true"
-                        viewBox="0 0 24 24"
-                        className="h-4 w-4"
-                        fill="currentColor"
-                      >
-                        <path d="M19 3A2 2 0 0 1 21 5v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14Zm-9.75 7.17H6.77V18h2.48v-7.83ZM8 5.98a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88ZM18 13.7c0-2.53-1.35-3.7-3.15-3.7-1.45 0-2.1.8-2.46 1.36v-1.19H9.91V18h2.48v-4.35c0-1.15.22-2.27 1.65-2.27 1.41 0 1.43 1.32 1.43 2.35V18H18v-4.3Z" />
-                      </svg>
-                    )}
-                    {label === "Instagram" && (
-                      <svg
-                        aria-hidden="true"
-                        viewBox="0 0 24 24"
-                        className="h-4 w-4"
-                        fill="currentColor"
-                      >
-                        <path d="M12 7.4A4.6 4.6 0 1 0 12 16.6 4.6 4.6 0 1 0 12 7.4Zm0 7.6A3 3 0 1 1 12 9a3 3 0 0 1 0 6Zm5.9-7.8a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0ZM12 3.6c2.7 0 3 .01 4.06.06 1 .05 1.55.21 1.92.35.5.2.86.43 1.24.8.37.38.6.74.8 1.24.14.37.3.92.35 1.92.05 1.06.06 1.37.06 4.06s-.01 3-.06 4.06c-.05 1-.21 1.55-.35 1.92-.2.5-.43.86-.8 1.24-.38.37-.74.6-1.24.8-.37.14-.92.3-1.92.35-1.06.05-1.37.06-4.06.06s-3-.01-4.06-.06c-1-.05-1.55-.21-1.92-.35a3.3 3.3 0 0 1-1.24-.8 3.3 3.3 0 0 1-.8-1.24c-.14-.37-.3-.92-.35-1.92C3.61 15 3.6 14.69 3.6 12s.01-3 .06-4.06c.05-1 .21-1.55.35-1.92.2-.5.43-.86.8-1.24.38-.37.74-.6 1.24-.8.37-.14.92-.3 1.92-.35C9 3.61 9.31 3.6 12 3.6Zm0-1.6c-2.74 0-3.08.01-4.13.06-1.05.05-1.76.22-2.39.47a4.9 4.9 0 0 0-1.78 1.16 4.9 4.9 0 0 0-1.16 1.78c-.25.63-.42 1.34-.47 2.39C2.01 8.92 2 9.26 2 12s.01 3.08.06 4.13c.05 1.05.22 1.76.47 2.39.26.68.6 1.26 1.16 1.78.52.56 1.1.9 1.78 1.16.63.25 1.34.42 2.39.47 1.05.05 1.39.06 4.13.06s3.08-.01 4.13-.06c1.05-.05 1.76-.22 2.39-.47a4.9 4.9 0 0 0 1.78-1.16 4.9 4.9 0 0 0 1.16-1.78c.25-.63.42-1.34.47-2.39.05-1.05.06-1.39.06-4.13s-.01-3.08-.06-4.13c-.05-1.05-.22-1.76-.47-2.39a4.9 4.9 0 0 0-1.16-1.78 4.9 4.9 0 0 0-1.78-1.16c-.63-.25-1.34-.42-2.39-.47C15.08 2.01 14.74 2 12 2Z" />
-                      </svg>
-                    )}
-                    {label === "Facebook" && (
-                      <svg
-                        aria-hidden="true"
-                        viewBox="0 0 24 24"
-                        className="h-4 w-4"
-                        fill="currentColor"
-                      >
-                        <path d="M13.5 21v-8.1h2.7l.4-3.1h-3.1v-2c0-.9.2-1.5 1.5-1.5h1.7V3.5c-.8-.1-1.6-.2-2.4-.2-2.4 0-4 1.5-4 4.2v2.3H8v3.1h2.3V21h3.2Z" />
-                      </svg>
-                    )}
-                    {label}
-                  </Link>
-                ))}
-              </div>
+            
 
               <div className="flex flex-col gap-3">
                 <span className="mb-1 text-xs uppercase tracking-widest text-white/50">

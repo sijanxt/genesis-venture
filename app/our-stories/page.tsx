@@ -78,10 +78,10 @@ const differences = [
 
 export default function OurStoriesPage() {
   return (
-    <main className="bg-[#fdfbf7] text-[#1a1714] pt-20">
+    <main className="bg-[#fdfbf7] text-[#1a1714] pt-20 font-poppins">
       <section className="grid grid-cols-1 gap-14 px-6 py-20 sm:px-10 lg:grid-cols-[280px_1fr] lg:gap-24 lg:px-16 lg:py-28">
         <aside className="lg:sticky lg:top-28 h-fit">
-          <p className="mb-5 text-[10px] uppercase tracking-[0.3em] text-[#1a2e4a]">
+          <p className="mb-5 text-[10px] uppercase tracking-[0.3em] text-[#1a2e4a] font-poppins">
             Our Story
           </p>
           <h2 className="font-[PPFONT] text-4xl leading-tight">
@@ -92,7 +92,7 @@ export default function OurStoriesPage() {
 
         <div className="text-[#3d3830]">
           {storyParagraphs.slice(0, 2).map((paragraph) => (
-            <p key={paragraph} className="mb-7 text-base leading-8">
+            <p key={paragraph} className="mb-7 text-base leading-8 font-poppins">
               {paragraph}
             </p>
           ))}
@@ -106,7 +106,7 @@ export default function OurStoriesPage() {
           </blockquote>
 
           {storyParagraphs.slice(2).map((paragraph) => (
-            <p key={paragraph} className="mb-7 text-base leading-8 last:mb-0">
+            <p key={paragraph} className="mb-7 text-base leading-8 last:mb-0 font-poppins">
               {paragraph}
             </p>
           ))}
@@ -118,7 +118,7 @@ export default function OurStoriesPage() {
         className="bg-[#f8f4ed] px-6 py-20 sm:px-10 lg:px-16 lg:py-28"
       >
         <div className="mb-14">
-          <p className="mb-4 text-[10px] uppercase tracking-[0.3em] text-[#1a2e4a]">
+          <p className="mb-4 text-[10px] uppercase tracking-[0.3em] text-[#1a2e4a] font-poppins">
             Leadership
           </p>
           <h2 className="font-[PPFONT] text-5xl leading-tight">
@@ -134,11 +134,11 @@ export default function OurStoriesPage() {
                 AR
               </div>
               <h3 className="font-[PPFONT] text-4xl text-white">Anuj Rathi</h3>
-              <p className="mt-1 text-xs uppercase tracking-[0.16em] text-[#b08d57]">
+              <p className="mt-1 text-xs uppercase tracking-[0.16em] text-[#b08d57] font-poppins">
                 Founder and Managing Director
               </p>
               <div className="my-7 h-px bg-white/20" />
-              <div className="space-y-5 text-white/80">
+              <div className="space-y-5 text-white/80 font-poppins">
                 <div>
                   <p className="text-[10px] uppercase tracking-[0.2em] text-white/50">
                     Experience
@@ -165,7 +165,7 @@ export default function OurStoriesPage() {
             {leaderParagraphs.map((paragraph) => (
               <p
                 key={paragraph}
-                className="mb-6 text-[15px] leading-8 last:mb-0"
+                className="mb-6 text-[15px] leading-8 last:mb-0 font-poppins"
               >
                 {paragraph}
               </p>
@@ -175,7 +175,7 @@ export default function OurStoriesPage() {
               {expertiseTags.map((tag) => (
                 <span
                   key={tag}
-                  className="border border-[#1a2e4a] px-3 py-1.5 text-[11px] uppercase tracking-[0.08em] text-[#1a2e4a]"
+                  className="border border-[#1a2e4a] px-3 py-1.5 text-[11px] uppercase tracking-[0.08em] text-[#1a2e4a] font-poppins"
                 >
                   {tag}
                 </span>
@@ -187,7 +187,7 @@ export default function OurStoriesPage() {
 
       <section className="px-6 py-20 sm:px-10 lg:px-16 lg:py-28">
         <div>
-          <p className="mb-4 text-[10px] uppercase tracking-[0.3em] text-[#1a2e4a]">
+          <p className="mb-4 text-[10px] uppercase tracking-[0.3em] text-[#1a2e4a] font-poppins">
             What We Stand For
           </p>
           <h2 className="font-[PPFONT] text-5xl leading-tight">
@@ -199,48 +199,20 @@ export default function OurStoriesPage() {
           {values.map((item, idx) => (
             <div
               key={item.title}
-              className={`border-[#d8d0c4] p-8 transition-colors hover:bg-[#e6edf5] ${
-                idx !== values.length - 1 ? "xl:border-r" : ""
-              } ${idx < 2 ? "xl:border-b-0 sm:border-b" : ""}`}
+              className={`group border-[#d8d0c4] p-8 transition-colors hover:bg-[#e6edf5] ${idx !== values.length - 1 ? "xl:border-r" : ""
+                } ${idx < 2 ? "xl:border-b-0 sm:border-b" : ""}`}
             >
-              <div className="mb-6 h-10 w-10 border border-[#d8d0c4]" />
+              <p className="mb-6 font-poppins text-5xl font-light leading-none text-[#e8edf5] group-hover:text-[#f8dfe2] transition-colors">
+                0{idx + 1}
+              </p>
               <h3 className="font-[PPFONT] text-3xl leading-tight text-[#1a1714]">
                 {item.title}
               </h3>
-              <p className="mt-3 text-sm leading-7 text-[#8c8278]">
+              <p className="mt-3 text-sm leading-7 text-[#8c8278] font-poppins">
                 {item.description}
               </p>
             </div>
           ))}
-        </div>
-      </section>
-
-      <section className="grid grid-cols-1 gap-12 border-t border-[#d8d0c4] px-6 py-20 sm:px-10 lg:grid-cols-2 lg:items-center lg:gap-20 lg:px-16 lg:py-28">
-        <div>
-          <h2 className="font-[PPFONT] text-5xl leading-tight text-[#1a1714]">
-            Let&apos;s build something{" "}
-            <span className="italic text-[#1a2e4a]">lasting</span> together.
-          </h2>
-          <p className="mt-5 max-w-md text-[15px] leading-8 text-[#3d3830]">
-            Whether you are just beginning your investment journey or looking
-            for a more thoughtful steward of established wealth, Genesis
-            Ventures is ready to listen - and to help.
-          </p>
-        </div>
-
-        <div className="flex flex-col gap-4">
-          <Link
-            href="/Contacts"
-            className="bg-[#1a2e4a] px-8 py-4 text-center text-sm font-medium text-white transition-colors hover:bg-[#2e4d73]"
-          >
-            Schedule a Consultation
-          </Link>
-          <Link
-            href="/Projects#investment-philosophy"
-            className="border border-[#d8d0c4] px-8 py-4 text-center text-sm text-[#3d3830] transition-colors hover:border-[#1a2e4a] hover:text-[#1a2e4a]"
-          >
-            Read Our Investment Philosophy
-          </Link>
         </div>
       </section>
     </main>
