@@ -1,72 +1,6 @@
 "use client";
 
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import { SplitText } from "gsap/all";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useRef } from "react";
-
-gsap.registerPlugin(SplitText, ScrollTrigger);
-
 export default function Firm() {
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  useGSAP(() => {
-    const splitTitle = new SplitText(".firm-heading", { type: "words" });
-
-    gsap.from(splitTitle.words, {
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: "top 90%",
-        end: "bottom 80%",
-        scrub: true,
-      },
-      opacity: 0,
-      y: 30,
-      filter: "blur(10px)",
-      stagger: 0.05,
-      duration: 1,
-      ease: "power3.out",
-    });
-
-    if (!containerRef.current) return;
-
-    const paragraph = containerRef.current.querySelector<HTMLParagraphElement>(
-      "#firm-animated-paragraph",
-    );
-
-    if (!paragraph) return;
-
-    const words = paragraph.textContent
-      ?.split(" ")
-      .map((word) => `<span class=\"word\">${word}</span>`)
-      .join(" ");
-
-    if (words) paragraph.innerHTML = words;
-
-    const wordEls = paragraph.querySelectorAll(".word");
-
-    gsap.fromTo(
-      wordEls,
-      { opacity: 0.1 },
-      {
-        opacity: 1,
-        stagger: 0.1,
-        ease: "none",
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top 90%",
-          end: "top -20%",
-          scrub: true,
-        },
-      },
-    );
-
-    return () => {
-      splitTitle.revert();
-    };
-  });
-
   const focusItems = [
     { label: "Investment Focus", value: "Unlisted shares" },
     { label: "Investment Stage", value: "Growth to pre-IPO" },
@@ -98,21 +32,15 @@ export default function Firm() {
   ];
 
   return (
-    <section
-      ref={containerRef}
-      className="w-full bg-white text-white flex flex-col px-4 xs:px-6 sm:px-8 md:px-16 "
-    >
-      <div className="flex items-start justify-between border-b border-gray-200 pb-3 sm:pb-4 md:pb-6">
-        <span className="firm-heading text-xl uppercase tracking-widest text-gray-500 font-poppins font-bold">
+    <section className="w-full bg-white text-white flex flex-col px-4 xs:px-6 sm:px-8 md:px-16 ">
+      <div className="flex items-start justify-between border-b border-genesis-red pb-2 sm:pb-3 md:pb-4">
+        <span className="firm-heading text-lg sm:text-xl uppercase tracking-widest text-gray-500 font-poppins font-bold">
           Firm
         </span>
       </div>
 
-      <div className="flex flex-col gap-8  overflow-hidden">
-        <p
-          id="firm-animated-paragraph"
-          className="max-w-5xl font-poppins text-xl sm:text-lg leading-7 text-gray-600"
-        >
+      <div className="mt-5 flex flex-col gap-7 overflow-hidden">
+        <p className="w-full font-poppins text-[1.05rem] sm:text-[1.15rem] font-semibold leading-8 text-gray-600">
           Genesis Ventures Ltd. is a dedicated private markets investment
           company focused exclusively on unlisted equity - stakes in businesses
           that operate beyond the reach of public exchanges, where the most
@@ -128,7 +56,7 @@ export default function Firm() {
               <p className="font-poppins text-[10px] uppercase tracking-[0.3em] text-[#63676b]">
                 {item.label}
               </p>
-              <p className="mt-1 font-poppins text-sm font-semibold leading-tight text-[#0d3a66] sm:text-base">
+              <p className="mt-1 font-poppins text-base font-semibold leading-tight text-[#0d3a66] sm:text-lg">
                 {item.value}
               </p>
             </div>
@@ -136,12 +64,13 @@ export default function Firm() {
         </div>
 
         <div className="pt-3">
-          <h3 className="font-poppins text-lg sm:text-xl font-semibold uppercase tracking-wide text-[#5a5d61]">
-            Investment activities
-          </h3>
-          <div className="mt-2 h-px w-full bg-[#cdd3da]" />
+          <div className="border-b border-genesis-red pb-2 sm:pb-3 md:pb-4">
+            <h3 className="font-poppins text-lg sm:text-xl font-bold uppercase tracking-widest text-gray-500">
+              Investment activities
+            </h3>
+          </div>
 
-          <div className="mt-8 space-y-9">
+          <div className="mt-5 space-y-8">
             {activities.map((activity) => (
               <div
                 key={activity.title}
@@ -154,7 +83,6 @@ export default function Firm() {
                     className={`h-2.5 w-2.5 rounded-full ${activity.dotClass}`}
                   />
                 </div>
-
                 <div className="pt-1">
                   <h4 className="font-poppins text-[1.05rem] sm:text-[1.15rem] font-semibold leading-tight text-[#242628]">
                     {activity.title}

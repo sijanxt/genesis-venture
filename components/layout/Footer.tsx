@@ -1,10 +1,10 @@
 ﻿import Link from "next/link";
 
 const nav = [
-  { label: "Home", href: "/" },
-  { label: "About Us", href: "/About" },
-  { label: "Invested Sectors", href: "/Projects" },
-  { label: "Contact Us", href: "/Contacts" },
+  { label: "Who We Are", href: "/About" },
+  { label: "What We Do", href: "/what-we-do/portfolio" },
+  { label: "Investor Relations", href: "/investment-relation" },
+  { label: "Contact", href: "/Contacts" },
 ];
 
 const social = [
@@ -19,20 +19,20 @@ const legal = [
 ];
 
 const resources = [
-  { label: "Investment Process", href: "/About" },
-  { label: "Founder FAQs", href: "/" },
-  { label: "Media & Insights", href: "/perspective/media" },
-  { label: "Risk Disclosure", href: "/investor-relations/disclosures" },
+  { label: "Firm", href: "/who-we-are/firm" },
+  { label: "Our Story", href: "/our-stories" },
+  { label: "Leadership", href: "/our-stories#leadership" },
+  { label: "Investment Philosophy", href: "/what-we-do/investment-phylosophy" },
 ];
 
 export default function Footer() {
   return (
-    <footer className="relative w-full min-h-195 overflow-hidden bg-genesis-navy text-white font-poppins">
-      <div className="pointer-events-none absolute inset-0 bg-[url('/footer/footer.jpg')] bg-cover bg-center opacity-30" />
+    <footer className="relative w-full min-h-[70vh] overflow-hidden bg-genesis-navy text-white font-poppins">
+      <div className="pointer-events-none absolute inset-0 bg-[url('/footer/image.png')] bg-cover bg-center opacity-30" />
       <div className="pointer-events-none absolute inset-0 bg-black/30" />
 
-      <div className="relative z-10 flex min-h-195 flex-col">
-        <div className="flex flex-1 flex-col gap-14 px-8 pb-20 pt-24 md:px-16 md:pb-24 md:pt-28">
+      <div className="relative z-10 flex min-h-[70vh] flex-col justify-between">
+        <div className="flex flex-col gap-14 px-8 pb-16 pt-20 md:px-16 md:pb-20 md:pt-24">
           <div className="flex flex-col justify-between gap-14 md:flex-row">
             <div className="flex max-w-xl flex-col gap-3">
               <h2 className="font-[PPFONT] text-xl leading-snug text-white sm:text-2xl md:text-3xl lg:text-4xl">
@@ -138,7 +138,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 items-center gap-3 px-8 py-8 text-center md:grid-cols-3 md:px-16 md:text-left">
+        <div className="grid grid-cols-1 items-center gap-3 px-8 pb-4 pt-10 text-center md:grid-cols-3 md:px-16 md:pb-6 md:pt-12 md:text-left">
           <span className="text-xs text-white/80 md:justify-self-start">
             Copyright (c) {new Date().getFullYear()} Genesis Ventures, Inc. All
             Rights Reserved.

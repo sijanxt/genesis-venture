@@ -20,8 +20,10 @@ export default function Home() {
       {showModal && <InvestmentRiskModal onClose={() => setShowModal(false)} />}
       <Hero />
       <Stats />
-      <Firm />
-      <UnlistedMarket />
+      <div className="mt-8 flex flex-col gap-8 sm:mt-10 sm:gap-10 md:mt-12 md:gap-12">
+        <Firm />
+        <UnlistedMarket />
+      </div>
       {/* <About />
       <Devider />
       <Sectors />

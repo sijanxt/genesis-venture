@@ -29,13 +29,13 @@ export default function UnlistedMarket() {
   return (
     <section className="w-full bg-white text-white flex flex-col px-4 xs:px-6 sm:px-8 md:px-16 py-8 sm:py-8 md:py-8">
       <div className="mx-auto w-full max-w-9xl">
-        <div className="flex items-start justify-between border-b border-gray-200 pb-3 ">
+        <div className="flex items-start justify-between border-b border-genesis-red pb-2 sm:pb-3 md:pb-4">
           <span className="firm-heading text-lg sm:text-xl uppercase tracking-widest text-gray-500 font-poppins font-bold">
             Why Unlisted Markets
           </span>
         </div>
 
-        <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-8">
+        <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-8">
           {cards.map((card) => (
             <article key={card.title} className="flex bg-[#f1f2f4]">
               <span className={`w-[2px] shrink-0 ${card.accent}`} />

@@ -28,7 +28,7 @@ const navLinks = [
       },
     ],
   },
-  { label: "Investor Relations", href: "/relation", dropdown: null },
+  { label: "Investor Relations", href: "/investment-relation", dropdown: null },
   // {
   //   label: "Perspective",
   //   href: "/perspective",

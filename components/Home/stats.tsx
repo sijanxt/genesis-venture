@@ -7,7 +7,7 @@ const stats = [
 
 export default function Stats() {
   return (
-    <section className="mb-4 w-full sm:mb-6 md:mb-8">
+    <section className="w-full">
       <div className="grid w-full grid-cols-2 sm:grid-cols-4">
         {stats.map(({ value, label, color }) => (
           <div
