@@ -11,13 +11,12 @@ export default function InvestorRelationsPage() {
     };
 
     return (
-        <main className="w-full bg-white text-[#2c2c34] font-poppins overflow-x-hidden pt-20">
+        <main className="w-full bg-white text-[#2c2c34] font-poppins overflow-x-hidden">
             {/* HERO */}
             <section className="relative min-h-[600px] grid grid-cols-1 lg:grid-cols-2">
                 {/* Left Column - Clean White */}
                 <div className="bg-white px-6 py-20 sm:px-10 lg:px-16 lg:py-28 flex flex-col justify-center">
                     <span className="inline-flex items-center gap-3 font-poppins text-[11px] font-medium tracking-[0.28em] uppercase text-[#8D1E39]">
-                        <span className="w-7 h-px bg-[#8D1E39]" />
                         Investor Relations
                     </span>
 
@@ -27,7 +26,7 @@ export default function InvestorRelationsPage() {
                     </h1>
 
                     <p className="mt-6 sm:mt-9 max-w-[560px] text-[16px] sm:text-[17px] leading-[1.55] text-[#6b6b78]">
-                        Ours is almost ready — and worth the wait. Performance materials,
+                        Ours is almost ready and worth the wait. Performance materials,
                         portfolio disclosures, and investor letters are released only when they
                         meet the standards we hold ourselves to, not the standards the market
                         is willing to accept.
@@ -124,13 +123,12 @@ export default function InvestorRelationsPage() {
                 <div className="container mx-auto max-w-9xl px-4 sm:px-6 md:px-8 lg:px-12">
                     <div className="max-w-[960px] mx-auto text-center">
                         <span className="inline-flex items-center gap-3 font-poppins text-[11px] font-medium tracking-[0.28em] uppercase text-[#8D1E39]">
-                          
                             The Commitment
                         </span>
 
                         <blockquote className="my-8 sm:my-10 font-[PPFONT] text-[clamp(22px,3.2vw,40px)] leading-[1.35] text-[#08112a] italic font-normal">
                             <span className="text-[#8D1E39]">"</span>
-                            We will share our numbers the same way we make our decisions 
+                            We will share our numbers the same way we make our decisions
                             carefully, honestly, and only when we can stand behind every line. If
                             that costs us a conversation with an impatient investor, it is a
                             conversation we were never going to win anyway.
@@ -138,7 +136,7 @@ export default function InvestorRelationsPage() {
                         </blockquote>
 
                         <div className="flex items-center justify-center gap-4 sm:gap-6 font-poppins text-[14px]">
-                          
+
                             <div>
                                 <span className="text-[#08112a] font-medium tracking-[0.02em]">Anuj Rathi</span>
                                 <span className="block text-[#6b6b78] italic text-[13px] mt-0.5">Founder &amp; Managing Director</span>
