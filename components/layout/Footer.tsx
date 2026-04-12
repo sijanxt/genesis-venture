@@ -42,7 +42,7 @@ export default function Footer() {
               </p>
             </div>
 
-            <div className="flex flex-wrap gap-8 md:gap-20">
+            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-20">
               <div className="flex flex-col gap-3">
                 <span className="mb-1 text-xs uppercase tracking-widest text-white/50">
                   Navigation

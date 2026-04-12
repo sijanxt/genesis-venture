@@ -11,8 +11,7 @@ const storyParagraphs = [
   "Genesis Ventures Ltd was founded on a straightforward but powerful idea: that the best investment decisions are made by those who understand not just financial markets, but the real-world industries that drive them. Too often, capital is managed by those who have only ever known finance - and that is precisely where the gaps in judgment appear.",
   "We are different. Genesis Ventures was built at the intersection of two worlds - manufacturing and finance - bringing to bear a rare combination of operational understanding and market acumen that most investment firms simply cannot offer.",
   "From our founding, Genesis Ventures has been committed to a single purpose: growing and protecting capital with integrity, discipline, and the kind of long-term perspective that comes from having navigated real business challenges firsthand. We serve retail investors, high-net-worth individuals, and institutional partners - each with the same commitment to rigour and transparency.",
-  "Today, Genesis Ventures operates across a diversified range of asset classes and geographies, guided by a philosophy built on evidence, patience, and a deep respect for risk. We believe that sustainable returns are earned - not chased - and that the trust our clients place in us is the most valuable asset we manage.",
-];
+  ];
 
 const leaderParagraphs = [
   "Anuj Rathi is the Founder and Managing Director of Genesis Ventures Ltd, bringing over two decades of varied and distinguished experience spanning both the manufacturing sector and financial markets. This rare dual background forms the intellectual core of Genesis Ventures - and sets it apart from conventionally trained investment managers.",
