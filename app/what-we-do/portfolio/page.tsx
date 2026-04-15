@@ -1,106 +1,22 @@
 "use client";
 
-import Image from "next/image";
+import Link from "next/link";
 import { useMemo, useState } from "react";
-
-const sectorTabs = [
-  { key: "All", title: "All" },
-
-  {
-    key: "Hospitality",
-    title: "Hospitality",
-  },
-  {
-    key: "Hydropower",
-    title: "Hydropower",
-  },
-  {
-    key: "Manufacturing",
-    title: "Manufacturing",
-  },
-  { key: "Media", title: "Media" },
-
-  {
-    key: "Healthcare & Pharma",
-    title: "Healthcare & Pharma",
-  },
-  { key: "Others", title: "Others" },
-] as const;
-
-type Sector = (typeof sectorTabs)[number]["key"];
-
-const portfolioItems = [
-  {
-    name: "Dairy Day",
-    sector: "Healthcare & Pharma" as Sector,
-    image: "/portfolio/Healthcare & Pharma/divine healthcare.jfif",
-  },
-  {
-    name: "Florid",
-    sector: "Healthcare & Pharma" as Sector,
-    image: "/portfolio/Healthcare & Pharma/florid.jpg",
-  },
-  {
-    name: "Frontline Hospital",
-    sector: "Healthcare & Pharma" as Sector,
-    image: "/portfolio/Healthcare & Pharma/frontline hospital.png",
-  },
-  {
-    name: "Annapurna Cable Car",
-    sector: "Hospitality" as Sector,
-    image: "/portfolio/Hospitality/annapurna cable car.png",
-  },
-  {
-    name: "Bandipur Cable Car",
-    sector: "Hospitality" as Sector,
-    image: "/portfolio/Hospitality/bandipur cable car.png",
-  },
-  {
-    name: "Forest Inn",
-    sector: "Hospitality" as Sector,
-    image: "/portfolio/Hospitality/forest inn.webp",
-  },
-  {
-    name: "Ayu Malun Hydro",
-    sector: "Hydropower" as Sector,
-    image: "/portfolio/Hydropower/ayu malun hydro.jpeg",
-  },
-  {
-    name: "KBNR Iswa Hydropower",
-    sector: "Hydropower" as Sector,
-    image: "/portfolio/Hydropower/kbnr iswa hydropower.png",
-  },
-  {
-    name: "Mahashakti Cement",
-    sector: "Manufacturing" as Sector,
-    image: "/portfolio/Manufacturing/mahashakti cement.jpg",
-  },
-  {
-    name: "Maruti Cement",
-    sector: "Manufacturing" as Sector,
-    image: "/portfolio/Manufacturing/maruti cement.jpg",
-  },
-  {
-    name: "Shubhshree Agni Cement",
-    sector: "Manufacturing" as Sector,
-    image: "/portfolio/Manufacturing/shubhshree agni cement.jpg",
-  },
-  {
-    name: "Dish Home",
-    sector: "Media" as Sector,
-    image: "/portfolio/Media/dish home.webp",
-  },
-  {
-    name: "Sopan Multiple",
-    sector: "Others" as Sector,
-    image: "/portfolio/Others/sopan multiple.png",
-  },
-];
+import { portfolioItems, sectorTabs, type Sector } from "./data";
+import FeaturedPortfolioCard from "@/components/what-we-do/FeaturedPortfolioCard";
+import PortfolioCard from "@/components/what-we-do/PorfolioCard";
 
 export default function PortfolioPage() {
-  const [activeSector, setActiveSector] = useState<Sector>(
-    "Healthcare & Pharma",
-  );
+  const [activeSector, setActiveSector] = useState<Sector | "All">("All");
+
+  const heroStats = useMemo(() => {
+    return sectorTabs
+      .filter(tab => tab.key !== "All")
+      .map(tab => ({
+        value: portfolioItems.filter(item => item.sector === tab.key).length.toString(),
+        desc: tab.title
+      }));
+  }, []);
 
   const filteredItems = useMemo(() => {
     if (activeSector === "All") return portfolioItems;
@@ -108,61 +24,194 @@ export default function PortfolioPage() {
   }, [activeSector]);
 
   return (
-    <main className="min-h-screen bg-[#f3f2ef] px-4 pb-20 pt-28 xs:px-6 sm:px-8 md:px-16">
-      <section className="mx-auto w-full max-w-[110rem]">
-        <div className="mx-auto max-w-4xl text-center">
-          <h1 className="font-poppins text-[clamp(2rem,5vw,3.4rem)] font-bold uppercase leading-[1] tracking-tight text-[#303027]">
-            Portfolio
+    <main className="min-h-screen bg-[#fdfcf9] font-poppins">
+      {/* Hero Section */}
+      <section className="relative min-h-[600px] grid grid-cols-1 lg:grid-cols-2 overflow-hidden border-b">
+        {/* Left Section */}
+        <div className="absolute -left-20 -top-10 w-[450px] h-[450px] rounded-full bg-genesis-navy/5 pointer-events-none" />
+        <div className="bg-white px-6 py-20 sm:px-10 lg:px-16 lg:py-28 flex flex-col justify-start">
+          <p className="mb-6 inline-flex items-center gap-3 text-[10.5px] font-semibold uppercase tracking-[0.22em] text-genesis-red font-poppins">
+            <span className="h-[1.5px] w-7 bg-genesis-red" />
+            Investment Portfolio
+          </p>
+
+          <h1 className="font-[PPFONT] text-[clamp(42px,5vw,68px)] leading-[1.1] tracking-[-0.015em] text-[#08112a]">
+            A disciplined <br />portfolio built on <br />
+            <em className="text-genesis-red">conviction, </em>
+            not consensus.
           </h1>
-        </div>
 
-        <div className="mt-12 border border-[#dbdbdb] bg-[#eeeeee] ">
-          <div className="flex items-center gap-3 border-b border-[#e2e2e2] px-5 py-5 sm:px-7">
-            <h2 className="text-[1.15rem] font-semibold font-poppins uppercase tracking-[0.08em] text-[#34342e] sm:text-[1.3rem]">
-              Sectors: {activeSector}
-            </h2>
-            <span className="mt-1 inline-block h-3 w-3 rotate-45 border-l-[3px] border-t-[3px] border-[#0f7a82]" />
-          </div>
+          <p className="mt-8 max-w-xl text-[15px] font-light leading-[1.9] text-[#6b6b78] font-poppins">
+            Genesis Ventures deploys long-term capital into unlisted businesses across six sectors.
+            Every position is the result of independent research, direct engagement with management,
+            and a clear view on intrinsic value without the pressure of a fund cycle or the distortion of market noise.
+          </p>
 
-          <div className="px-4 py-8 sm:px-6">
-            <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-5">
-              {sectorTabs.map((sector) => {
-                const isActive = sector.key === activeSector;
-
-                return (
-                  <button
-                    key={sector.key}
-                    type="button"
-                    onClick={() => setActiveSector(sector.key)}
-                    className={`flex items-center rounded-full border px-6 py-3.5 text-sm font-semibold uppercase tracking-wide transition-colors sm:text-base ${
-                      isActive
-                        ? "border-genesis-navy text-genesis-red"
-                        : "border-[#cdcdcd] text-genesis-navy hover:border-genesis-navy/60"
-                    }`}
-                  >
-                    {sector.title}
-                  </button>
-                );
-              })}
-            </div>
+          <div className="mt-10 flex flex-wrap items-center gap-5">
+            <Link
+              href="#beliefs"
+              className="inline-flex items-center justify-center gap-3 bg-genesis-red text-white px-6 sm:px-[34px] py-4 sm:py-[18px] font-poppins text-[13px] font-medium tracking-[0.12em] uppercase transition-all duration-350 hover:bg-[#a52344]"
+            >
+              What We Believe
+            </Link>
+            <Link
+              href="/Contacts"
+              className="inline-flex items-center justify-center gap-3 bg-transparent text-[#6b6b78] border border-[#e4e0db] px-6 sm:px-[34px] py-4 sm:py-[18px] font-poppins text-[13px] font-medium tracking-[0.12em] uppercase transition-all duration-350 hover:border-[#8D1E39] hover:text-[#8D1E39]"
+            >
+              Get in touch →
+            </Link>
           </div>
         </div>
 
-        <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
-          {filteredItems.map((item) => (
-            <article key={`${item.name}-${item.sector}`} className="group">
-              <div className="relative h-[145px] w-full overflow-hidden border border-[#e1e1e1] bg-white sm:h-[165px] lg:h-[180px]">
-                <Image
-                  src={item.image}
-                  alt={item.name}
-                  fill
-                  className="object-contain p-4 transition-transform duration-300 group-hover:scale-105"
-                />
+        {/* Right Section */}
+        <div className="relative bg-genesis-navy px-6 py-20 sm:px-10 lg:px-14 lg:py-28 flex flex-col justify-start">
+          <div className="mb-10 border-b border-white/10 pb-10">
+            <p className="mb-4 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#8b1a2e] font-poppins">
+              Diversified Exposure
+            </p>
+            <blockquote className="font-[PPFONT] text-[1.7rem] sm:text-[2rem] italic leading-[1.4] text-white">
+              &quot;We invest in the real economy - infrastructure, basic industries, and services that Nepal needs to grow.&quot;
+            </blockquote>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+            {heroStats.map((stat) => (
+              <div
+                key={stat.desc}
+                className="bg-[#1E3A6E] px-6 py-7 transition hover:bg-[#2a4a8a]"
+              >
+                <p className="font-[PPFONT] font-bold text-[2.4rem] leading-none text-white">
+                  {stat.value}
+                </p>
+                <p className="mt-2 text-[12px] uppercase tracking-[0.07em] text-white/85 font-poppins leading-tight">
+                  {stat.desc}
+                  <br />
+                  <span className="text-[10px] opacity-75">Companies</span>
+                </p>
               </div>
-            </article>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
+
+      {/* Main Portfolio Grid */}
+      <section id="portfolio" className="mx-auto w-full max-w-440 px-6 py-20 sm:px-10 lg:px-16 lg:py-32">
+        <div className="mb-6 flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-neutral-dark pb-10">
+          <div>
+            <h2 className="font-[PPFONT] text-[clamp(36px,3.8vw,50px)] leading-[1.12] text-[#08112a] max-w-sm">
+              Portfolio Companies
+            </h2>
+          </div>
+
+          {/* Filter Tabs */}
+          <div className="flex flex-wrap gap-2">
+            {sectorTabs.map((sector) => {
+              const isActive = sector.key === activeSector;
+              return (
+                <button
+                  key={sector.key}
+                  onClick={() => setActiveSector(sector.key)}
+                  className={`px-5 py-2.5 border text-[11px] font-semibold uppercase tracking-wider transition-all duration-300 ${isActive
+                    ? "bg-genesis-navy text-white border-genesis-navy shadow-lg shadow-genesis-navy/20"
+                    : "bg-white text-genesis-navy/75 border-neutral-dark hover:border-genesis-navy hover:text-genesis-navy"
+                    }`}
+                >
+                  {sector.title}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        <section
+          id="portfolio"
+          className="mx-auto w-full max-w-440"
+        >
+          {activeSector === "All" ? (
+            //group by company 
+            <>
+              {sectorTabs
+                .filter((sector) => sector.key !== "All")
+                .map((sector) => {
+                  const sectorItems = portfolioItems.filter(
+                    (item) => item.sector === sector.key
+                  );
+
+                  if (sectorItems.length === 0) return null;
+
+                  return (
+                    <div key={sector.key} className="mb-16">
+                      {/* header */}
+                      <p className="mb-6 inline-flex items-center gap-3 text-[10.5px] font-semibold uppercase tracking-[0.22em] text-genesis-red font-poppins">
+                        <span className="h-[1.5px] w-7 bg-genesis-red" />
+                        {sector.title}
+                      </p>
+
+                      {/* cards */}
+                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                        {sectorItems.map((item) =>
+                          item.isFeatured ? (
+                            <FeaturedPortfolioCard
+                              key={item.name}
+                              item={item}
+                            />
+                          ) : (
+                            <PortfolioCard
+                              key={item.name}
+                              item={item}
+                            />
+                          )
+                        )}
+                      </div>
+                    </div>
+                  );
+                })}
+            </>
+          ) : (
+            //filtered grouping
+            <div>
+              <p className="mb-6 inline-flex items-center gap-3 text-[10.5px] font-semibold uppercase tracking-[0.22em] text-genesis-red font-poppins">
+                <span className="h-[1.5px] w-7 bg-genesis-red" />
+                {sectorTabs.find((s) => s.key === activeSector)?.title}
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                {filteredItems.map((item) =>
+                  item.isFeatured ? (
+                    <FeaturedPortfolioCard
+                      key={item.name}
+                      item={item}
+                    />
+                  ) : (
+                    <PortfolioCard
+                      key={item.name}
+                      item={item}
+                    />
+                  )
+                )}
+              </div>
+            </div>
+          )}
+        </section>
+      </section>
+      {/* CTA Section */}
+      <section className="bg-white px-6 py-20 sm:px-10 lg:px-16 lg:py-28 border-t border-[#e4e0db]">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="font-[PPFONT] text-[clamp(28px,4.5vw,54px)] text-[#08112a] mb-6 leading-[1.1] tracking-[-0.015em]">
+            Ready to build something <br /><em className="text-[#8b1a2e]">significant?</em>
+          </h2>
+          <p className="text-[15px] font-light leading-relaxed text-[#6b6b78] max-w-2xl mx-auto mb-12">
+            We review every submission and respond within 5 business days. If there&apos;s a fit, we move quickly.
+          </p>
+          <Link
+            href="/Contacts"
+            className="inline-flex items-center justify-center gap-3 bg-genesis-red text-white px-6 sm:px-[34px] py-4 sm:py-[18px] font-poppins text-[13px] font-medium tracking-[0.12em] uppercase transition-all duration-350 hover:bg-[#a52344]"
+          >
+            Get in touch with our team →
+          </Link>
+
+        </div>
+      </section>
+
     </main>
   );
 }
