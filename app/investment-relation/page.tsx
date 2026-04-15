@@ -14,7 +14,7 @@ export default function InvestorRelationsPage() {
 
   return (
     <main className="w-full bg-white text-[#2c2c34] font-poppins overflow-x-hidden">
-      {/* HERO */}
+      
       <section className="relative min-h-[600px] grid grid-cols-1 lg:grid-cols-2">
         {/* Left Column - Clean White */}
         <div className="bg-white px-6 py-20 sm:px-10 lg:px-16 lg:py-28 flex flex-col justify-center">
