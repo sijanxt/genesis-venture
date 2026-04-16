@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Button from "@/components/ui/Button2";
 
 export default function InvestorRelationsPage() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -15,9 +16,9 @@ export default function InvestorRelationsPage() {
   return (
     <main className="w-full bg-white text-[#2c2c34] font-poppins overflow-x-hidden">
       
-      <section className="relative min-h-[600px] grid grid-cols-1 lg:grid-cols-2">
+      <section className="relative grid min-h-[600px] grid-cols-1 overflow-hidden border-b border-[#e4e0db] lg:grid-cols-2">
         {/* Left Column - Clean White */}
-        <div className="bg-white px-6 py-20 sm:px-10 lg:px-16 lg:py-28 flex flex-col justify-center">
+        <div className="flex flex-col justify-center bg-[#fcfbf8] px-6 py-20 sm:px-10 lg:border-r lg:border-[#e4e0db] lg:px-16 lg:py-28">
           <span className="inline-flex items-center gap-3 font-poppins text-[11px] font-medium tracking-[0.28em] uppercase text-genesis-red">
             Investor Relations
           </span>
@@ -35,17 +36,29 @@ export default function InvestorRelationsPage() {
           </p>
 
           <div className="mt-8 sm:mt-12 flex flex-col sm:flex-row flex-wrap gap-4 sm:gap-5">
-            <Link href="#access" className="inline-flex items-center justify-center gap-3 bg-genesis-red text-white px-6 sm:px-[34px] py-4 sm:py-[18px] font-poppins text-[13px] font-medium tracking-[0.12em] uppercase transition-all duration-350 hover:bg-[#a52344]">
-              Request Materials <span className="transition-transform duration-350">→</span>
+            <Link href="#access">
+              <Button
+                variant="primary"
+                size="md"
+                className="inline-flex items-center justify-center gap-3 bg-genesis-red px-6 py-4 font-poppins text-[13px] font-medium uppercase tracking-[0.12em] text-white transition-all duration-350 hover:bg-[#a52344] sm:px-[34px] sm:py-[18px]"
+              >
+                Request Materials 
+              </Button>
             </Link>
-            <Link href="#commitment" className="inline-flex items-center justify-center gap-3 bg-transparent text-[#6b6b78] border border-[#e4e0db] px-6 sm:px-[34px] py-4 sm:py-[18px] font-poppins text-[13px] font-medium tracking-[0.12em] uppercase transition-all duration-350 hover:border-[#8D1E39] hover:text-[#8D1E39]">
-              Our Commitment <span className="transition-transform duration-350">→</span>
+            <Link href="#commitment">
+              <Button
+                variant="outline"
+                size="md"
+                className="inline-flex items-center justify-center gap-3 border-[#e4e0db] bg-transparent px-6 py-4 font-poppins text-[13px] font-medium uppercase tracking-[0.12em] !text-[#6b6b78] transition-all duration-350 hover:border-[#8D1E39] hover:bg-transparent hover:!text-[#8D1E39] sm:px-[34px] sm:py-[18px]"
+              >
+                Our Commitment 
+              </Button>
             </Link>
           </div>
         </div>
 
         {/* Right Column - Blue/Navy */}
-        <div className="relative bg-[#162952] px-6 py-20 sm:px-10 lg:px-14 lg:py-28 flex flex-col justify-center">
+        <div className="relative flex flex-col justify-center bg-gradient-to-br from-[#102347] via-[#162952] to-[#21437f] px-6 py-20 sm:px-10 lg:px-14 lg:py-28">
           <div className="mb-10 border-b border-white/10 pb-10">
             <p className="mb-4 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#8D1E39] font-poppins">
               Why You&apos;re Seeing This Page
@@ -55,7 +68,7 @@ export default function InvestorRelationsPage() {
             </blockquote>
           </div>
 
-          <p className="text-[15px] sm:text-[16px] text-white/70 leading-[1.9] font-poppins">
+          <p className="text-[15px] sm:text-[16px] text-white/80 leading-[1.9] font-poppins">
             Most firms publish performance the moment it flatters them. We have
             chosen a different path: to release figures only when they have been
             audited, stress-tested, and reviewed against the standards we hold
@@ -247,12 +260,14 @@ export default function InvestorRelationsPage() {
                 />
               </div>
 
-              <button
+              <Button
                 type="submit"
-                className="submit-btn w-full inline-flex items-center justify-center gap-3 bg-[#8D1E39] text-white px-6 sm:px-[34px] py-4 sm:py-[18px] font-poppins text-[13px] font-medium tracking-[0.12em] uppercase transition-all duration-350 hover:bg-[#a52344] mt-3"
+                variant="primary"
+                size="md"
+                className="submit-btn mt-3 w-full bg-[#8D1E39] px-6 py-4 font-poppins text-[13px] font-medium uppercase tracking-[0.12em] text-white transition-all duration-350 hover:bg-[#a52344] sm:px-[34px] sm:py-[18px]"
               >
                 Submit Request <span className="transition-transform duration-350">→</span>
-              </button>
+              </Button>
 
               <p className="mt-6 sm:mt-7 text-[12px] leading-[1.6] text-[#6b6b78]">
                 We review every submission personally and respond within 5 business days.
@@ -261,24 +276,6 @@ export default function InvestorRelationsPage() {
               </p>
             </form>
           </div>
-        </div>
-      </section>
-
-      <section className="bg-white px-6 py-20 sm:px-10 lg:px-16 lg:py-28 border-t border-[#e4e0db]">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="font-[PPFONT] text-[clamp(28px,4.5vw,54px)] text-[#08112a] mb-6 leading-[1.1] tracking-[-0.015em]">
-            Ready to build something <br /><em className="text-[#8b1a2e]">significant?</em>
-          </h2>
-          <p className="text-[15px] font-light leading-relaxed text-[#6b6b78] max-w-2xl mx-auto mb-12">
-            We review every submission and respond within 5 business days. If there&apos;s a fit, we move quickly.
-          </p>
-          <Link
-            href="/Contacts"
-            className="inline-flex items-center justify-center gap-3 bg-genesis-red text-white px-6 sm:px-[34px] py-4 sm:py-[18px] font-poppins text-[13px] font-medium tracking-[0.12em] uppercase transition-all duration-350 hover:bg-[#a52344]"
-          >
-            Get in touch with our team →
-          </Link>
-
         </div>
       </section>
 

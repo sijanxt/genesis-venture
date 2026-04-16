@@ -1,12 +1,6 @@
 "use client";
-
 import { useState } from "react";
-import About from "@/components/Home/About";
-import AnotherDevider from "@/components/Home/anotherdevider";
-import Devider from "@/components/Home/devider";
-import FAQ from "@/components/Home/FAQ";
 import Hero from "@/components/Home/Hero";
-import Sectors from "@/components/Home/Sectors";
 import Stats from "@/components/Home/stats";
 import InvestmentRiskModal from "@/components/InvestmentRiskFlyer";
 import Firm from "@/components/Home/firm";
@@ -20,7 +14,7 @@ export default function Home() {
       {showModal && <InvestmentRiskModal onClose={() => setShowModal(false)} />}
       <Hero />
       <Stats />
-      <div className="mt-8 flex flex-col gap-8 sm:mt-10 sm:gap-10 md:mt-12 md:gap-12">
+      <div className="mt-8 flex flex-col gap-8 sm:mt-10 sm:gap-10 md:mt-12 md:gap-12 pb-20">
         <Firm />
         <UnlistedMarket />
       </div>

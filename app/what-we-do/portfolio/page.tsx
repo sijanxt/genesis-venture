@@ -5,6 +5,7 @@ import { useMemo, useState } from "react";
 import { portfolioItems, sectorTabs, type Sector } from "./data";
 import FeaturedPortfolioCard from "@/components/what-we-do/FeaturedPortfolioCard";
 import PortfolioCard from "@/components/what-we-do/PorfolioCard";
+import Button from "@/components/ui/Button2";
 
 export default function PortfolioPage() {
   const [activeSector, setActiveSector] = useState<Sector | "All">("All");
@@ -48,11 +49,14 @@ export default function PortfolioPage() {
           </p>
 
           <div className="mt-10 flex flex-wrap items-center gap-5">
-            <Link
-              href="#beliefs"
-              className="inline-flex items-center justify-center gap-3 bg-genesis-red text-white px-6 sm:px-[34px] py-4 sm:py-[18px] font-poppins text-[13px] font-medium tracking-[0.12em] uppercase transition-all duration-350 hover:bg-[#a52344]"
-            >
-              What We Believe
+            <Link href="#beliefs">
+              <Button
+                variant="primary"
+                size="md"
+                className="inline-flex items-center justify-center gap-3 bg-genesis-red px-6 py-4 font-poppins text-[13px] font-medium uppercase tracking-[0.12em] text-white transition-all duration-350 hover:bg-[#a52344] sm:px-[34px] sm:py-[18px]"
+              >
+                What We Believe
+              </Button>
             </Link>
             <Link
               href="/Contacts"

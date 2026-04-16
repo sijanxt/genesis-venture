@@ -10,9 +10,9 @@ const navLinks = [
   // { label: "Home", href: "/", dropdown: null },
   {
     label: "Who We Are",
-    href: "/About",
+  
     dropdown: [
-      { label: "Firm", href: "/who-we-are/firm" },
+      { label: "Firm", href: "/firm" },
       { label: "Our Story", href: "/our-stories" },
       { label: "Leadership", href: "/our-stories#leadership" },
     ],

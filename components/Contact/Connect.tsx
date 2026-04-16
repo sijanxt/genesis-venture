@@ -77,17 +77,15 @@ export default function Connect() {
             </button>
           </div>
         </div>
-
         <div className="flex flex-col gap-10 lg:grid lg:grid-cols-[minmax(280px,0.95fr)_minmax(0,1.35fr)] lg:gap-14">
           <div className="relative min-h-60 overflow-hidden sm:min-h-75 lg:min-h-135">
             <Image
-              src="/contact/cons.png"
+              src="/contact/pix.jpg"
               alt="Contact Genesis Ventures"
               fill
               className="object-cover object-[50%_70%]"
             />
           </div>
-
           <div className="min-w-0">
             {tab === "general" ? (
               <form
