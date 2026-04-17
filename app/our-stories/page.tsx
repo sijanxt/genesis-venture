@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 const heroStats = [
   { value: "20+", label: "Years of cross-sector experience" },
   { value: "2", label: "Sectors of deep expertise" },
@@ -52,166 +50,172 @@ const values = [
   },
 ];
 
-const differences = [
-  {
-    title: "Cross-sector insight",
-    description:
-      "Two decades spanning manufacturing and finance means we understand business cycles, operational risk, and value creation from both sides of the equation.",
-  },
-  {
-    title: "Founder-led decision making",
-    description:
-      "Anuj Rathi is personally involved in every major investment decision. There is no committee, no delegation to junior analysts. Accountability is direct.",
-  },
-  {
-    title: "Genuine diversification",
-    description:
-      "We build portfolios that are diversified in the truest sense - across asset classes, sectors, geographies, and risk factors - not just by name.",
-  },
-  {
-    title: "Clients of every kind",
-    description:
-      "We serve retail investors, high-net-worth individuals, and institutions with equal rigour. The same standards, the same transparency, the same commitment.",
-  },
-];
-
 export default function OurStoriesPage() {
   return (
-    <main className="bg-[#fdfbf7] text-[#1a1714] pt-20 font-poppins">
-      <section className="grid grid-cols-1 gap-14 px-6 py-20 sm:px-10 lg:grid-cols-[280px_1fr] lg:gap-24 lg:px-16 lg:py-28">
-        <aside className="lg:sticky lg:top-28 h-fit">
-          <p className="mb-5 text-[10px] uppercase tracking-[0.3em] text-[#1a2e4a] font-poppins">
-            Our Story
-          </p>
-          <h2 className="font-[PPFONT] text-4xl leading-tight">
-            Where we come from
-          </h2>
-          <div className="mt-6 h-[2px] w-10 bg-[#b08d57]" />
-        </aside>
-
-        <div className="text-[#3d3830]">
-          {storyParagraphs.slice(0, 2).map((paragraph) => (
-            <p key={paragraph} className="mb-7 text-base leading-8 font-poppins">
-              {paragraph}
+    <main className="bg-[#fdfbf7] text-[#1a1714] font-poppins">
+      <section className="relative overflow-hidden bg-[linear-gradient(90deg,#173053_0%,#d9e6f7_58%,#eef4ff_100%)]">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_12%,rgba(255,255,255,0.6)_0%,rgba(255,255,255,0)_48%)]" />
+        <div className="layout-7xl relative py-28 lg:py-36">
+          <div className="grid grid-cols-1 lg:grid-cols-2 lg:items-center">
+            <span className="inline-flex items-center gap-3 font-poppins text-[11px] font-medium tracking-[0.28em] uppercase text-[#8D1E39]">
+              Our Story
+            </span>
+            <p className="text-[11px] font-medium uppercase tracking-[0.28em] text-[#8D1E39] font-poppins lg:pl-14 lg:text-left">
+              Where We Come From
             </p>
-          ))}
+          </div>
 
-          <blockquote className="mb-10 border-l-4 border-[#1a2e4a] bg-[#e6edf5] px-8 py-7">
-            <p className="font-[PPFONT] text-3xl italic leading-relaxed text-[#1a2e4a]">
-              We do not just read balance sheets. We understand what it takes to
-              build a business, run an operation, and weather a cycle - because
-              we have done it.
-            </p>
-          </blockquote>
+          <div className="mt-6 grid grid-cols-1 lg:grid-cols-2">
+            <div className="flex flex-col justify-start">
+              <h2 className="mt-0 sm:mt-1 font-[PPFONT] text-[1.7rem] sm:text-[2rem] leading-[1.55] tracking-[-0.01em] text-[#08112a] font-medium">
+                <span className="block">Built at the intersection of</span>
+                <span className="block italic text-[#8D1E39] font-medium">
+                  manufacturing and finance.
+                </span>
+              </h2>
 
-          {storyParagraphs.slice(2).map((paragraph) => (
-            <p key={paragraph} className="mb-7 text-base leading-8 last:mb-0 font-poppins">
-              {paragraph}
-            </p>
-          ))}
+              <p className="mt-6 sm:mt-9 max-w-[560px] text-[16px] sm:text-[17px] leading-[1.55] text-[#08112a]">
+                {storyParagraphs[0]}
+              </p>
+
+              <p className="mt-5 max-w-[560px] text-[16px] sm:text-[17px] leading-[1.55] text-[#08112a]">
+                {storyParagraphs[1]}
+              </p>
+            </div>
+
+            <div className="flex flex-col justify-start lg:pl-14">
+              <div className="mb-10 border-b border-[#1a2e4a]/15 pb-10">
+                <blockquote className="font-[PPFONT] text-[1.7rem] sm:text-[2rem] italic leading-[1.45] text-[#08112a]">
+                  We do not just read balance sheets. We understand what it
+                  takes to build a business and weather a cycle.
+                </blockquote>
+              </div>
+
+              <div className="grid grid-cols-2 gap-4">
+                {heroStats.map((stat) => (
+                  <div
+                    key={stat.label}
+                    className="bg-[#173053] px-5 py-6 transition hover:bg-[#173053]"
+                  >
+                    <p className="font-[PPFONT] text-[1.9rem] sm:text-[2.1rem] leading-none text-white">
+                      {stat.value}
+                    </p>
+                    <p className="mt-2 text-[11px] uppercase tracking-[0.08em] text-white/85 font-poppins leading-tight">
+                      {stat.label}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
       <section
         id="leadership"
-        className="bg-[#f8f4ed] px-6 py-20 sm:px-10 lg:px-16 lg:py-28"
+        className=" px-6 py-16 sm:px-10 sm:py-20 lg:px-16 lg:py-24"
       >
-        <div className="mb-14">
-          <p className="mb-4 text-[10px] uppercase tracking-[0.3em] text-[#1a2e4a] font-poppins">
-            Leadership
-          </p>
-          <h2 className="font-[PPFONT] text-5xl leading-tight">
-            The person behind the firm
-          </h2>
-        </div>
+        <div className="layout-7xl">
+          <div className="mb-12">
+            <p className="mb-4 inline-flex items-center text-[11px] font-medium uppercase tracking-[0.28em] text-[#8D1E39] font-poppins">
+              Leadership
+            </p>
+            <h2 className="font-[PPFONT] text-[1.7rem] sm:text-[2rem] leading-[1.45] tracking-[-0.01em] text-[#08112a]">
+              The person behind the firm
+            </h2>
+          </div>
 
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-[340px_1fr] lg:gap-20">
-          <div className="relative overflow-hidden bg-[#1a2e4a] p-10">
-            <div className="pointer-events-none absolute inset-0 opacity-10 [background-image:radial-gradient(circle_at_80%_20%,#fff_0%,transparent_55%)]" />
-            <div className="relative z-10">
-              <div className="mb-7 flex h-20 w-20 items-center justify-center rounded-full border border-white/30 bg-white/15 font-[PPFONT] text-3xl text-white/90">
-                AR
-              </div>
-              <h3 className="font-[PPFONT] text-4xl text-white">Anuj Rathi</h3>
-              <p className="mt-1 text-xs uppercase tracking-[0.16em] text-[#b08d57] font-poppins">
-                Founder and Managing Director
-              </p>
-              <div className="my-7 h-px bg-white/20" />
-              <div className="space-y-5 text-white/80 font-poppins">
-                <div>
-                  <p className="text-[10px] uppercase tracking-[0.2em] text-white/50">
-                    Experience
-                  </p>
-                  <p className="text-sm">20+ years</p>
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-[340px_1fr] lg:gap-20">
+            <div className="relative overflow-hidden bg-[#173053] p-10">
+              <div className="pointer-events-none absolute inset-0 opacity-10 [background-image:radial-gradient(circle_at_80%_20%,#fff_0%,transparent_55%)]" />
+              <div className="relative z-10">
+                <div className="mb-7 flex h-20 w-20 items-center justify-center rounded-full border border-white/30 bg-white/15 font-[PPFONT] text-3xl text-white/90">
+                  AR
                 </div>
-                <div>
-                  <p className="text-[10px] uppercase tracking-[0.2em] text-white/50">
-                    Sectors
-                  </p>
-                  <p className="text-sm">Manufacturing and Finance</p>
-                </div>
-                <div>
-                  <p className="text-[10px] uppercase tracking-[0.2em] text-white/50">
-                    Role
-                  </p>
-                  <p className="text-sm">Portfolio Strategy and Management</p>
+                <h3 className="font-[PPFONT] text-[1.7rem] leading-[1.2] text-white">
+                  Anuj Rathi
+                </h3>
+                <p className="mt-2 text-[11px] uppercase tracking-[0.22em] text-white/85 font-poppins">
+                  Founder and Managing Director
+                </p>
+                <div className="my-7 h-px bg-white/20" />
+                <div className="space-y-5 text-white/85 font-poppins">
+                  <div>
+                    <p className="text-[10px] uppercase tracking-[0.2em] text-white/55">
+                      Experience
+                    </p>
+                    <p className="text-[14px] leading-7">20+ years</p>
+                  </div>
+                  <div>
+                    <p className="text-[10px] uppercase tracking-[0.2em] text-white/55">
+                      Sectors
+                    </p>
+                    <p className="text-[14px] leading-7">Manufacturing and Finance</p>
+                  </div>
+                  <div>
+                    <p className="text-[10px] uppercase tracking-[0.2em] text-white/55">
+                      Role
+                    </p>
+                    <p className="text-[14px] leading-7">Portfolio Strategy and Management</p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          <div className="text-[#3d3830]">
-            {leaderParagraphs.map((paragraph) => (
-              <p
-                key={paragraph}
-                className="mb-6 text-[15px] leading-8 last:mb-0 font-poppins"
-              >
-                {paragraph}
-              </p>
-            ))}
-
-            <div className="mt-9 flex flex-wrap gap-2">
-              {expertiseTags.map((tag) => (
-                <span
-                  key={tag}
-                  className="border border-[#1a2e4a] px-3 py-1.5 text-[11px] uppercase tracking-[0.08em] text-[#1a2e4a] font-poppins"
+            <div className="text-[#616877]">
+              {leaderParagraphs.map((paragraph) => (
+                <p
+                  key={paragraph}
+                  className="mb-5 text-[14px] sm:text-[15px] leading-7 last:mb-0 font-poppins"
                 >
-                  {tag}
-                </span>
+                  {paragraph}
+                </p>
               ))}
+
+              <div className="mt-8 flex flex-wrap gap-2">
+                {expertiseTags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="border border-[#8D1E39] px-3 py-1.5 text-[11px] uppercase tracking-[0.08em] text-[#08112a] font-poppins"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="px-6 py-20 sm:px-10 lg:px-16 lg:py-28">
-        <div>
-          <p className="mb-4 text-[10px] uppercase tracking-[0.3em] text-[#1a2e4a] font-poppins">
-            What We Stand For
-          </p>
-          <h2 className="font-[PPFONT] text-5xl leading-tight">
-            Our core values
-          </h2>
-        </div>
+      <section className="bg-white px-6 py-16 sm:px-10 sm:py-20 lg:px-16 lg:py-24">
+        <div className="layout-7xl">
+          <div className="mb-12">
+            <p className="mb-4 inline-flex items-center text-[11px] font-medium uppercase tracking-[0.28em] text-[#8D1E39] font-poppins">
+              What We Stand For
+            </p>
+            <h2 className="font-[PPFONT] text-[1.7rem] sm:text-[2rem] leading-[1.45] tracking-[-0.01em] text-[#08112a]">
+              Our core values
+            </h2>
+          </div>
 
-        <div className="mt-14 grid grid-cols-1 border border-[#d8d0c4] sm:grid-cols-2 xl:grid-cols-4">
-          {values.map((item, idx) => (
-            <div
-              key={item.title}
-              className={`group border-[#d8d0c4] p-8 transition-colors hover:bg-[#e6edf5] ${idx !== values.length - 1 ? "xl:border-r" : ""
-                } ${idx < 2 ? "xl:border-b-0 sm:border-b" : ""}`}
-            >
-              <p className="mb-6 font-poppins text-5xl font-light leading-none text-[#e8edf5] group-hover:text-[#f8dfe2] transition-colors">
-                0{idx + 1}
-              </p>
-              <h3 className="font-[PPFONT] text-3xl leading-tight text-[#1a1714]">
-                {item.title}
-              </h3>
-              <p className="mt-3 text-sm leading-7 text-[#8c8278] font-poppins">
-                {item.description}
-              </p>
-            </div>
-          ))}
+          <div className="grid grid-cols-1 gap-px bg-[#8D1E39] md:grid-cols-2 xl:grid-cols-4">
+            {values.map((item, idx) => (
+              <article
+                key={item.title}
+                className="group cursor-pointer bg-white px-8 py-12 transition-colors duration-300 hover:bg-[linear-gradient(90deg,rgba(23,48,83,0.38)_0%,#d9e6f7_58%,#eef4ff_100%)]"
+              >
+                <p className="mb-6 font-poppins text-5xl font-light leading-none text-[#e8edf5] transition-colors duration-300 group-hover:text-[#8D1E39]">
+                  0{idx + 1}
+                </p>
+                <h3 className="mb-3 font-[PPFONT] text-[1.2rem] sm:text-[1.35rem] leading-[1.2] text-[#08112a] group-hover:text-[#0d1d3a]">
+                  {item.title}
+                </h3>
+                <p className="text-[14px] sm:text-[15px] leading-7 text-[#616877] font-poppins group-hover:text-[#243654]">
+                  {item.description}
+                </p>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
     </main>

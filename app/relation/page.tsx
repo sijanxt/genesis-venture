@@ -1,5 +1,5 @@
 import Hero from "@/components/InvestorRelations/Hero";
-import InvestorDocuments from "@/components/InvestorRelations/Investordocuments";
+import InvestorDocuments from "@/components/InvestorRelations/form";
 import ReportsAndUpdates from "@/components/InvestorRelations/ReportsAndUpdates";
 
 export default function Home() {

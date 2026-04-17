@@ -1,66 +1,79 @@
 "use client";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import { SplitText } from "gsap/all";
 
-gsap.registerPlugin(SplitText);
+import Link from "next/link";
+import Button from "@/components/ui/Button2";
 
 const Hero = () => {
-  useGSAP(() => {
-    const splitTitle = new SplitText(".hero-heading", { type: "words" });
-
-    gsap.from(splitTitle.words, {
-      opacity: 0,
-      y: 30,
-      filter: "blur(10px)",
-      stagger: 0.05,
-      duration: 1,
-      ease: "power3.out",
-    });
-
-    const splitDesc = new SplitText(".desc", { type: "lines" });
-
-    gsap.from(splitDesc.lines, {
-      opacity: 0,
-      y: 20,
-      stagger: 0.1,
-      duration: 1,
-      ease: "power2.out",
-    });
-
-    return () => {
-      splitTitle.revert();
-      splitDesc.revert();
-    };
-  });
-
   return (
-    <section className="relative min-h-screen w-full flex flex-col items-center justify-center px-4 xs:px-6 sm:px-8 md:px-16 pt-20 xs:pt-24 sm:pt-28 md:pt-32 pb-8 sm:pb-10 md:pb-12 overflow-hidden">
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        className="absolute top-0 left-0 w-full h-full object-cover -z-20"
-      >
-        <source src="/videos/investors.mp4" type="video/mp4" />
-      </video>
-      <div className="absolute inset-0 bg-genesis-navy/30 -z-10" />
+    <section className="relative overflow-hidden bg-[linear-gradient(90deg,#173053_0%,#d9e6f7_58%,#eef4ff_100%)]">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_12%,rgba(255,255,255,0.6)_0%,rgba(255,255,255,0)_48%)]" />
+      <div className="layout-7xl relative py-28 lg:py-36">
+        <div className="grid grid-cols-1 lg:grid-cols-2 lg:items-center">
+          <span className="inline-flex items-center gap-3 font-poppins text-[11px] font-medium tracking-[0.28em] uppercase text-genesis-red">
+            Investor Relations
+          </span>
+          <p className="text-[11px] font-medium uppercase tracking-[0.28em] text-[#8D1E39] font-poppins lg:pl-14 lg:text-left">
+            Why You&apos;re Seeing This Page
+          </p>
+        </div>
 
+        <div className="mt-6 grid grid-cols-1 lg:grid-cols-2">
+          <div className="flex flex-col justify-start">
 
+          <h1 className="mt-0 sm:mt-1 font-[PPFONT] text-[1.7rem] sm:text-[2rem] leading-[1.55] tracking-[-0.01em] text-[#08112a] font-medium">
+            <span className="block">Good data takes time.</span>
+            <span className="block italic text-genesis-red font-medium">
+              Great data takes discipline.
+            </span>
+          </h1>
 
-      <div className="flex flex-col justify-center text-center gap-3 sm:gap-4 md:gap-6 w-full max-w-xs xs:max-w-sm sm:max-w-md md:max-w-5xl px-2">
-        <h1 className="hero-heading text-[clamp(1.6rem,5vw,3.75rem)] text-white leading-tight font-[PPFONT]">
-          {/* Transparent insights into Genesis Ventures' performance and strategy */}
-          Transparent insight into capital, performance, and strategy.
-        </h1>
-        {/* <p className="desc text-xs xs:text-sm text-white/80 font-poppins leading-relaxed max-w-xs sm:max-w-sm mx-auto">
-          We provide our partners with clear visibility into capital allocation,
-          portfolio performance, and strategic updates. Your trust drives our
-          commitment to long-term growth.
-        </p> */}
+          <p className="mt-6 sm:mt-9 max-w-[560px] text-[16px] sm:text-[17px] leading-[1.55] text-[#08112a]">
+            Ours is almost ready and worth the wait. Performance materials,
+            portfolio disclosures, and investor letters are released only when they
+            meet the standards we hold ourselves to, not the standards the market
+            is willing to accept.
+          </p>
+
+          <div className="mt-8 sm:mt-12 flex flex-col sm:flex-row flex-wrap gap-4 sm:gap-5">
+            <Link href="#access">
+              <Button
+                variant="primary"
+                size="md"
+                className="inline-flex items-center justify-center gap-2 bg-genesis-red px-4 py-2.5 font-poppins text-[11px] font-medium uppercase tracking-[0.12em] text-white transition-all duration-350 hover:bg-[#a52344] sm:px-6 sm:py-3"
+              >
+                Request Materials
+              </Button>
+            </Link>
+            <Link href="#commitment">
+              <Button
+                variant="primary"
+                size="md"
+                className="inline-flex items-center justify-center gap-2 border-[#173053] bg-[#173053] px-4 py-2.5 font-poppins text-[11px] font-medium uppercase tracking-[0.12em] !text-white transition-all duration-350 hover:!bg-[#173053] sm:px-6 sm:py-3"
+              >
+                Our Commitment
+              </Button>
+            </Link>
+          </div>
+        </div>
+
+          <div className="flex flex-col justify-start lg:pl-14">
+          <div className="mb-10 border-b border-[#1a2e4a]/15 pb-10">
+            <blockquote className="font-[PPFONT] text-[1.7rem] sm:text-[2rem] italic leading-[1.55] text-[#102347]">
+              &quot;We&apos;d rather show you{" "}
+              <span className="not-italic text-[#8D1E39]">nothing</span> than show
+              you something half-built.&quot;
+            </blockquote>
+          </div>
+
+          <p className="text-[15px] sm:text-[16px] text-[#2f4268] leading-[1.9] font-poppins">
+            Most firms publish performance the moment it flatters them. We have
+            chosen a different path: to release figures only when they have been
+            audited, stress-tested, and reviewed against the standards we hold
+            ourselves to.
+          </p>
+        </div>
+        </div>
       </div>
-
     </section>
   );
 };

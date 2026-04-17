@@ -28,7 +28,7 @@ export default function UnlistedMarket() {
 
   return (
     <section className="w-full bg-white text-white flex flex-col px-4 xs:px-6 sm:px-8 md:px-16 py-8 sm:py-8 md:py-8">
-      <div className="mx-auto w-full max-w-9xl">
+      <div className="layout-7xl">
         <div className="flex items-start justify-between border-b border-genesis-red pb-2 sm:pb-3 md:pb-4">
           <span className="firm-heading text-lg sm:text-xl uppercase tracking-widest text-gray-500 font-poppins font-bold">
             Why Unlisted Markets

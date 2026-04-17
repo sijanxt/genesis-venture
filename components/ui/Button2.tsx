@@ -15,7 +15,7 @@ export default function Button({
   ...props
 }: ButtonProps) {
   const baseStyles =
-    "relative overflow-hidden font-medium transition-colors cursor-pointer";
+    "relative inline-flex items-center justify-center overflow-hidden font-medium transition-colors cursor-pointer";
 
   const variants = {
     primary: "bg-genesis-blue text-white hover:bg-genesis-blue/90",
@@ -35,11 +35,11 @@ export default function Button({
       className={`group ${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`}
       {...props}
     >
-      <span className="relative block overflow-hidden">
+      <span className="relative block w-full overflow-hidden text-center">
         <span className="inline-block transition-transform duration-500 ease-in-out group-hover:-translate-y-full">
           {children}
         </span>
-        <span className="absolute left-0 top-0 inline-block translate-y-full transition-transform duration-500 ease-in-out group-hover:translate-y-0">
+        <span className="absolute left-0 top-0 inline-block w-full translate-y-full text-center transition-transform duration-500 ease-in-out group-hover:translate-y-0">
           {children}
         </span>
       </span>

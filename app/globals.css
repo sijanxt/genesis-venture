@@ -207,3 +207,9 @@ html {
     @apply font-sans;
   }
 }
+
+@layer utilities {
+  .layout-7xl {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 md:px-8 xl:px-0;
+  }
+}

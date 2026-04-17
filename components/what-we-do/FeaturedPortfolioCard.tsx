@@ -10,7 +10,7 @@ interface FeaturedPortfolioCardProps {
 const FeaturedPortfolioCard: FC<FeaturedPortfolioCardProps> = ({ item }) => {
   return (
     <div className="col-span-1 md:col-span-2 lg:col-span-3 xl:col-span-4">
-      <article className="group relative bg-white border border-genesis-navy/10 rounded-none p-8 lg:p-14 flex flex-col transition-all duration-300 hover:border-genesis-navy/50">
+      <article className="group relative flex flex-col rounded-none border border-genesis-navy/10 bg-white p-8 transition-all duration-300 hover:border-[#8D1E39]/45 hover:bg-[linear-gradient(90deg,rgba(23,48,83,0.38)_0%,#d9e6f7_58%,#eef4ff_100%)] lg:p-14">
 
         {/* Top Meta: Badge & Sector */}
         <div className="flex justify-between items-start mb-16">
@@ -28,10 +28,16 @@ const FeaturedPortfolioCard: FC<FeaturedPortfolioCardProps> = ({ item }) => {
 
         {/* Main Title & Description */}
         <div className="max-w-4xl mb-12">
-          <h4 className="text-3xl lg:text-4xl font-light tracking-tight mb-6 leading-tight">
+          <h4 className="mb-6 font-[PPFONT] text-[1.7rem] sm:text-[2rem] leading-[1.3] tracking-tight text-[#08112a] group-hover:text-[#0d1d3a]">
             {item.name}
           </h4>
-          <p className="text-[15px] text-[#6b6b78] font-light leading-relaxed max-w-2xl">
+          <p
+            className={`max-w-2xl text-[14px] sm:text-[15px] leading-7 ${
+              item.id === "sopan-multiple"
+                ? "text-[#08112a] group-hover:text-[#08112a]"
+                : "text-[#616877] group-hover:text-[#243654]"
+            }`}
+          >
             {item.description}
           </p>
         </div>

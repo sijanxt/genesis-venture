@@ -45,7 +45,7 @@ export default function Connect() {
 
   return (
     <section className="contact-section relative w-full min-h-screen bg-white px-4 xs:px-6 sm:px-8 md:px-16 py-20 sm:py-24 md:py-28">
-      <div className="mx-auto flex w-full max-w-9xl flex-col gap-10 sm:gap-12">
+      <div className="layout-7xl flex flex-col gap-10 sm:gap-12">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div className="flex max-w-2xl flex-col gap-3">
             <span className="contact-heading text-xs uppercase tracking-[0.28em] text-genesis-blue font-[GT50]">

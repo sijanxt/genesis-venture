@@ -83,8 +83,7 @@ export default function NavBar() {
     closeTimer.current = setTimeout(() => setOpenDropdown(null), 150);
   };
 
-  const navbarSurface =
-    "bg-white/90 backdrop-blur-md shadow-sm border-gray-100";
+  const navbarSurface = "bg-white/90 backdrop-blur-md border-gray-100";
   const navbarTextColor = "text-genesis-navy";
 
   return (
@@ -93,82 +92,84 @@ export default function NavBar() {
       style={{ transform: showNavbar ? "translateY(0)" : "translateY(-100%)" }}
     >
       <nav
-        className={`flex items-center justify-between px-6 md:px-16 py-4 border-b transition-all duration-300 ${navbarSurface} ${navbarTextColor}`}
+        className={`border-b transition-all duration-300 ${navbarSurface} ${navbarTextColor}`}
       >
-        <Link href="/" className="flex leading-none select-none shrink-0">
-          <Image
-            src="/images/final/png/Asset 3.png"
-            alt="Genesis Ventures"
-            width={100}
-            height={40}
-          />
-        </Link>
+        <div className="layout-7xl flex items-center justify-between py-4">
+          <Link href="/" className="flex leading-none select-none shrink-0">
+            <Image
+              src="/images/final/png/Asset 3.png"
+              alt="Genesis Ventures"
+              width={100}
+              height={40}
+            />
+          </Link>
 
-        {/* Desktop */}
-        <ul className="hidden md:flex items-center gap-6 lg:gap-8">
-          {navLinks.map(({ label, href, dropdown }) => (
-            <li
-              key={label}
-              className="relative"
-              onMouseEnter={() => dropdown && handleMouseEnter(label)}
-              onMouseLeave={() => dropdown && handleMouseLeave()}
-            >
-              <Link
-                href={href ?? "#"}
-                className={`flex items-center gap-1 text-xs uppercase tracking-widest font-poppins transition-colors duration-200 ${
-                  pathname === href
-                    ? "text-genesis-red"
-                    : "text-genesis-navy hover:text-genesis-red"
-                }`}
+          {/* Desktop */}
+          <ul className="hidden md:flex items-center gap-6 lg:gap-8">
+            {navLinks.map(({ label, href, dropdown }) => (
+              <li
+                key={label}
+                className="relative"
+                onMouseEnter={() => dropdown && handleMouseEnter(label)}
+                onMouseLeave={() => dropdown && handleMouseLeave()}
               >
-                {label}
-                {dropdown && (
-                  <ChevronDown
-                    size={12}
-                    className={`transition-transform duration-200 mt-px ${
-                      openDropdown === label
-                        ? "rotate-180 text-genesis-red"
-                        : ""
-                    }`}
-                  />
-                )}
-              </Link>
-
-              {/* Dropdown panel */}
-              {dropdown && (
-                <div
-                  className={`absolute top-full left-1/2 -translate-x-1/2 mt-3 w-52 bg-white border border-gray-100 shadow-lg transition-all duration-200 origin-top ${
-                    openDropdown === label
-                      ? "opacity-100 scale-y-100 pointer-events-auto"
-                      : "opacity-0 scale-y-95 pointer-events-none"
+                <Link
+                  href={href ?? "#"}
+                  className={`flex items-center gap-1 text-xs uppercase tracking-widest font-poppins transition-colors duration-200 ${
+                    pathname === href
+                      ? "text-genesis-red"
+                      : "text-genesis-navy hover:text-genesis-red"
                   }`}
                 >
-                  <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-white border-l border-t border-gray-100 rotate-45" />
-                  <ul className="py-4 relative">
-                    {dropdown.map(({ label: dLabel, href: dHref }) => (
-                      <li key={dHref}>
-                        <Link
-                          href={dHref}
-                          className="block px-5 py-2.5 text-xs font-poppins uppercase tracking-wider text-gray-500 hover:text-genesis-navy hover:bg-gray-50 transition-colors duration-150"
-                        >
-                          {dLabel}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-            </li>
-          ))}
-        </ul>
+                  {label}
+                  {dropdown && (
+                    <ChevronDown
+                      size={12}
+                      className={`transition-transform duration-200 mt-px ${
+                        openDropdown === label
+                          ? "rotate-180 text-genesis-red"
+                          : ""
+                      }`}
+                    />
+                  )}
+                </Link>
 
-        <button
-          className="md:hidden p-1 transition-colors duration-200 text-genesis-navy"
-          onClick={() => setMenuOpen((prev) => !prev)}
-          aria-label="Toggle menu"
-        >
-          {menuOpen ? <X size={22} /> : <Menu size={22} />}
-        </button>
+                {/* Dropdown panel */}
+                {dropdown && (
+                  <div
+                    className={`absolute top-full left-1/2 -translate-x-1/2 mt-3 w-52 bg-white border border-gray-100 shadow-lg transition-all duration-200 origin-top ${
+                      openDropdown === label
+                        ? "opacity-100 scale-y-100 pointer-events-auto"
+                        : "opacity-0 scale-y-95 pointer-events-none"
+                    }`}
+                  >
+                    <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-white border-l border-t border-gray-100 rotate-45" />
+                    <ul className="py-4 relative">
+                      {dropdown.map(({ label: dLabel, href: dHref }) => (
+                        <li key={dHref}>
+                          <Link
+                            href={dHref}
+                            className="block px-5 py-2.5 text-xs font-poppins uppercase tracking-wider text-gray-500 hover:text-genesis-navy hover:bg-gray-50 transition-colors duration-150"
+                          >
+                            {dLabel}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </li>
+            ))}
+          </ul>
+
+          <button
+            className="md:hidden p-1 transition-colors duration-200 text-genesis-navy"
+            onClick={() => setMenuOpen((prev) => !prev)}
+            aria-label="Toggle menu"
+          >
+            {menuOpen ? <X size={22} /> : <Menu size={22} />}
+          </button>
+        </div>
       </nav>
 
       {/* Mobile menu */}
@@ -177,7 +178,7 @@ export default function NavBar() {
           menuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
         } bg-white/90 backdrop-blur-md border-b border-gray-100`}
       >
-        <div className="flex flex-col px-6 py-4 gap-1">
+        <div className="layout-7xl flex flex-col py-4 gap-1">
           {navLinks.map(({ label, href, dropdown }) => (
             <div key={label}>
               {dropdown ? (

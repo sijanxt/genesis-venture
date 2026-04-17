@@ -9,7 +9,7 @@ interface PortfolioCardProps {
 
 const PortfolioCard: FC<PortfolioCardProps> = ({ item }) => {
   return (
-    <article className="group relative bg-white border border-genesis-navy/10 rounded-none p-8 flex flex-col h-full transition-all duration-300 hover:border-genesis-navy/50">
+    <article className="group relative flex h-full flex-col rounded-none border border-genesis-navy/10 bg-white p-8 transition-all duration-300 hover:border-[#8D1E39]/45 hover:bg-[linear-gradient(90deg,rgba(23,48,83,0.38)_0%,#d9e6f7_58%,#eef4ff_100%)]">
 
       {/* Top Metadata Row */}
       <div className="flex justify-between items-start mb-12">
@@ -27,11 +27,11 @@ const PortfolioCard: FC<PortfolioCardProps> = ({ item }) => {
 
       {/* Main Content */}
       <div className="flex-1 space-y-4">
-        <h4 className="text-xl tracking-tight leading-[1.1]">
+        <h4 className="font-[PPFONT] text-[1.2rem] tracking-tight leading-[1.2] text-[#08112a] group-hover:text-[#0d1d3a]">
           {item.name}
         </h4>
 
-        <p className="text-xs text-[#6b6b78] font-light leading-relaxed max-w-[90%]">
+        <p className="max-w-[90%] text-[14px] leading-7 text-[#616877] group-hover:text-[#243654]">
           {item.description}
         </p>
       </div>

@@ -36,6 +36,24 @@ function LenisScrollHandler({ lenis }: { lenis: Lenis | null }) {
   const searchKey = searchParams.toString();
 
   useEffect(() => {
+    if (typeof window === "undefined" || !lenis) return;
+
+    const scrollToCurrentHash = () => {
+      const hash = window.location.hash;
+      if (!hash) return;
+
+      lenis.scrollTo(hash, {
+        duration: 1.1,
+        force: true,
+        offset: -100,
+      });
+    };
+
+    window.addEventListener("hashchange", scrollToCurrentHash);
+    return () => window.removeEventListener("hashchange", scrollToCurrentHash);
+  }, [lenis]);
+
+  useEffect(() => {
     // Next.js + Lenis can preserve scroll between routes; force an explicit reset.
     const hash = typeof window !== "undefined" ? window.location.hash : "";
 
@@ -45,11 +63,17 @@ function LenisScrollHandler({ lenis }: { lenis: Lenis | null }) {
       return;
     }
 
-    const target: string | number = hash || 0;
-
     // Defer one frame so the new route's layout/content is in the DOM.
     const raf = window.requestAnimationFrame(() => {
-      lenis.scrollTo(target, { immediate: true, force: true });
+      if (hash) {
+        lenis.scrollTo(hash, {
+          duration: 1.1,
+          force: true,
+          offset: -100,
+        });
+      } else {
+        lenis.scrollTo(0, { immediate: true, force: true });
+      }
       lenis.resize();
       ScrollTrigger.refresh();
     });

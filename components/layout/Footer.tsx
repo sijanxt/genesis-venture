@@ -23,15 +23,15 @@ const resources = [
 
 export default function Footer() {
   return (
-    <footer className="relative w-full min-h-[34vh] overflow-hidden bg-genesis-navy text-white font-poppins">
+    <footer className="relative w-full min-h-[46vh] overflow-hidden bg-genesis-navy text-white font-poppins">
       <div className="pointer-events-none absolute inset-0 bg-[url('/footer/image.png')] bg-cover bg-center opacity-30" />
       <div className="pointer-events-none absolute inset-0 bg-black/30" />
 
-      <div className="relative z-10 flex min-h-[34vh] flex-col justify-between">
-        <div className="flex flex-col gap-5 px-8 pb-5 pt-6 md:px-16 md:pb-6 md:pt-8">
+      <div className="relative z-10 flex min-h-[46vh] flex-col justify-between">
+        <div className="layout-7xl flex flex-col gap-5 pb-5 pt-6 md:pb-6 md:pt-8">
           <div className="flex flex-col justify-between gap-5 md:flex-row">
             <div className="flex max-w-xl flex-col gap-3">
-              <h2 className="font-[PPFONT] text-xl leading-snug text-white sm:text-2xl md:text-3xl lg:text-4xl">
+              <h2 className="font-[PPFONT] text-[1.7rem] sm:text-[2rem] leading-[1.55] text-white">
                 Ready to build something
                 <br />
                 significant?
@@ -91,7 +91,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 items-center gap-2 px-8 pb-4 pt-2 text-center md:grid-cols-3 md:px-16 md:pb-5 md:pt-3 md:text-left">
+        <div className="layout-7xl grid grid-cols-1 items-center gap-2 pb-4 pt-2 text-center md:grid-cols-3 md:pb-5 md:pt-3 md:text-left">
           <span className="text-xs text-white/80 md:justify-self-start">
             Copyright (c) {new Date().getFullYear()} Genesis Ventures, Inc. All
             Rights Reserved.

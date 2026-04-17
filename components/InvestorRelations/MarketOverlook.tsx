@@ -1,26 +1,18 @@
-import Image from 'next/image'
-
 const MarketOverlook = () => {
   return (
-    <div
-      className="relative h-screen min-h-screen w-screen overflow-hidden left-1/2 -translate-x-1/2"
-    >
-      <Image
-        src="/images/grow.png"
-        alt="Growth visual divider"
-        fill
-        className="object-cover"
-      />
-      <div className="absolute inset-0 bg-[#08112a]/68" />
-      <div className="relative z-10 flex h-full items-center justify-center px-6 text-center sm:px-10 md:px-16 lg:px-20">
-        <div className="max-w-5xl -translate-y-8 sm:-translate-y-10 md:-translate-y-12">
-          <h2 className="devider-title font-[PPFONT] text-[clamp(1.8rem,4.6vw,4.4rem)] leading-[1.18] text-white">
-            Guiding investment decisions through market insight
-          </h2>
-        </div>
+    <footer className="bg-[#fafaf9] py-12 sm:py-14 md:py-16 lg:py-[60px] pb-10 border-t border-[#e4e0db]">
+      <div className="layout-7xl">
+        <p className="text-[14px] sm:text-[15px] leading-[1.8] text-[#6b6b78] italic max-w-[900px] mx-auto text-center">
+          Investor Relations materials are made available to qualified investors
+          only and do not constitute an offer to sell or a solicitation of an
+          offer to buy any security. Past performance is not a reliable indicator
+          of future results. All investments carry risk, including possible loss
+          of capital. Please review our full Risk Disclosure before making any
+          investment decision.
+        </p>
       </div>
-    </div>
-  )
-}
+    </footer>
+  );
+};
 
-export default MarketOverlook
+export default MarketOverlook;
