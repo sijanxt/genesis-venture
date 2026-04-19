@@ -39,15 +39,15 @@ const ReportsAndUpdates = () => {
           {prepItems.map((item, idx, arr) => (
             <div
               key={item.num}
-              className={`group grid items-center cursor-pointer grid-cols-[56px_1fr] gap-5 border-t border-[#e4e0db] py-6 transition-colors duration-300 hover:bg-[linear-gradient(90deg,rgba(23,48,83,0.68)_0%,#d9e6f7_58%,#eef4ff_100%)] sm:grid-cols-[76px_1fr] sm:gap-7 sm:py-7 lg:grid-cols-[90px_1.15fr_2fr] lg:gap-10 lg:py-8 ${idx === arr.length - 1 ? "border-b" : ""}`}
+              className={`group grid items-center cursor-pointer grid-cols-[56px_1fr] gap-5 border-t border-white/20 bg-[#162F54] py-6 transition-colors duration-300 sm:grid-cols-[76px_1fr] sm:gap-7 sm:py-7 lg:grid-cols-[90px_1.15fr_2fr] lg:gap-10 lg:border-[#e4e0db] lg:bg-transparent lg:py-8 lg:hover:bg-[#162F54] ${idx === arr.length - 1 ? "border-b" : ""}`}
             >
-              <div className="pl-2 sm:pl-3 lg:pl-4 font-poppins text-[2rem] font-light leading-none text-[#d7e2f0] transition-colors duration-300 group-hover:text-[#8D1E39] sm:text-[2.6rem] lg:text-[3rem]">
+              <div className="pl-2 sm:pl-3 lg:pl-4 font-poppins text-[2rem] font-light leading-none text-[#8D1E39] transition-colors duration-300 sm:text-[2.6rem] lg:text-[3rem] lg:text-[#d7e2f0] lg:group-hover:text-[#8D1E39]">
                 {item.num}
               </div>
-              <h3 className="font-[PPFONT] text-[1.2rem] leading-[1.2] text-[#08112a] sm:text-[1.35rem]">
+              <h3 className="font-[PPFONT] text-[1.2rem] leading-[1.2] text-white transition-colors duration-300 sm:text-[1.35rem] lg:text-[#08112a] lg:group-hover:text-white">
                 {item.title}
               </h3>
-              <p className="col-span-2 max-w-[560px] pl-[56px] font-poppins text-[14px] leading-7 text-[#616877] sm:col-span-2 sm:pl-[76px] sm:text-[15px] lg:col-span-1 lg:pl-0">
+              <p className="col-span-2 max-w-[560px] pl-[56px] font-poppins text-[14px] leading-7 text-white transition-colors duration-300 sm:col-span-2 sm:pl-[76px] sm:text-[15px] lg:col-span-1 lg:pl-0 lg:text-[#616877] lg:group-hover:text-white">
                 {item.desc}
               </p>
             </div>

@@ -5,14 +5,13 @@ import Button from "@/components/ui/Button2";
 
 const Hero = () => {
   return (
-    <section className="relative overflow-hidden bg-[linear-gradient(90deg,#173053_0%,#d9e6f7_58%,#eef4ff_100%)]">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_12%,rgba(255,255,255,0.6)_0%,rgba(255,255,255,0)_48%)]" />
+    <section className="relative overflow-hidden bg-white lg:bg-[linear-gradient(to_right,#ffffff_0%,#ffffff_50%,#162F54_50%,#162F54_100%)]">
       <div className="layout-7xl relative py-28 lg:py-36">
         <div className="grid grid-cols-1 lg:grid-cols-2 lg:items-center">
           <span className="inline-flex items-center gap-3 font-poppins text-[11px] font-medium tracking-[0.28em] uppercase text-genesis-red">
             Investor Relations
           </span>
-          <p className="text-[11px] font-medium uppercase tracking-[0.28em] text-[#8D1E39] font-poppins lg:pl-14 lg:text-left">
+          <p className="text-[11px] font-medium uppercase tracking-[0.28em] text-[#8D1E39] font-poppins lg:pl-14 lg:text-left lg:text-white/80">
             Why You&apos;re Seeing This Page
           </p>
         </div>
@@ -34,7 +33,7 @@ const Hero = () => {
             is willing to accept.
           </p>
 
-          <div className="mt-8 sm:mt-12 flex flex-col sm:flex-row flex-wrap gap-4 sm:gap-5">
+          <div className="mt-8 sm:mt-12 flex flex-row gap-3 sm:gap-5">
             <Link href="#access">
               <Button
                 variant="primary"
@@ -56,16 +55,16 @@ const Hero = () => {
           </div>
         </div>
 
-          <div className="flex flex-col justify-start lg:pl-14">
-          <div className="mb-10 border-b border-[#1a2e4a]/15 pb-10">
-            <blockquote className="font-[PPFONT] text-[1.7rem] sm:text-[2rem] italic leading-[1.55] text-[#102347]">
+          <div className="mt-10 flex flex-col justify-start lg:mt-0 lg:pl-14">
+          <div className="mb-10 border-b border-[#1a2e4a]/15 pb-10 lg:border-white/20">
+            <blockquote className="font-[PPFONT] text-[1.7rem] sm:text-[2rem] italic leading-[1.55] text-[#102347] lg:text-white">
               &quot;We&apos;d rather show you{" "}
-              <span className="not-italic text-[#8D1E39]">nothing</span> than show
+              <span className="not-italic">nothing</span> than show
               you something half-built.&quot;
             </blockquote>
           </div>
 
-          <p className="text-[15px] sm:text-[16px] text-[#2f4268] leading-[1.9] font-poppins">
+          <p className="text-[15px] sm:text-[16px] text-[#2f4268] leading-[1.9] font-poppins lg:text-white/85">
             Most firms publish performance the moment it flatters them. We have
             chosen a different path: to release figures only when they have been
             audited, stress-tested, and reviewed against the standards we hold

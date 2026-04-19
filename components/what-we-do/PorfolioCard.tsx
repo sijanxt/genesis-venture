@@ -9,29 +9,29 @@ interface PortfolioCardProps {
 
 const PortfolioCard: FC<PortfolioCardProps> = ({ item }) => {
   return (
-    <article className="group relative flex h-full flex-col rounded-none border border-genesis-navy/10 bg-white p-8 transition-all duration-300 hover:border-[#8D1E39]/45 hover:bg-[linear-gradient(90deg,rgba(23,48,83,0.38)_0%,#d9e6f7_58%,#eef4ff_100%)]">
+    <article className="group relative flex h-full flex-col rounded-none border border-genesis-navy/10 bg-white p-8 transition-all duration-300 hover:border-[#8D1E39]/45 hover:bg-[#162F54]">
 
       {/* Top Metadata Row */}
       <div className="flex justify-between items-start mb-12">
         <div className="space-y-1">
-          <p className="text-[10px] font-bold tracking-[0.2em] text-genesis-red uppercase">
+          <p className="text-[10px] font-bold tracking-[0.2em] text-genesis-red uppercase transition-colors duration-300 group-hover:text-white">
             {item.sector}
           </p>
           <div className="h-px w-4 bg-genesis-navy/30 group-hover:w-8 transition-all duration-500" />
         </div>
 
-        <span className="text-[8px] font-medium tracking-widest text-genesis-navy/50 uppercase border border-genesis-navy/10 px-2 py-0.5">
+        <span className="text-[8px] font-medium tracking-widest text-genesis-navy/50 uppercase border border-genesis-navy/10 px-2 py-0.5 transition-colors duration-300 group-hover:border-white/40 group-hover:text-white/80">
           {item.badge}
         </span>
       </div>
 
       {/* Main Content */}
       <div className="flex-1 space-y-4">
-        <h4 className="font-[PPFONT] text-[1.2rem] tracking-tight leading-[1.2] text-[#08112a] group-hover:text-[#0d1d3a]">
+        <h4 className="font-[PPFONT] text-[1.2rem] tracking-tight leading-[1.2] text-[#08112a] transition-colors duration-300 group-hover:text-white">
           {item.name}
         </h4>
 
-        <p className="max-w-[90%] text-[14px] leading-7 text-[#616877] group-hover:text-[#243654]">
+        <p className="max-w-[90%] text-[14px] leading-7 text-[#616877] transition-colors duration-300 group-hover:text-white/85">
           {item.description}
         </p>
       </div>
@@ -41,10 +41,10 @@ const PortfolioCard: FC<PortfolioCardProps> = ({ item }) => {
         {item.progress !== undefined && (
           <div className="mb-8">
             <div className="flex justify-between items-end mb-2">
-              <span className="text-[8px] font-black uppercase tracking-[0.2em] text-genesis-navy/50">
+              <span className="text-[8px] font-black uppercase tracking-[0.2em] text-genesis-navy/50 transition-colors duration-300 group-hover:text-white/75">
                 Phase Progress
               </span>
-              <span className="text-[10px] tabular-nums font-medium text-slate-900">
+              <span className="text-[10px] tabular-nums font-medium text-slate-900 transition-colors duration-300 group-hover:text-white">
                 {item.progress}%
               </span>
             </div>
@@ -62,7 +62,7 @@ const PortfolioCard: FC<PortfolioCardProps> = ({ item }) => {
         <div className="flex flex-wrap items-center gap-y-2 pt-6 border-t border-genesis-navy/10">
           {item.tags.map((tag: string, index: number) => (
             <div key={tag} className="flex items-center">
-              <span className="text-[10px] text-genesis-navy/50 font-medium tracking-wider uppercase">
+              <span className="text-[10px] text-genesis-navy/50 font-medium tracking-wider uppercase transition-colors duration-300 group-hover:text-white/80">
                 {tag}
               </span>
               {index < item.tags.length - 1 && (

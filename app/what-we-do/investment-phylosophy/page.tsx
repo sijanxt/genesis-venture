@@ -36,14 +36,13 @@ const beliefCards = [
 export default function InvestmentPhylosophyPage() {
   return (
     <main className="bg-white text-[#2c2c34] font-poppins">
-      <section className="relative min-h-[82vh] overflow-hidden bg-[linear-gradient(90deg,#173053_0%,#d9e6f7_58%,#eef4ff_100%)] lg:min-h-screen">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_12%,rgba(255,255,255,0.6)_0%,rgba(255,255,255,0)_48%)]" />
+      <section className="relative overflow-hidden bg-white lg:bg-[linear-gradient(to_right,#ffffff_0%,#ffffff_50%,#162F54_50%,#162F54_100%)]">
         <div className="layout-7xl relative py-28 lg:py-36">
           <div className="grid grid-cols-1 lg:grid-cols-2 lg:items-center">
             <span className="inline-flex items-center gap-3 font-poppins text-[11px] font-medium tracking-[0.28em] uppercase text-[#8D1E39]">
               Investment Philosophy
             </span>
-            <p className="text-[11px] font-medium uppercase tracking-[0.28em] text-[#8D1E39] font-poppins lg:pl-14 lg:text-left">
+            <p className="text-[11px] font-medium uppercase tracking-[0.28em] text-[#8D1E39] font-poppins lg:pl-14 lg:text-left lg:text-white/80">
               Our Commitment
             </p>
           </div>
@@ -87,11 +86,11 @@ export default function InvestmentPhylosophyPage() {
             </div>
 
             <div className="flex flex-col justify-start lg:pl-14">
-              <div className="mb-10 border-b border-[#1a2e4a]/15 pb-10">
-                <blockquote className="font-[PPFONT] text-[1.7rem] sm:text-[2rem] italic leading-[1.55] text-[#102347]">
+              <div className="mb-10 border-b border-[#1a2e4a]/15 pb-10 lg:border-white/20">
+                <blockquote className="font-[PPFONT] text-[1.7rem] sm:text-[2rem] italic leading-[1.55] text-[#102347] lg:text-white">
                   &quot;We will never recommend what is profitable for us over
                   what is
-                  <span className="not-italic text-[#8D1E39]">
+                  <span className="not-italic">
                     {" "}
                     right for you.
                   </span>{" "}
@@ -103,7 +102,7 @@ export default function InvestmentPhylosophyPage() {
                 {heroStats.map((stat) => (
                   <div
                     key={stat.desc}
-                    className="bg-[#173053] px-5 py-6 transition hover:bg-[#173053]"
+                    className="bg-[#04356A] px-5 py-6 transition hover:bg-[#04356A]"
                   >
                     <p className="font-[PPFONT] text-[1.9rem] sm:text-[2.1rem] leading-none text-white">
                       {stat.value}
@@ -191,15 +190,15 @@ export default function InvestmentPhylosophyPage() {
             {beliefCards.map((card) => (
               <article
                 key={card.no}
-                className="group cursor-pointer bg-white px-8 py-12 transition-colors duration-300 hover:bg-[linear-gradient(90deg,rgba(23,48,83,0.38)_0%,#d9e6f7_58%,#eef4ff_100%)]"
+                className="group cursor-pointer bg-white px-8 py-12 transition-colors duration-300 hover:bg-[#162F54]"
               >
                 <p className="mb-6 font-poppins text-5xl font-light leading-none text-[#e8edf5] transition-colors duration-300 group-hover:text-[#8D1E39]">
                   {card.no}
                 </p>
-                <h3 className="mb-3 font-[PPFONT] text-[1.2rem] sm:text-[1.35rem] leading-[1.2] text-[#08112a] group-hover:text-[#0d1d3a]">
+                <h3 className="mb-3 font-[PPFONT] text-[1.2rem] sm:text-[1.35rem] leading-[1.2] text-[#08112a] transition-colors duration-300 group-hover:text-white">
                   {card.title}
                 </h3>
-                <p className="text-[14px] sm:text-[15px] leading-7 text-[#616877] font-poppins group-hover:text-[#243654]">
+                <p className="text-[14px] sm:text-[15px] leading-7 text-[#616877] font-poppins transition-colors duration-300 group-hover:text-white/85">
                   {card.body}
                 </p>
               </article>
