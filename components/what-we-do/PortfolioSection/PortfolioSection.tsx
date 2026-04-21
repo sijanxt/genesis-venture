@@ -42,7 +42,7 @@ export default function PortfolioSection({
                   onClick={() => setActiveSector(sector.key)}
                   className={`px-4 py-2 border text-[11px] font-medium uppercase tracking-[0.12em] transition-all duration-300 ${
                     isActive
-                      ? "bg-[#173053] text-white border-[#173053]"
+                      ? "bg-[#edf2f7] text-[#173053] border-[#173053]/35"
                       : "bg-white text-[#173053]/80 border-[#8D1E39]/35 hover:border-[#8D1E39] hover:text-[#8D1E39]"
                   }`}
                 >
