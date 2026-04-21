@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import Button from "@/components/ui/Button2";
+import HeroPage from "@/components/ui/HeroPage";
 
 const heroStats = [
   { value: "NPR 1B+", desc: "Assets Under Management" },
@@ -36,6 +37,7 @@ const beliefCards = [
 export default function InvestmentPhylosophyPage() {
   return (
     <main className="bg-white text-[#2c2c34] font-poppins">
+      <HeroPage title="Investment Philosophy" />
       <section className="relative overflow-hidden bg-white lg:bg-[linear-gradient(to_right,#ffffff_0%,#ffffff_50%,#162F54_50%,#162F54_100%)]">
         <div className="layout-7xl relative py-28 lg:py-36">
           <div className="grid grid-cols-1 lg:grid-cols-2 lg:items-center">

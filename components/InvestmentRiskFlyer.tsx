@@ -112,7 +112,7 @@ export default function InvestmentRiskModal({ onClose }: Props) {
       {/* Modal panel - stop propagation so clicks inside don't bubble to backdrop */}
       <div
         ref={modalRef}
-        className={`${playfair.variable} relative w-full max-w-3xl h-[90vh] bg-white flex flex-col overflow-hidden overscroll-none`}
+        className={`${playfair.variable} relative w-full max-w-3xl h-[90vh] bg-white/95 flex flex-col overflow-hidden overscroll-none`}
         onMouseDown={(e) => e.stopPropagation()}
         onWheel={(e) => e.stopPropagation()}
         onTouchMove={(e) => e.stopPropagation()}
@@ -169,52 +169,50 @@ export default function InvestmentRiskModal({ onClose }: Props) {
 
           <div>
             <SectionLabel>Key Risk Factors</SectionLabel>
-            <div className="border border-genesis-navy/15 bg-genesis-navy/[0.04] p-4">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-gray-100">
-                {risks.map((risk) => (
-                  <div
-                    key={risk.num}
-                    onMouseEnter={() => setActiveRisk(risk.num)}
-                    onMouseLeave={() => setActiveRisk(null)}
-                    onFocus={() => setActiveRisk(risk.num)}
-                    onBlur={() => setActiveRisk(null)}
-                    tabIndex={0}
-                    className={`relative bg-white px-5 py-5 overflow-hidden transition-colors duration-200 outline-none cursor-pointer ${
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {risks.map((risk) => (
+                <div
+                  key={risk.num}
+                  onMouseEnter={() => setActiveRisk(risk.num)}
+                  onMouseLeave={() => setActiveRisk(null)}
+                  onFocus={() => setActiveRisk(risk.num)}
+                  onBlur={() => setActiveRisk(null)}
+                  tabIndex={0}
+                  className={`relative border border-genesis-navy/20 bg-genesis-navy/[0.04] px-5 py-5 overflow-hidden transition-colors duration-200 outline-none cursor-pointer ${
+                    activeRisk === risk.num
+                      ? "bg-genesis-navy/[0.07]"
+                      : "hover:bg-genesis-navy/[0.05]"
+                  }`}
+                  style={
+                    activeRisk === risk.num
+                      ? { boxShadow: `inset 3px 0 0 ${risk.accent}` }
+                      : undefined
+                  }
+                >
+                  <span
+                    aria-hidden
+                    className={`absolute top-1 right-3 font-[PPFONT] text-4xl select-none leading-none transition-colors duration-200 ${
                       activeRisk === risk.num
-                        ? "bg-genesis-navy/[0.04]"
-                        : "hover:bg-genesis-navy/[0.03]"
+                        ? "text-genesis-navy/35"
+                        : "text-genesis-navy/20"
                     }`}
-                    style={
-                      activeRisk === risk.num
-                        ? { boxShadow: `inset 3px 0 0 ${risk.accent}` }
-                        : undefined
-                    }
                   >
-                    <span
-                      aria-hidden
-                      className={`absolute top-1 right-3 font-[PPFONT] text-4xl select-none leading-none transition-colors duration-200 ${
-                        activeRisk === risk.num
-                          ? "text-genesis-navy/35"
-                          : "text-genesis-navy/20"
-                      }`}
-                    >
-                      {risk.num}
-                    </span>
-                    <h3
-                      className="text-[10px] uppercase tracking-widest font-poppins font-semibold mb-2 transition-colors duration-200"
-                      style={{
-                        color:
-                          activeRisk === risk.num ? risk.accent : "#001D3F",
-                      }}
-                    >
-                      {risk.title}
-                    </h3>
-                    <p className="text-xs text-gray-500 font-poppins leading-relaxed">
-                      {risk.body}
-                    </p>
-                  </div>
-                ))}
-              </div>
+                    {risk.num}
+                  </span>
+                  <h3
+                    className="text-[10px] uppercase tracking-widest font-poppins font-semibold mb-2 transition-colors duration-200"
+                    style={{
+                      color:
+                        activeRisk === risk.num ? risk.accent : "#001D3F",
+                    }}
+                  >
+                    {risk.title}
+                  </h3>
+                  <p className="text-xs text-gray-500 font-poppins leading-relaxed">
+                    {risk.body}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
 

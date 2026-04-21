@@ -1,3 +1,5 @@
+import HeroPage from "@/components/ui/HeroPage";
+
 const heroStats = [
   { value: "20+", label: "Years of cross-sector experience" },
   { value: "2", label: "Sectors of deep expertise" },
@@ -8,8 +10,7 @@ const heroStats = [
 const storyParagraphs = [
   "Genesis Ventures Ltd was founded on a straightforward but powerful idea: that the best investment decisions are made by those who understand not just financial markets, but the real-world industries that drive them. Too often, capital is managed by those who have only ever known finance - and that is precisely where the gaps in judgment appear.",
   "We are different. Genesis Ventures was built at the intersection of two worlds - manufacturing and finance - bringing to bear a rare combination of operational understanding and market acumen that most investment firms simply cannot offer.",
-  "From our founding, Genesis Ventures has been committed to a single purpose: growing and protecting capital with integrity, discipline, and the kind of long-term perspective that comes from having navigated real business challenges firsthand. We serve retail investors, high-net-worth individuals, and institutional partners - each with the same commitment to rigour and transparency.",
-  ];
+];
 
 const leaderParagraphs = [
   "Anuj Rathi is the Founder and Managing Director of Genesis Ventures Ltd, bringing over two decades of varied and distinguished experience spanning both the manufacturing sector and financial markets. This rare dual background forms the intellectual core of Genesis Ventures - and sets it apart from conventionally trained investment managers.",
@@ -32,30 +33,35 @@ const values = [
     title: "Integrity",
     description:
       "We act in our clients' best interests at all times - with complete transparency about fees, risks, and our reasoning. No exceptions.",
+    bgColor: "#001D3F",
   },
   {
     title: "Patience",
     description:
       "We resist the pull of short-termism. Wealth is built over years, not quarters - and we have the conviction to stay the course.",
+    bgColor: "#04356A",
   },
   {
     title: "Rigour",
     description:
       "Every decision is grounded in research and evidence. We examine fundamentals deeply and challenge assumptions before committing capital.",
+    bgColor: "#054E98",
   },
   {
     title: "Partnership",
     description:
       "We see every client as a long-term partner. We succeed when they succeed - that alignment shapes every conversation and every decision.",
+    bgColor: "#0A6ED3",
   },
 ];
 
 export default function OurStoriesPage() {
   return (
     <main className="bg-[#fdfbf7] text-[#1a1714] font-poppins">
-      <section className="relative overflow-hidden bg-[linear-gradient(90deg,#173053_0%,#d9e6f7_58%,#eef4ff_100%)]">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_12%,rgba(255,255,255,0.6)_0%,rgba(255,255,255,0)_48%)]" />
-        <div className="layout-7xl relative py-28 lg:py-36">
+      <HeroPage title="Our Story" />
+
+      <section className="bg-white px-6 py-16 sm:px-10 sm:py-20 lg:px-16 lg:py-24">
+        <div className="layout-7xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 lg:items-center">
             <span className="inline-flex items-center gap-3 font-poppins text-[11px] font-medium tracking-[0.28em] uppercase text-[#8D1E39]">
               Our Story
@@ -67,14 +73,7 @@ export default function OurStoriesPage() {
 
           <div className="mt-6 grid grid-cols-1 lg:grid-cols-2">
             <div className="flex flex-col justify-start">
-              <h2 className="mt-0 sm:mt-1 font-[PPFONT] text-[1.7rem] sm:text-[2rem] leading-[1.55] tracking-[-0.01em] text-[#08112a] font-medium">
-                <span className="block">Built at the intersection of</span>
-                <span className="block italic text-[#8D1E39] font-medium">
-                  manufacturing and finance.
-                </span>
-              </h2>
-
-              <p className="mt-6 sm:mt-9 max-w-[560px] text-[16px] sm:text-[17px] leading-[1.55] text-[#08112a]">
+              <p className="max-w-[560px] text-[16px] sm:text-[17px] leading-[1.55] text-[#08112a]">
                 {storyParagraphs[0]}
               </p>
 
@@ -198,21 +197,30 @@ export default function OurStoriesPage() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 gap-px bg-[#8D1E39] md:grid-cols-2 xl:grid-cols-4">
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 xl:grid-cols-4">
             {values.map((item, idx) => (
               <article
                 key={item.title}
-                className="group cursor-pointer bg-white px-8 py-12 transition-colors duration-300 hover:bg-[linear-gradient(90deg,rgba(23,48,83,0.38)_0%,#d9e6f7_58%,#eef4ff_100%)]"
+                className="flex min-h-[320px] flex-col justify-between p-6 shadow-[0_16px_30px_rgba(2,20,41,0.28)]"
+                style={{ backgroundColor: item.bgColor }}
               >
-                <p className="mb-6 font-poppins text-5xl font-light leading-none text-[#e8edf5] transition-colors duration-300 group-hover:text-[#8D1E39]">
-                  0{idx + 1}
-                </p>
-                <h3 className="mb-3 font-[PPFONT] text-[1.2rem] sm:text-[1.35rem] leading-[1.2] text-[#08112a] group-hover:text-[#0d1d3a]">
-                  {item.title}
-                </h3>
-                <p className="text-[14px] sm:text-[15px] leading-7 text-[#616877] font-poppins group-hover:text-[#243654]">
-                  {item.description}
-                </p>
+                <div>
+                  <span className="mb-3 block h-[2px] w-10 bg-genesis-red" />
+                  <p className="font-poppins text-[10px] font-semibold uppercase tracking-[0.18em] text-white/85">
+                    Core Value 0{idx + 1}
+                  </p>
+                  <h3 className="mt-3 font-[PPFONT] text-[1.9rem] leading-[1.15] text-white">
+                    {item.title}
+                  </h3>
+                  <p className="mt-4 font-poppins text-[0.97rem] leading-relaxed text-white/90">
+                    {item.description}
+                  </p>
+                </div>
+                <div className="mt-6 border-t border-white/30 pt-3">
+                  <p className="font-poppins text-[12px] sm:text-[13px] font-semibold text-white whitespace-nowrap">
+                    Long-term value, responsibly built
+                  </p>
+                </div>
               </article>
             ))}
           </div>

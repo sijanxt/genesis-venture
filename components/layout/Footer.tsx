@@ -65,11 +65,11 @@ export default function Footer() {
                   Contact
                 </span>
                 <span className="text-xs text-white/80">
-                  contact@genesisventures.com
+                  info@genesisventures.com.np
                 </span>
-                <span className="text-xs text-white/80">+1 (212) 555-0100</span>
+                <span className="text-xs text-white/80">+977 9851418843</span>
                 <span className="text-xs text-white/80">
-                  350 Fifth Ave, New York, NY
+                  Dharan Road, Biratnagar
                 </span>
               </div>
 

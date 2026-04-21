@@ -20,28 +20,7 @@ const labelClass =
 export default function Connect() {
   const [tab, setTab] = useState<Tab>("general");
 
-  useGSAP(() => {
-    const splitTitle = new SplitText(".contact-heading", { type: "words" });
-
-    gsap.from(splitTitle.words, {
-      scrollTrigger: {
-        trigger: ".contact-section",
-        start: "top 90%",
-        end: "bottom 80%",
-        scrub: true,
-      },
-      opacity: 0,
-      y: 30,
-      filter: "blur(10px)",
-      stagger: 0.05,
-      duration: 1,
-      ease: "power3.out",
-    });
-
-    return () => {
-      splitTitle.revert();
-    };
-  });
+  
 
   return (
     <section className="contact-section relative w-full min-h-screen bg-white px-4 xs:px-6 sm:px-8 md:px-16 py-20 sm:py-24 md:py-28">
@@ -80,7 +59,7 @@ export default function Connect() {
         <div className="flex flex-col gap-10 lg:grid lg:grid-cols-[minmax(280px,0.95fr)_minmax(0,1.35fr)] lg:gap-14">
           <div className="relative min-h-60 overflow-hidden sm:min-h-75 lg:min-h-135">
             <Image
-              src="/contact/pix.jpg"
+              src="/contact/image.png"
               alt="Contact Genesis Ventures"
               fill
               className="object-cover object-[50%_70%]"

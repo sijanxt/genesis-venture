@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import { portfolioItems, sectorTabs, type Sector } from "./data";
 import PortfolioSection from "@/components/what-we-do/PortfolioSection/PortfolioSection";
 import PortfolioHeroSection from "@/components/what-we-do/PortfolioSection/PortfolioHeroSection";
+import HeroPage from "@/components/ui/HeroPage";
 
 export default function PortfolioPage() {
   const [activeSector, setActiveSector] = useState<Sector | "All">("All");
@@ -26,6 +27,7 @@ export default function PortfolioPage() {
 
   return (
     <main className="min-h-screen bg-[#fdfcf9] font-poppins">
+      <HeroPage title="Investment Portfolio" />
       <PortfolioHeroSection heroStats={heroStats} />
 
       <PortfolioSection
