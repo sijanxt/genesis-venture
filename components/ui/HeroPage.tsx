@@ -11,7 +11,7 @@ export default function HeroPage({
     <section className="relative h-[40vh] w-full overflow-hidden bg-[#0a1634] text-white">
       <div className="layout-7xl relative flex h-full flex-col">
         <div className="flex flex-1 items-center justify-center">
-          <h1 className={`font-[PPFONT] leading-none text-white/95 ${titleClassName}`}>
+          <h1 className={`font-[PPFONT] font-normal leading-none text-white/95 ${titleClassName}`}>
             {title}
           </h1>
         </div>

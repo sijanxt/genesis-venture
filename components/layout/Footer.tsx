@@ -36,7 +36,7 @@ export default function Footer() {
                 <br />
                 significant?
               </h2>
-              <p className="hidden max-w-sm font-poppins text-xs leading-relaxed text-white/60 sm:block">
+              <p className="hidden max-w-sm font-poppins text-[13px] sm:text-sm leading-relaxed text-white/60 sm:block">
                 We review every submission and respond within 5 business days.
                 If there's a fit, we move quickly.
               </p>

@@ -29,7 +29,7 @@ export default function Firm() {
     <section className="w-full bg-white flex flex-col">
       <div className="layout-7xl">
         <div className="flex items-start justify-between border-b border-genesis-red pb-2 sm:pb-3 md:pb-4">
-        <span className="firm-heading text-lg sm:text-xl uppercase tracking-widest text-genesis-blue font-poppins font-bold">
+        <span className="firm-heading text-lg sm:text-xl uppercase tracking-widest text-genesis-blue font-poppins font-normal">
           Firm
         </span>
         </div>

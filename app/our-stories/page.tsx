@@ -12,6 +12,15 @@ const storyParagraphs = [
   "We are different. Genesis Ventures was built at the intersection of two worlds - manufacturing and finance - bringing to bear a rare combination of operational understanding and market acumen that most investment firms simply cannot offer.",
 ];
 
+const trustSection = {
+  lead: "It takes integrity and clarity to establish trust. For us, relationship building starts early and stays consistent.",
+  title: "When we commit, we commit fully",
+  paragraphs: [
+    "Genesis Ventures works with founders and investors through every phase of the journey, not just at moments that look good on paper. We stay close to operations, people, and long-term strategy so our decisions are informed by reality.",
+    "Our partnerships are built on shared purpose, disciplined execution, and direct communication. By understanding each business deeply, we can support growth with patience, accountability, and conviction.",
+  ],
+};
+
 const leaderParagraphs = [
   "Anuj Rathi is the Founder and Managing Director of Genesis Ventures Ltd, bringing over two decades of varied and distinguished experience spanning both the manufacturing sector and financial markets. This rare dual background forms the intellectual core of Genesis Ventures - and sets it apart from conventionally trained investment managers.",
   "Anuj's career began in manufacturing, where he developed a granular, ground-level understanding of industrial operations, supply chains, capital allocation, and the cyclical pressures that shape real businesses. He witnessed firsthand how companies are built, scaled, and stress-tested - insight that cannot be found in a textbook or on a trading floor.",
@@ -72,7 +81,7 @@ export default function OurStoriesPage() {
           </div>
 
           <div className="mt-6 grid grid-cols-1 lg:grid-cols-2">
-            <div className="flex flex-col justify-start">
+            <div className="order-2 flex flex-col justify-start lg:order-2 lg:pl-14">
               <p className="max-w-[560px] text-[16px] sm:text-[17px] leading-[1.55] text-[#08112a]">
                 {storyParagraphs[0]}
               </p>
@@ -82,33 +91,61 @@ export default function OurStoriesPage() {
               </p>
             </div>
 
-            <div className="flex flex-col justify-start lg:pl-14">
-              <div className="mb-10 border-b border-[#1a2e4a]/15 pb-10">
+            <div className="order-1 flex flex-col justify-start lg:order-1">
+              <div className="mb-10 pb-10">
                 <blockquote className="font-[PPFONT] text-[1.7rem] sm:text-[2rem] italic leading-[1.45] text-[#08112a]">
                   We do not just read balance sheets. We understand what it
                   takes to build a business and weather a cycle.
                 </blockquote>
               </div>
-
-              <div className="grid grid-cols-2 gap-4">
-                {heroStats.map((stat) => (
-                  <div
-                    key={stat.label}
-                    className="bg-[#173053] px-5 py-6 transition hover:bg-[#173053]"
-                  >
-                    <p className="font-[PPFONT] text-[1.9rem] sm:text-[2.1rem] leading-none text-white">
-                      {stat.value}
-                    </p>
-                    <p className="mt-2 text-[11px] uppercase tracking-[0.08em] text-white/85 font-poppins leading-tight">
-                      {stat.label}
-                    </p>
-                  </div>
-                ))}
-              </div>
             </div>
+          </div>
+
+          <div className="mt-10 sm:mt-12 grid grid-cols-2 gap-4 md:grid-cols-4">
+            {heroStats.map((stat) => (
+              <div
+                key={stat.label}
+                className="min-h-[132px] sm:min-h-[144px] bg-[#173053] px-5 py-7 transition hover:bg-[#173053]"
+              >
+                <p className="font-[PPFONT] text-[1.9rem] sm:text-[2.1rem] leading-none text-white">
+                  {stat.value}
+                </p>
+                <p className="mt-2 text-[11px] uppercase tracking-[0.08em] text-white/85 font-poppins leading-tight">
+                  {stat.label}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
+
+      {false && (
+        <section className="bg-[#f2f3f5] px-6 py-16 sm:px-10 sm:py-20 lg:px-16 lg:py-24">
+          <div className="layout-7xl">
+            <div className="grid grid-cols-1 gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-24">
+              <h2 className="font-[PPFONT] text-[2rem] sm:text-[2.25rem] leading-[1.25] text-[#223760] max-w-[700px]">
+                {trustSection.lead}
+              </h2>
+
+              <div>
+                <h3 className="font-[PPFONT] text-[1.7rem] sm:text-[2rem] leading-[1.35] text-[#36393f]">
+                  {trustSection.title}
+                </h3>
+                <div className="mt-7 space-y-7">
+                  {trustSection.paragraphs.map((paragraph) => (
+                    <p
+                      key={paragraph}
+                      className="font-poppins text-[15px] sm:text-[16px] leading-[1.65] text-[#575b63]"
+                    >
+                      {paragraph}
+                    </p>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       <section
         id="leadership"
@@ -186,43 +223,41 @@ export default function OurStoriesPage() {
         </div>
       </section>
 
-      <section className="bg-white px-6 py-16 sm:px-10 sm:py-20 lg:px-16 lg:py-24">
-        <div className="layout-7xl">
-          <div className="mb-12">
-            <p className="mb-4 inline-flex items-center text-[11px] font-medium uppercase tracking-[0.28em] text-[#8D1E39] font-poppins">
-              What We Stand For
-            </p>
-            <h2 className="font-[PPFONT] text-[1.7rem] sm:text-[2rem] leading-[1.45] tracking-[-0.01em] text-[#08112a]">
-              Our core values
-            </h2>
-          </div>
+      <section className="relative w-full overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="h-[64%] bg-[#001D3F]" />
+          <div className="h-[36%] bg-white" />
+        </div>
+        <div className="relative py-10 sm:py-14 md:py-16">
+          <div className="layout-7xl">
+            <div className="flex items-start justify-between border-b border-genesis-red pb-3 sm:pb-4">
+              <span className="font-poppins text-lg sm:text-xl font-normal uppercase tracking-[0.12em] text-white">
+                What We Stand For
+              </span>
+            </div>
 
-          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 xl:grid-cols-4">
-            {values.map((item, idx) => (
-              <article
-                key={item.title}
-                className="flex min-h-[320px] flex-col justify-between p-6 shadow-[0_16px_30px_rgba(2,20,41,0.28)]"
-                style={{ backgroundColor: item.bgColor }}
-              >
-                <div>
-                  <span className="mb-3 block h-[2px] w-10 bg-genesis-red" />
-                  <p className="font-poppins text-[10px] font-semibold uppercase tracking-[0.18em] text-white/85">
-                    Core Value 0{idx + 1}
-                  </p>
-                  <h3 className="mt-3 font-[PPFONT] text-[1.9rem] leading-[1.15] text-white">
-                    {item.title}
-                  </h3>
-                  <p className="mt-4 font-poppins text-[0.97rem] leading-relaxed text-white/90">
-                    {item.description}
-                  </p>
-                </div>
-                <div className="mt-6 border-t border-white/30 pt-3">
-                  <p className="font-poppins text-[12px] sm:text-[13px] font-semibold text-white whitespace-nowrap">
-                    Long-term value, responsibly built
-                  </p>
-                </div>
-              </article>
-            ))}
+            <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+              {values.map((item, idx) => (
+                <article
+                  key={item.title}
+                  className="flex min-h-[430px] flex-col justify-between bg-[#DFE7F0]"
+                >
+                  <div className="px-6 pt-8 pb-6">
+                    <p className="font-poppins text-[11px] font-semibold uppercase tracking-[0.05em] text-[#2f4268]">
+                      Core Value 0{idx + 1}
+                    </p>
+                    <span className="mt-2 block h-[2px] w-10 bg-genesis-red" />
+
+                    <h3 className="mt-10 font-poppins text-[2.05rem] font-semibold leading-[1.1] text-[#173053]">
+                      {item.title}
+                    </h3>
+                    <p className="mt-6 font-poppins text-[13px] sm:text-[14px] leading-[1.75] text-[#2f4268]">
+                      {item.description}
+                    </p>
+                  </div>
+                </article>
+              ))}
+            </div>
           </div>
         </div>
       </section>

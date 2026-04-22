@@ -17,7 +17,7 @@ export default function Contact() {
             <br />
             <span className="text-genesis-red">significant?</span>
           </h2>
-          <p className="text-sm text-white/60 font-poppins leading-relaxed max-w-sm hidden sm:block">
+          <p className="text-[13px] sm:text-sm text-white/60 font-poppins leading-relaxed max-w-sm hidden sm:block">
             We review every submission and respond within 5 business days. If
             there's a fit, we move quickly.
           </p>
