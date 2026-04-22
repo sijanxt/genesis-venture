@@ -1,13 +1,6 @@
 "use client";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import { SplitText } from "gsap/all";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useState } from "react";
-import Image from "next/image";
 import Button from "../ui/Button2";
-
-gsap.registerPlugin(SplitText, ScrollTrigger);
 
 type Tab = "general" | "pitch";
 
@@ -20,10 +13,8 @@ const labelClass =
 export default function Connect() {
   const [tab, setTab] = useState<Tab>("general");
 
-  
-
   return (
-    <section className="contact-section relative w-full min-h-screen bg-white px-4 xs:px-6 sm:px-8 md:px-16 py-20 sm:py-24 md:py-28">
+    <section className="contact-section relative w-full min-h-screen lg:min-h-0 bg-white px-4 xs:px-6 sm:px-8 md:px-16 py-20 sm:py-24 md:py-28 lg:py-16">
       <div className="layout-7xl flex flex-col gap-10 sm:gap-12">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div className="flex max-w-2xl flex-col gap-3">
@@ -56,15 +47,7 @@ export default function Connect() {
             </button>
           </div>
         </div>
-        <div className="flex flex-col gap-10 lg:grid lg:grid-cols-[minmax(280px,0.95fr)_minmax(0,1.35fr)] lg:gap-14">
-          <div className="relative min-h-60 overflow-hidden sm:min-h-75 lg:min-h-135">
-            <Image
-              src="/contact/image.png"
-              alt="Contact Genesis Ventures"
-              fill
-              className="object-cover object-[50%_70%]"
-            />
-          </div>
+        <div className="flex flex-col gap-10">
           <div className="min-w-0">
             {tab === "general" ? (
               <form
@@ -109,7 +92,7 @@ export default function Connect() {
                 <Button
                   variant="primary"
                   size="md"
-                  className="mt-12 bg-genesis-navy w-46 px-8 py-4 text-[11px] font-semibold uppercase tracking-[0.28em] text-white hover:bg-genesis-navy/80 transition-colors"
+                  className="mt-12 ml-auto bg-genesis-navy w-46 px-8 py-4 text-[11px] font-semibold uppercase tracking-[0.28em] text-white hover:bg-genesis-navy/80 transition-colors"
                 >
                   <span className="inline-flex items-center gap-3">
                     Send Message
