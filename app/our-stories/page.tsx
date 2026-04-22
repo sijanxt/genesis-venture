@@ -69,7 +69,7 @@ export default function OurStoriesPage() {
     <main className="bg-[#fdfbf7] text-[#1a1714] font-poppins">
       <HeroPage title="Our Story" />
 
-      <section className="bg-white px-6 py-16 sm:px-10 sm:py-20 lg:px-16 lg:py-24">
+      <section className="bg-white px-6 pt-16 pb-10 sm:px-10 sm:pt-20 sm:pb-12 lg:px-16 lg:pt-24 lg:pb-14">
         <div className="layout-7xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 lg:items-center">
             <span className="inline-flex items-center gap-3 font-poppins text-[11px] font-medium tracking-[0.28em] uppercase text-[#8D1E39]">
@@ -149,7 +149,7 @@ export default function OurStoriesPage() {
 
       <section
         id="leadership"
-        className=" px-6 py-16 sm:px-10 sm:py-20 lg:px-16 lg:py-24"
+        className="px-6 pt-10 pb-16 sm:px-10 sm:pt-12 sm:pb-20 lg:px-16 lg:pt-14 lg:pb-24"
       >
         <div className="layout-7xl">
           <div className="mb-12">
