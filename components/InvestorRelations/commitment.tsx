@@ -2,7 +2,7 @@ const PartnerCTA = () => {
   return (
     <section
       id="commitment"
-      className="group relative border-t border-[#e4e0db] bg-white py-16 sm:py-20 md:py-28 lg:py-[140px]"
+      className="group relative border-t border-[#e4e0db] bg-white py-16"
     >
      
       <div className="layout-7xl relative z-10">

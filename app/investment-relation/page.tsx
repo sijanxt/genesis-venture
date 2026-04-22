@@ -1,7 +1,6 @@
 import Hero from "@/components/InvestorRelations/Hero";
 import ReportsAndUpdates from "@/components/InvestorRelations/ReportsAndUpdates";
 import PartnerCTA from "@/components/InvestorRelations/commitment";
-import MarketOverlook from "@/components/InvestorRelations/MarketOverlook";
 import HeroPage from "@/components/ui/HeroPage";
 
 export default function InvestorRelationsPage() {
@@ -14,8 +13,6 @@ export default function InvestorRelationsPage() {
       <Hero />
       <ReportsAndUpdates />
       <PartnerCTA />
- 
-      <MarketOverlook />
     </main>
   );
 }
