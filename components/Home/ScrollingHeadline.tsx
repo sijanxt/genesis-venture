@@ -1,7 +1,7 @@
 "use client";
 
 export default function ScrollingHeadline() {
-  const headline = "Create wealth with Genesis";
+  const headline = "Create wealth with Genesis.";
   return (
     <section className="relative w-full overflow-hidden bg-white pb-20">
       <div className="marquee-track">
@@ -11,7 +11,7 @@ export default function ScrollingHeadline() {
         </p>
       </div>
       <div className="layout-7xl mt-5">
-        <p className="font-poppins text-[13px] sm:text-[14px] text-left text-[#0d3a66]/75">
+        <p className="font-poppins text-[13px] sm:text-[14px] text-left tracking-[0.08em] text-[#0d3a66]/75">
           Investing involves risks, including loss of capital.
         </p>
       </div>
@@ -24,7 +24,8 @@ export default function ScrollingHeadline() {
         }
 
         .marquee-text {
-          padding-right: 6rem;
+          margin: 0;
+          padding-right: 1.25rem;
           font-family: var(--font-playfair), Georgia, serif;
           font-size: clamp(3rem, 12vw, 10rem);
           line-height: 0.95;

@@ -83,11 +83,8 @@ export default function NavBar() {
     closeTimer.current = setTimeout(() => setOpenDropdown(null), 150);
   };
 
-  const isAtTop = lastScrollY <= 10;
-  const navbarSurface = isAtTop
-    ? "bg-transparent border-transparent"
-    : "bg-white/90 backdrop-blur-md border-gray-100";
-  const navbarTextColor = isAtTop ? "text-white" : "text-genesis-navy";
+  const navbarSurface = "bg-white border-gray-100";
+  const navbarTextColor = "text-genesis-navy";
 
   return (
     <div
@@ -100,11 +97,7 @@ export default function NavBar() {
         <div className="layout-7xl flex items-center justify-between py-4">
           <Link href="/" className="flex leading-none select-none shrink-0">
             <Image
-              src={
-                isAtTop
-                  ? "/images/final/png/Asset 2.png"
-                  : "/images/final/png/Asset 3.png"
-              }
+              src="/images/final/png/Asset 3.png"
               alt="Genesis Ventures"
               width={100}
               height={40}
@@ -125,9 +118,7 @@ export default function NavBar() {
                   className={`flex items-center gap-1 text-xs uppercase tracking-widest font-poppins transition-colors duration-200 ${
                     pathname === href
                       ? "text-genesis-red"
-                      : isAtTop
-                        ? "text-white hover:text-genesis-red"
-                        : "text-genesis-navy hover:text-genesis-red"
+                      : "text-genesis-navy hover:text-genesis-red"
                   }`}
                 >
                   {label}
@@ -172,9 +163,7 @@ export default function NavBar() {
           </ul>
 
           <button
-            className={`md:hidden p-1 transition-colors duration-200 ${
-              isAtTop ? "text-white" : "text-genesis-navy"
-            }`}
+            className="md:hidden p-1 text-genesis-navy transition-colors duration-200"
             onClick={() => setMenuOpen((prev) => !prev)}
             aria-label="Toggle menu"
           >
@@ -187,7 +176,7 @@ export default function NavBar() {
       <div
         className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
           menuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
-        } bg-white/90 backdrop-blur-md border-b border-gray-100`}
+        } bg-white border-b border-gray-100`}
       >
         <div className="layout-7xl flex flex-col py-4 gap-1">
           {navLinks.map(({ label, href, dropdown }) => (

@@ -45,18 +45,18 @@ const ReportsAndUpdates = () => {
             {prepItems.map((item) => (
               <article
                 key={item.num}
-                className="flex min-h-[430px] flex-col justify-between bg-[#DFE7F0]"
+                className="flex min-h-[340px] flex-col justify-between bg-zinc-200"
               >
-                <div className="px-6 pt-8 pb-6">
+                <div className="px-6 pt-6 pb-5">
                   <p className="font-poppins text-[11px] font-semibold uppercase tracking-[0.05em] text-[#2f4268]">
                     {item.label}
                   </p>
                   <span className="mt-2 block h-[2px] w-10 bg-genesis-red" />
 
-                  <h3 className="mt-10 font-poppins text-[2.05rem] font-semibold leading-[1.1] text-[#173053]">
+                  <h3 className="mt-7 font-poppins text-[2.05rem] font-semibold leading-[1.1] text-[#173053]">
                     {item.title}
                   </h3>
-                  <p className="mt-6 font-poppins text-[13px] sm:text-[14px] leading-[1.75] text-[#2f4268]">
+                  <p className="mt-4 font-poppins text-[13px] sm:text-[14px] leading-[1.7] text-[#2f4268]">
                     {item.desc}
                   </p>
                 </div>

@@ -66,7 +66,7 @@ const values = [
 
 export default function OurStoriesPage() {
   return (
-    <main className="bg-[#fdfbf7] text-[#1a1714] font-poppins">
+    <main className="bg-white text-[#1a1714] font-poppins">
       <HeroPage title="Our Story" />
 
       <section className="bg-white px-6 pt-16 pb-10 sm:px-10 sm:pt-20 sm:pb-12 lg:px-16 lg:pt-24 lg:pb-14">
@@ -120,7 +120,7 @@ export default function OurStoriesPage() {
       </section>
 
       {false && (
-        <section className="bg-[#f2f3f5] px-6 py-16 sm:px-10 sm:py-20 lg:px-16 lg:py-24">
+        <section className="bg-white px-6 py-16 sm:px-10 sm:py-20 lg:px-16 lg:py-24">
           <div className="layout-7xl">
             <div className="grid grid-cols-1 gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-24">
               <h2 className="font-[PPFONT] text-[2rem] sm:text-[2.25rem] leading-[1.25] text-[#223760] max-w-[700px]">
@@ -240,18 +240,18 @@ export default function OurStoriesPage() {
               {values.map((item, idx) => (
                 <article
                   key={item.title}
-                  className="flex min-h-[430px] flex-col justify-between bg-[#DFE7F0]"
+                  className="flex min-h-[340px] flex-col justify-between bg-zinc-200"
                 >
-                  <div className="px-6 pt-8 pb-6">
-                    <p className="font-poppins text-[11px] font-semibold uppercase tracking-[0.05em] text-[#2f4268]">
-                      Core Value 0{idx + 1}
+                  <div className="px-6 pt-6 pb-5">
+                    <p className="font-poppins text-lg font-semibold text-[#2f4268]">
+                      {idx + 1}
                     </p>
                     <span className="mt-2 block h-[2px] w-10 bg-genesis-red" />
 
-                    <h3 className="mt-10 font-poppins text-[2.05rem] font-semibold leading-[1.1] text-[#173053]">
+                    <h3 className="mt-7 font-poppins text-[2.05rem] font-semibold leading-[1.1] text-[#173053]">
                       {item.title}
                     </h3>
-                    <p className="mt-6 font-poppins text-[13px] sm:text-[14px] leading-[1.75] text-[#2f4268]">
+                    <p className="mt-4 font-poppins text-[13px] sm:text-[14px] leading-[1.7] text-[#2f4268]">
                       {item.description}
                     </p>
                   </div>

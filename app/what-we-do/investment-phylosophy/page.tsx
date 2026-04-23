@@ -38,18 +38,18 @@ export default function InvestmentPhylosophyPage() {
   return (
     <main className="bg-white text-[#2c2c34] font-poppins">
       <HeroPage title="Investment Philosophy" />
-      <section className="relative overflow-hidden bg-white lg:bg-[linear-gradient(to_right,#ffffff_0%,#ffffff_50%,#162F54_50%,#162F54_100%)]">
-        <div className="layout-7xl relative py-28 lg:py-36">
+      <section className="relative overflow-hidden bg-[#f2f3f5]">
+        <div className="layout-7xl relative py-16 sm:py-20 lg:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-2 lg:items-center">
             <span className="inline-flex items-center gap-3 font-poppins text-[11px] font-medium tracking-[0.28em] uppercase text-[#8D1E39]">
               Investment Philosophy
             </span>
-            <p className="text-[11px] font-medium uppercase tracking-[0.28em] text-[#8D1E39] font-poppins lg:pl-14 lg:text-left lg:text-white/80">
+            <p className="text-[11px] font-medium uppercase tracking-[0.28em] text-[#8D1E39] font-poppins lg:pl-14 lg:text-left">
               Our Commitment
             </p>
           </div>
 
-          <div className="mt-6 grid grid-cols-1 lg:grid-cols-2">
+          <div className="mt-6 grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-16">
             <div className="flex flex-col justify-start">
               <h1 className="mt-0 sm:mt-1 font-[PPFONT] text-[1.7rem] sm:text-[2rem] leading-[1.55] tracking-[-0.01em] text-[#08112a] font-medium">
                 <span className="block">Integrity before</span>
@@ -88,8 +88,8 @@ export default function InvestmentPhylosophyPage() {
             </div>
 
             <div className="flex flex-col justify-start lg:pl-14">
-              <div className="mb-10 border-b border-[#1a2e4a]/15 pb-10 lg:border-white/20">
-                <blockquote className="font-[PPFONT] text-[1.7rem] sm:text-[2rem] italic leading-[1.55] text-[#102347] lg:text-white">
+              <div className="border-b border-[#1a2e4a]/15 pb-8 sm:pb-10">
+                <blockquote className="font-[PPFONT] text-[1.7rem] sm:text-[2rem] italic leading-[1.55] text-[#102347]">
                   &quot;We will never recommend what is profitable for us over
                   what is
                   <span className="not-italic">
@@ -99,23 +99,23 @@ export default function InvestmentPhylosophyPage() {
                   That is not a policy - it is the reason we exist.&quot;
                 </blockquote>
               </div>
-
-              <div className="grid grid-cols-2 gap-4">
-                {heroStats.map((stat) => (
-                  <div
-                    key={stat.desc}
-                    className="bg-[#04356A] px-5 py-6 transition hover:bg-[#04356A]"
-                  >
-                    <p className="font-[PPFONT] text-[1.9rem] sm:text-[2.1rem] leading-none text-white">
-                      {stat.value}
-                    </p>
-                    <p className="mt-2 text-[11px] uppercase tracking-[0.08em] text-white/85 font-poppins leading-tight">
-                      {stat.desc}
-                    </p>
-                  </div>
-                ))}
-              </div>
             </div>
+          </div>
+
+          <div className="mt-10 sm:mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
+            {heroStats.map((stat) => (
+              <div
+                key={stat.desc}
+                className="bg-[#173053] px-5 py-7 transition hover:bg-[#173053]"
+              >
+                <p className="font-[PPFONT] text-[1.9rem] sm:text-[2.1rem] leading-none text-white">
+                  {stat.value}
+                </p>
+                <p className="mt-2 text-[11px] uppercase tracking-[0.08em] text-white/85 font-poppins leading-tight">
+                  {stat.desc}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
