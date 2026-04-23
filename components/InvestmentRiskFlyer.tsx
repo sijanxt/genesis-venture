@@ -78,11 +78,9 @@ const principles = [
     body: "Consult a licensed financial advisor before making significant investment decisions.",
   },
 ];
-
 interface Props {
   onClose: () => void;
 }
-
 export default function InvestmentRiskModal({ onClose }: Props) {
   const modalRef = useRef<HTMLDivElement>(null);
   const [activeRisk, setActiveRisk] = useState<string | null>(null);
@@ -141,7 +139,7 @@ export default function InvestmentRiskModal({ onClose }: Props) {
           <button
             type="button"
             onClick={onClose}
-            className="shrink-0 ml-4 mt-0.5 w-8 h-8 flex items-center justify-center border border-genesis-navy hover:border-genesis-navy hover:bg-genesis-navy hover:text-white text-gray-400 transition-all duration-200 cursor-pointer"
+            className="shrink-0 ml-4 mt-0.5 w-8 h-8 flex items-center justify-center border border-genesis-navy bg-genesis-navy text-white transition-opacity duration-200 hover:opacity-90 cursor-pointer"
             aria-label="Close"
           >
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
@@ -274,7 +272,7 @@ export default function InvestmentRiskModal({ onClose }: Props) {
           <button
             type="button"
             onClick={onClose}
-            className="text-[10px] uppercase tracking-widest text-genesis-navy font-poppins border border-genesis-navy px-4 py-2 hover:bg-genesis-navy hover:text-white transition-all duration-200 cursor-pointer"
+            className="text-[10px] uppercase tracking-widest text-white font-poppins border border-genesis-navy bg-genesis-navy px-4 py-2 transition-opacity duration-200 hover:opacity-90 cursor-pointer"
           >
             I Understand
           </button>
